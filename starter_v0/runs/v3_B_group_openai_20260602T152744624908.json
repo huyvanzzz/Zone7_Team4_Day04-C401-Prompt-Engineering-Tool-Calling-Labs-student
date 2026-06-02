@@ -1,0 +1,739 @@
+{
+  "run_id": "v3_B_group_openai_20260602T152744624908",
+  "version": "v3",
+  "artifact_version": "v3+pa3379956024d+t1f2f56434c8c",
+  "prompt_hash": "a3379956024db2f1c41fbd5df8c70bb319c72da741f1fb9db51e4eedff089b5e",
+  "tools_hash": "1f2f56434c8c7b12647fde8bfbc4d2856ce3f41cf3a9aa5e20896aa7128e3ee6",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openai",
+  "model": "xmtp/mimo-v2.5-pro",
+  "system_prompt": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Team-authored cases for Lab 4 research agent routing, arguments, boundaries, and multi-turn context.",
+  "generated_at": "2026-06-02T15:27:44",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 10,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
+    "multiturn_accuracy": 1.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "G_SINGLE_001_web_news_today",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Current web/news research should use lookup with topic=news and timeframe=day."
+      },
+      "input": "Find 3 latest news today about AI agents enterprise.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI agents enterprise",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI agents enterprise",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 3
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI agents enterprise",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 3
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI agents enterprise",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Who Will Control the Enterprise Agentic Workforce? – CIOs Face a New Platform War - The Futurum Group",
+                "url": "https://futurumgroup.com/insights/who-will-control-the-enterprise-agentic-workforce-cios-face-a-new-platform-war/",
+                "source": "futurumgroup.com",
+                "summary": "The enterprise AI market is undergoing a major transition from assistive tools toward autonomous operational systems, with the latest generation of Agentic AI platforms focusing on governance, orchestration, and persistent execution of enterprise work. Five major vendors—Microsoft, Salesforce, ServiceNow, AWS, and Google—are battling to establish themselves as the operational control plane for this digital labor, each approaching the market with different architectural strategies. The core competitive battle now centers on interoperability, governance, and operational trust, as CIOs must manage complex, heterogeneous multi-agent environments and develop new operational disciplines around the Agentic AI workforce. * Microsoft, Salesforce, ServiceNow, AWS, and Google are all attempting to become the operational control plane for enterprise digital labor, which has become core to AI transformation, but each is approaching the market from fundamentally different architectural and organizational assumptions. * The enterprise AI market is rapidly evolving from copilots toward governed systems of autonomous execution, forcing CIOs to deeply rethink workflows, governance, workforce design, and operational architecture simultaneously.",
+                "score": 0.8091708
+              },
+              {
+                "title": "Snowflake and Anthropic Accelerate Enterprise AI Adoption Driven by Rising Demand for Governed AI - Financial Times",
+                "url": "https://markets.ft.com/data/announce/detail?dockey=600-202606012000BIZWIRE_USPRX____20260601_BW623088-1",
+                "source": "markets.ft.com",
+                "summary": "* **Trusted AI for the Enterprise:** Snowflake Cortex AI makes AI ready for enterprise use by bringing governance, security, observability, and scale to Anthropic models operating directly on data within Snowflake. Enterprises are increasingly adopting Anthropic Claude in Snowflake Cortex AI, Snowflake’s suite of AI products, driven by growing demand for governed, production-ready AI. Snowflake and Anthropic are defining how enterprises bring AI to governed data, with Claude in Snowflake Cortex AI powering trusted, production-ready AI agents at scale. Building on Snowflake’s and Anthropic’s expanded partnership from December 2025, which integrated Claude models directly into Cortex AI across all major cloud platforms and established a joint go-to-market strategy, Snowflake and Anthropic are helping global enterprises deploy AI agents on their most critical business data. Together with Anthropic, we’re helping organizations move from experimentation to production faster and laying the foundation for the agentic enterprise, where AI, data, and governance work together to drive real business outcomes.”.",
+                "score": 0.8055255
+              },
+              {
+                "title": "Siemens powers the next phase of industrial AI with Intelligence Center X – Company Announcement - Financial Times",
+                "url": "https://markets.ft.com/data/announce/detail?dockey=600-202606012137PR_NEWS_USPRX____DA73406-1",
+                "source": "markets.ft.com",
+                "summary": "* **Connects industrial data, workflows and AI agents in one governed system, unifying enterprise data and lifecycle context, empowering teams to collaborate with AI in context-rich, human-in-the-loop processes across the business**. * **Siemens Intelligence Center X, part of Siemens Xcelerator, helps customers scale digital transformation with production-ready industrial AI**. DETROIT , June 1, 2026 /PRNewswire/ -- Siemens today announced Intelligence Center X, new industrial AI orchestration software designed to help organizations turn industrial AI from isolated experimentation into scalable, real world business impact through a hybrid workforce where people and AI agents work together with shared context, workflows and lifecycle intelligence. By connecting data, models and workflows on a single governed foundation, Intelligence Center X enables companies to deploy AI-driven applications and agents faster, with full traceability and control. As part of the Siemens Xcelerator portfolio, Intelligence Center X is designed to work alongside existing enterprise and operational data solutions to enable agentic workflows to operate with trusted data across the broader ecosystem.",
+                "score": 0.7251239
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_SINGLE_002_fetch_url",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "A concrete URL should route to fetch, not lookup."
+      },
+      "input": "Doc URL https://openai.com/research va tom tat cac y chinh.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/research"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/research"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://openai.com/research"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://openai.com/research",
+            "items": [
+              {
+                "title": "Research | OpenAI",
+                "url": "https://openai.com/research",
+                "source": "openai.com",
+                "summary": "Research \\| OpenAI\n\nResearch\n\n# Pioneering research on the path to AGI\n\nWe believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Our mission is to ensure that AGI benefits all of humanity.\n\n[View research index](https://openai.com/research/index/) [Learn about safety](https://openai.com/safety/)\n\n![[2.0] Research > Hero > Media Item](https://downloads.ctfassets.net/kftzwdyauwt9/4FnPiaiJdmc3R04H7kGR4N/8b115455fddf2921431f454f65b6ee22/Research_Hero.png?w=3840&q=90&fm=webp)\n\nFocus areas\n\n### We use Deep Learning to leverage large amounts of data and advanced reasoning to train AI systems for task completion.\n\n### GPT\n\nOpenAI’s GPT series models are fast, versatile, and cost-efficient AI systems designed to understand context, generate content, and reason across text, images, and more.\n\n![Hero Art Card SEO 1x1](https://images.ctfassets.net/kftzwdyauwt9/cut4wyUCuBENXfd5CSI7Z/d934ffb49d8b39abea0bc33bb1a5b916/Hero_Art_Card_SEO_1x1.jpg?w=3840&q=90&fm=webp)\n\n[A new class of intelligence for real work\\\\\n\\\\\nReleaseApr 23, 202612 min read](https://openai.com/index/introducing-gpt-5-5/)\n\n![5.4 Thinking Art Card](https://images.ctfassets.net/kftzwdyauwt9/5HSBM48XFBkni6rNv5CAbR/46fe1d133c1440563245262a5fa59c79/5.4_Thinking_Art_Card.png?w=3840&q=90&fm=webp)\n\n[Our most capable and efficient frontier model for professional work\\\\\n\\\\\nReleaseMar 5, 202616 min read](https://openai.com/index/introducing-gpt-5-4/)\n\n![5.3 Instant Art Card](https://images.ctfassets.net/kftzwdyauwt9/72xhlkMHldxPfwGsZttoiI/3ada2b7e0cdb129d0779fbc8b700a7af/5.3_Instant_Art_Card__1_.png?w=3840&q=90&fm=webp)\n\n[Smoother, more useful everyday conversations\\\\\n\\\\\nReleaseMar 3, 20265 min read](https://openai.com/index/gpt-5-3-instant/)\n\n### o series\n\nOpenAI’s o series models are advanced reasoning AI systems that use chain-of-thought processes to solve complex STEM problems through logical, step-by-step analysis.\n\nYour browser does not support the video tag.\n\n[Our smartest and most capable models to date with full tool access\\\\\n\\\\\nOpenAI o3 and o4-miniApr 16, 202511 min read](https://openai.com/index/introducing-o3-and-o4-mini/)\n\n![o3-mini > cover image](https://images.ctfassets.net/kftzwdyauwt9/BQXodBZ63FtQq6CGcPQQh/955ea49d3cf09e7ad33129d8a81b4087/o3-mini_1.1.png?w=3840&q=90&fm=webp)\n\n[Pushing the frontier of cost-effective reasoning\\\\\n\\\\\nOpenAI o3-miniJan 31, 20256 min read](https://openai.com/index/openai-o3-mini/)\n\n![OpenAI o1](https://images.ctfassets.net/kftzwdyauwt9/6ERYwPGeSFjSDRzD9ZeSZM/8fc12647977085317692108a4116f2e2/o1_1.1.png?w=3840&q=90&fm=webp)\n\n[Learning to reason with LLMs\\\\\n\\\\\nOpenAI o1Sep 12, 20249 min read](https://openai.com/index/learning-to-reason-with-llms/)\n\n### Visual\n\nOur research on generative modeling for images has led to representation models like CLIP, which makes a map between text and images that an AI can read, and DALL-E, a tool for creating vivid images from text descriptions.\n\n![Images 2.0 blog art card](https://images.ctfassets.net/kftzwdyauwt9/7fPF7LU0YzPr5PrlNT6lo3/823a11178d4aac15d4f4260b9fcc490d/Blog_art_card.png?w=3840&q=90&fm=webp)\n\n[A state-of-the-art model that makes precise, immediately usable visuals\\\\\n\\\\\nChatGPT Images 2.0Apr 21, 202611 min read](https://openai.com/index/introducing-chatgpt-images-2-0/)\n\n![Sora 2 research blog cover art 16 x 9](https://images.ctfassets.net/kftzwdyauwt9/1Q8NDmnyavsoPAKDlWpW18/a1f595376097668d1772c9cac40fc8ee/16_x_9____1_.png?w=3840&q=90&fm=webp)\n\n[Physically accurate, realistic, and controllable with synchronized dialogue and sound effects\\\\\n\\\\\nSora 2Sep 30, 20258 min read](https://openai.com/index/sora-2/)\n\nYour browser does not support the video tag.\n\n[A natively multimodal model capable of precise, accurate, photorealistic outputs\\\\\n\\\\\nImage GenerationMar 25, 20256 min read](https://openai.com/index/introducing-4o-image-generation/)\n\n### Audio\n\nOur research on applying AI to audio processing and audio generation has led to d"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_SINGLE_003_no_tool_concept",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Stable conceptual question should not call a tool."
+      },
+      "input": "Prompt engineering la gi? Giai thich ngan gon.",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer_without_tool"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "**Prompt engineering** là kỹ thuật thiết kế và tối ưu hóa câu lệnh (prompt) để hướng dẫn AI tạo ra kết quả chính xác và hữu ích hơn.\n\n**Các yếu tố chính:**\n\n- **Rõ ràng**: Mô tả chính xác điều bạn muốn AI làm\n- **Ngữ cảnh**: Cung cấp thông tin nền tảng cần thiết\n- **Ví dụ**: Đưa ra mẫu output mong muốn (few-shot prompting)\n- **Ràng buộc**: Giới hạn format, độ dài, phong cách trả lời\n\n**Ví dụ đơn giản:**\n\n❌ Prompt kém: *\"Viết về AI\"*\n\n✅ Prompt tốt: *\"Giải thích AI cho học sinh cấp 3, 100 từ, dùng ví dụ thực tế\"*\n\n---\n\nTóm lại: Prompt engineering = **nghệ thuật nói chuyện với AI** để có kết quả tốt nhất.",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G_SINGLE_004_confirm_send",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "External send action requires yes/no confirmation before send."
+      },
+      "input": "Gui ban tin nay len Telegram giup minh: AI agents dang tang truong manh.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có muốn gửi chính xác nội dung sau lên Telegram không?\n\n\"AI agents dang tang truong manh.\"",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có muốn gửi chính xác nội dung sau lên Telegram không?\n\n\"AI agents dang tang truong manh.\"",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn gửi chính xác nội dung sau lên Telegram không?\n\n\"AI agents dang tang truong manh.\"",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_SINGLE_005_source_quality",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Already-collected source assessment should use the custom source_quality tool."
+      },
+      "input": "Danh gia do tin cay cua nguon nay: https://arxiv.org/abs/2401.00001, title 'RAG Evaluation', snippet 'We evaluate retrieval augmented generation systems with benchmark evidence', source type paper.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_quality",
+            "args": {
+              "url": "https://arxiv.org/abs/2401.00001",
+              "source_type": "paper"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "source_quality",
+            "args": {
+              "url": "https://arxiv.org/abs/2401.00001",
+              "title": "RAG Evaluation",
+              "snippet": "We evaluate retrieval augmented generation systems with benchmark evidence",
+              "source_type": "paper"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "source_quality",
+          "args": {
+            "url": "https://arxiv.org/abs/2401.00001",
+            "title": "RAG Evaluation",
+            "snippet": "We evaluate retrieval augmented generation systems with benchmark evidence",
+            "source_type": "paper"
+          },
+          "result": {
+            "tool": "source_quality",
+            "url": "https://arxiv.org/abs/2401.00001",
+            "source": "arxiv.org",
+            "source_type": "paper",
+            "score": 72,
+            "rating": "usable",
+            "signals": [
+              "type:paper",
+              "recognized_domain",
+              "substantive_snippet",
+              "https"
+            ],
+            "cautions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_MULTI_001_missing_then_lookup",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "After missing entity is supplied, use lookup with carried news intent and day timeframe."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tim tin moi ve mot cong ty AI."
+        },
+        {
+          "role": "user",
+          "content": "OpenAI, trong hom nay."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "OpenAI",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "OpenAI",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "day"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "OpenAI offers rival AI to UK banks blocked from Claude Mythos - BBC",
+                "url": "https://www.bbc.com/news/articles/cm2p3j6lvn7o",
+                "source": "bbc.com",
+                "summary": "OpenAI has offered nine major UK banks access to its cyber security AI tool GPT-5.5 Cyber, as its fierce rival Anthropic has blocked them in previews of its version, Claude Mythos. Both tools are designed to find hidden security weaknesses in digital systems and can outperform humans at some hacking and cyber-security tasks. Some finance ministers, central bankers and financiers have since expressed serious concerns about it, fearing the model could undermine the security of all financial systems. The AI Security Institute, which has tested both Anthropic's Mythos and OpenAI's GPT-5.5 Cyber, said in its report that they reached \"a similar level of performance\" in the tasks it set them. The UK banks which will now gain access to OpenAI's GPT 5.5 Cyber include Lloyds Banking Group, HSBC and Nationwide. OpenAI has been more generous with access to Cyber 5.5, opening it up in the EU and also to banks in Japan and Canada, among others.",
+                "score": 0.9931496
+              },
+              {
+                "title": "Флорида штати OpenAI ва Sam Altman устидан судга шикоят киритди - Zamin.uz",
+                "url": "https://zamin.uz/en/technology/204648-florida-files-lawsuit-against-openai-and-sam-altman.html",
+                "source": "zamin.uz",
+                "summary": "# Florida files lawsuit against OpenAI and Sam Altman. The Florida Attorney General's Office has filed a lawsuit against OpenAI and its CEO Sam Altman. This is the first state-level legal action regarding the involvement of the ChatGPT chatbot in cases of violence. The lawsuit accuses the company of neglecting safety measures in order to win the \"AI race\" and generate massive wealth. As part of a criminal investigation launched in April, the role of ChatGPT in a mass shooting that occurred last year at Florida State University (FSU) is being examined. OpenAI representatives deny responsibility for this tragedy, maintaining that ChatGPT is not the cause of the crime. This is not the only legal challenge for OpenAI. Additionally, a lawsuit recently filed by Elon Musk has concluded, in which the entrepreneur accused the company of abandoning its mission to benefit humanity and becoming a commercial organization. News » Technology » Florida files lawsuit against OpenAI and Sam Altman.",
+                "score": 0.98942953
+              },
+              {
+                "title": "OpenAI hit with lawsuit by Florida AG over AI risks - Politico",
+                "url": "https://www.politico.com/news/2026/06/01/openai-hit-with-florida-lawsuit-00944215",
+                "source": "politico.com",
+                "summary": "# OpenAI hit with lawsuit by Florida AG over AI risks. It is the first such lawsuit to be filed by a state against OpenAI and Sam Altman. Florida Attorney General James Uthmeier filed a lawsuit on Monday against OpenAI and its chairman Sam Altman, alleging that the AI startup’s ChatGPT is unsafe. According to reports from the Wall Street Journal and NBC News, the suit contends that ChatGPT has provided assistance for mass shootings, and poses addiction and suicide risks to users. It is the first such product liability lawsuit to be filed against the company and its Chairman Sam Altman by a state. The Florida Attorney General’s office and OpenAI did not immediately respond to request for comment. This civil action is separate from a criminal investigation that Uthmeier opened into OpenAI in March after ChatGPT allegedly offered advice to the suspected gunman in a mass shooting at Florida State University that resulted in two deaths.",
+                "score": 0.9861514
+              },
+              {
+                "title": "OpenAI and Sam Altman are being sued by the Florida Attorney General for 'releasing a dangerous ChatGPT.' - GIGAZINE",
+                "url": "https://gigazine.net/gsc_news/en/20260602-florida-sues-openai-sam-altman",
+                "source": "gigazine.net",
+                "summary": "# OpenAI and Sam Altman are being sued by the Florida Attorney General for 'releasing a dangerous ChatGPT.'. James Ousmayer, Attorney General of Florida, has filed a lawsuit against OpenAI and its CEO, Sam Altman, alleging deceptive practices and damages. **Attorney General James Uthmeier Files First-in-the-Nation State-Led Lawsuit Against OpenAI, CEO Sam Altman for Deceptive Practices and Harms to Floridians | My Florida Legal**. **OpenAI Sued by Florida's Attorney General Over AI Harms - WSJ**. On June 1, 2026, local time, Attorney General James Usmayer filed a lawsuit against OpenAI and CEO Sam Altman, alleging that the company deliberately released ChatGPT to the public, including children, while concealing significant risks, suppressing internal safety warnings, and deceiving Florida residents about the true nature and dangers of the product. Attorney General Ousmayer explained, 'Today we announced the first state-led lawsuit in the nation against OpenAI and its CEO, Sam Altman. > Today, we announced the first-in-the-nation state-led lawsuit against OpenAI and its CEO, Sam Altman.",
+                "score": 0.9849274
+              },
+              {
+                "title": "CNBC Exclusive: Transcript: OpenAI CEO Sam Altman Speaks with CNBC’s David Faber on “Power Lunch” Today - CNBC",
+                "url": "https://www.cnbc.com/amp/2026/06/01/cnbc-exclusive-transcript-openai-ceo-sam-altman-speaks-with-cnbcs-david-faber-on-power-lunch-today.html",
+                "source": "cnbc.com",
+                "summary": "# CNBC Exclusive: Transcript: OpenAI CEO Sam Altman Speaks with CNBC’s David Faber on “Power Lunch” Today. Following is the unofficial transcript of a CNBC exclusive interview with OpenAI CEO Sam Altman on CNBC's \"Power Lunch\" (M-F, 2PM-3PM ET) today, Monday, June 1. It doesn't, you can't read the numbers and understand what you're kind of looking at. We have, so, one gigawatt is a huge amount of compute, but we understand what demand looks like and how much people want to use these models and the degree to which revenue is ramping at our company and in the industry and, more than that, the degree that value is now ramping. ALTMAN:  I think that was the single biggest driver at what people, of what people realized was, the coding models have so transformed how companies are doing their work and the efficiency and the speed of which they're able to build products.",
+                "score": 0.9830851
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_MULTI_002_missing_then_fetch",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Missing URL supplied in a later turn should route to fetch."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tom tat trang nay."
+        },
+        {
+          "role": "user",
+          "content": "https://anthropic.com/news"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://anthropic.com/news"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://anthropic.com/news"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://anthropic.com/news"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://anthropic.com/news",
+            "items": [
+              {
+                "title": "Newsroom",
+                "url": "https://anthropic.com/news",
+                "source": "anthropic.com",
+                "summary": "# Newsroom\n\n- Press inquires [press@anthropic.com](mailto:press@anthropic.com)\n- Non-media inquiries [How to get support](https://support.claude.com/en/articles/9015913-how-to-get-support)\n- Media assets [Download press kit](https://anthropic.com/press-kit)\n\n![Introducing Claude Opus 4.8](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0eaa0ed2dce9810169112e1c77de2585fcf1f5c2-2880x1620.jpg&w=3840&q=75)\n\n[**Introducing Claude Opus 4.8** \\\\\n\\\\\nProductMay 28, 2026\\\\\n\\\\\nAn upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.](https://www.anthropic.com/news/claude-opus-4-8)\n\n[ProductApr 17, 2026\\\\\n**Introducing Claude Design by Anthropic Labs** \\\\\nToday, we’re launching Claude Design, a new Anthropic Labs product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.](https://www.anthropic.com/news/claude-design-anthropic-labs) [AnnouncementsApr 7, 2026\\\\\n**Project Glasswing** \\\\\nA new initiative that brings together Amazon Web Services, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks in an effort to secure the world's most critical software.](https://www.anthropic.com/glasswing) [Mar 18, 2026\\\\\n**What 81,000 people want from AI** \\\\\nWe invited Claude.ai users to share how they use AI, what they dream it could make possible, and what they fear it might do. Nearly 81,000 people participated—the largest and most multilingual qualitative study of its kind. Here's what we found.](https://www.anthropic.com/81k-interviews) [AnnouncementsFeb 4, 2026\\\\\n**Claude is a space to think** \\\\\nWe’ve made a choice: Claude will remain ad-free. We explain why advertising incentives are incompatible with a genuinely helpful AI assistant, and how we plan to expand access without compromising user trust.](https://www.anthropic.com/news/claude-is-a-space-to-think)\n\n## News\n\nSearch\n\nDateCategoryTitle\n\n- [Jun 1, 2026Announcements\\\\\nAnthropic confidentially submits draft S-1 to the SEC](https://www.anthropic.com/news/confidential-draft-s1-sec)\n- [May 28, 2026Announcements\\\\\nAnthropic raises $65B in Series H funding at $965B post-money valuation](https://www.anthropic.com/news/series-h)\n- [May 28, 2026Product\\\\\nIntroducing Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8)\n- [May 27, 2026Announcements\\\\\nAnthropic opens Milan office to support Italian enterprise, research, and developers](https://www.anthropic.com/news/milan-office-opening)\n- [May 26, 2026Announcements\\\\\nAnthropic appoints KiYoung Choi as Representative Director of Korea ahead of Seoul office opening](https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea)\n- [May 25, 2026Announcements\\\\\nAnthropic co-founder Chris Olah's remarks on Pope Leo XIV's encyclical \"Magnifica humanitas\"](https://www.anthropic.com/news/chris-olah-pope-leo-encyclical)\n- [May 22, 2026Announcements\\\\\nProject Glasswing: An initial update](https://www.anthropic.com/research/glasswing-initial-update)\n- [May 19, 2026Announcements\\\\\nWidening the conversation on frontier AI](https://www.anthropic.com/news/widening-conversation-ai)\n- [May 19, 2026Announcements\\\\\nKPMG integrates Claude across its core business and workforce of more than 276,000 in strategic alliance](https://www.anthropic.com/news/anthropic-kpmg)\n- [May 18, 2026Announcements\\\\\nAnthropic acquires Stainless](https://www.anthropic.com/news/anthropic-acquires-stainless)\n\n[See more](https://www.anthropic.com/news#)\n\nNewsroom \\ Anthropic"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_MULTI_003_search_type_carryover",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn topic and search_type/limit constraints should be preserved."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tim tweet ve VinFast."
+        },
+        {
+          "role": "user",
+          "content": "Chi lay loai Top, 7 ket qua."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "VinFast",
+              "search_type": "Top",
+              "limit": 7
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "VinFast",
+              "search_type": "Top",
+              "limit": 7
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "VinFast",
+            "search_type": "Top",
+            "limit": 7
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_MULTI_004_switch_social_to_web",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Latest turn switches from social search to web news lookup."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Moi nguoi noi gi ve NVIDIA tren Twitter?"
+        },
+        {
+          "role": "user",
+          "content": "Thoi bo Twitter, tim tin tuc tren web trong tuan nay."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "NVIDIA",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "NVIDIA",
+              "topic": "news",
+              "timeframe": "week",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "NVIDIA",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "NVIDIA",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "NVIDIA сунъий интеллект агентлари учун янги RTX Спарк процессорини тақдим этди - Zamin.uz",
+                "url": "https://zamin.uz/en/technology/204657-nvidia-introduces-new-rtx-spark-processor-for-ai-agents.html",
+                "source": "zamin.uz",
+                "summary": "# NVIDIA introduces new RTX Spark processor for AI agents. At the Computex exhibition in Taipei, NVIDIA unveiled a new processor for PCs called RTX Spark. With this innovation, NVIDIA aims to expand its share in the $200 billion CPU market. Windows PCs equipped with the new RTX Spark chips will go on sale this fall. NVIDIA founder and CEO Jensen Huang noted that this technology will end the era of manually opening, clicking, and typing in applications. The system is expected to become a primary tool not only for creators and gamers but also for billions of AI agents that automate daily tasks. NVIDIA promises that its RTX technology will improve image quality and accelerate AI functions in over 1,000 games and applications. This is a significant step for NVIDIA in returning to the ARM-based Windows market following the failure of Surface RT in 2013. News » Technology » NVIDIA introduces new RTX Spark processor for AI agents.",
+                "score": 0.98803884
+              },
+              {
+                "title": "Nvidia has retired its GeForce Control Panel app after 20 years - The Verge",
+                "url": "https://www.theverge.com/news/937221/nvidia-geforce-control-panel-app-retirement",
+                "source": "theverge.com",
+                "summary": "# Nvidia has retired its GeForce Control Panel app after 20 years. Nvidia has now ported across all of the major Control Panel features to its Nvidia app. Nvidia announced more than two years ago that it was working to replace its Control Panel app on Windows with a new Nvidia app. After porting across various features to the Nvidia app, Nvidia is announcing today that it has officially retired the Control Panel app. “With the introduction of our most recent Nvidia App update, all actively supported Nvidia Control Panel features for GeForce users have been modernized and transitioned to the new client,” says Nvidia. For Nvidia RTX PRO users, the Nvidia Control Panel will continue to be supported until we have migrated professional features to the Nvidia app.”. Nvidia ported across the majority of important Control Panel features to the Nvidia app last year, and it has become an all-in-one app that can download and install drivers, manage game settings, and toggle different DLSS modes.",
+                "score": 0.9795115
+              },
+              {
+                "title": "NVIDIA Announces NVIDIA Isaac GR00T Reference Humanoid Robot for Academic Research - NVIDIA Newsroom",
+                "url": "https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design",
+                "source": "nvidianews.nvidia.com",
+                "summary": "# NVIDIA Announces NVIDIA Isaac GR00T Reference Humanoid Robot for Academic Research. * NVIDIA announces an open humanoid robot reference design built on the NVIDIA Isaac GR00T platform, combining a Unitree H2 Plus humanoid robot, Sharpa five-fingered hands for dexterous manipulation, NVIDIA Jetson Thor onboard compute for advanced reasoning and control, and NVIDIA Isaac GR00T open software and models. **NVIDIA GTC Taipei**—NVIDIA today announced the NVIDIA Isaac™ GR00T Reference Humanoid Robot, the first open humanoid robot reference design built on NVIDIA Jetson Thor™ and the NVIDIA Isaac GR00T open development platform. The NVIDIA Isaac GR00T Reference Humanoid Robot unifies development by bringing a Unitree H2 Plus humanoid robot and Sharpa Wave tactile five-finger hands (the “body”), with NVIDIA Jetson Thor-powered onboard compute and Isaac GR00T software and workflows (the “brain”) into a single integrated reference design, helping research teams move faster from robot bring-up to skill development and real-world validation.",
+                "score": 0.97737074
+              },
+              {
+                "title": "Nvidia At $5 Trillion Requires A Grid That Doesn’t Exist (NASDAQ:NVDA) - Seeking Alpha",
+                "url": "https://seekingalpha.com/article/4910245-nvidia-at-5-trillion-requires-a-grid-that-doesnt-exist",
+                "source": "seekingalpha.com",
+                "summary": "Nvidia is funding the customer that is burning natural gas to buy Nvidia’s GPUs. Nvidia (NVDA) trades at ~26-28x forward earnings on the consensus revenue assumption that will require more gigawatts. My capital is concentrated in a small number of names at any given time. **Analyst’s Disclosure:** I/we have no stock, option or similar derivative position in any of the companies mentioned, and no plans to initiate any such positions within the next 72 hours. I am not receiving compensation for it (other than from Seeking Alpha). I have no business relationship with any company whose stock is mentioned in this article. No recommendation or advice is being given as to whether any investment is suitable for a particular investor. Our analysts are third party authors that include both professional investors and individual investors who may not be licensed or certified by any institute or regulatory body. To ensure this doesn’t happen in the future, please enable Javascript and cookies in your browser.",
+                "score": 0.9766692
+              },
+              {
+                "title": "NVIDIA Unveils Vera, the CPU for Agents - NVIDIA Newsroom",
+                "url": "https://nvidianews.nvidia.com/news/nvidia-unveils-vera-the-cpu-for-agents",
+                "source": "nvidianews.nvidia.com",
+                "summary": "# NVIDIA Unveils Vera, the CPU for Agents. * NVIDIA launches high-performance, energy-efficient NVIDIA Vera CPUs to drive diverse workloads across industries, including agentic AI, reinforcement learning and data processing. * Global AI labs planning to adopt Vera to transform their AI factories include Anthropic, OpenAI and SpaceXAI, and hyperscalers ByteDance, CoreWeave and Oracle Cloud Infrastructure. * Manufacturers building standalone Vera CPU systems at scale include Dell Technologies, HPE, Lenovo and Supermicro, along with ASUS, Compal, Foxconn, GIGABYTE, Pegatron, Quanta Cloud Technology (QCT), Wistron and Wiwynn. **NVIDIA GTC Taipei** -- NVIDIA today announced that the world’s technology leaders are planning to adopt NVIDIA Vera, the first CPU built for AI agents. Now in full production, NVIDIA Vera is a new class of processor enabling 1.8x faster task completion compared with x86 CPUs to drive diverse workloads across industries — including agentic AI, reinforcement learning and data processing — generating more data center token revenue.",
+                "score": 0.9695556
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G_MULTI_005_send_confirmation",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Even drafted content requires explicit confirmation before an external send."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Day la noi dung da soan: Ban tin AI hom nay co nhieu cap nhat moi."
+        },
+        {
+          "role": "user",
+          "content": "Dang len Telegram giup toi."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no",
+              "question": "Bạn có muốn gửi nội dung sau lên Telegram không? \"Ban tin AI hom nay co nhieu cap nhat moi.\""
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "response_type": "yes_no",
+            "question": "Bạn có muốn gửi nội dung sau lên Telegram không? \"Ban tin AI hom nay co nhieu cap nhat moi.\""
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn gửi nội dung sau lên Telegram không? \"Ban tin AI hom nay co nhieu cap nhat moi.\"",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    }
+  ]
+}
