@@ -1,0 +1,1478 @@
+{
+  "run_id": "v2_B_base_openai_20260602T150141815669",
+  "version": "v2",
+  "artifact_version": "v2+p71829c2465ce+t445fd7d8abe1",
+  "prompt_hash": "71829c2465ce574be8486e858dc401e0f5a7f245a5e5a60e003afef1f7a9a39f",
+  "tools_hash": "445fd7d8abe194590da41dad271d5275b6e136c3e3377ef8cff75295b4bfd78e",
+  "phase": "B",
+  "suite": "base",
+  "provider": "openai",
+  "model": "xmtp/mimo-v2.5-pro",
+  "system_prompt": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_base.json",
+  "dataset_id": "day04_v2_research_base",
+  "dataset_role": "base",
+  "description": "Core eval cho research agent: routing đúng tool + đúng args, hỏi lại khi thiếu (ask_user), xác nhận trước khi gửi, và xử lý câu ngoài phạm vi / không cần tool. Chấm trên tool_calls + args (subset). KHÔNG sửa file này — chỉ thêm case vào eval_group.json.",
+  "generated_at": "2026-06-02T15:01:41",
+  "summary": {
+    "total_cases": 20,
+    "measured_cases": 19,
+    "provider_error_cases": 1,
+    "passed_cases": 13,
+    "case_accuracy": 0.6842,
+    "tool_routing_accuracy": 0.8947,
+    "argument_accuracy": 0.6842,
+    "multiturn_accuracy": 0.8,
+    "failure_counts": {
+      "wrong_tool": 2,
+      "wrong_arg_value": 2,
+      "missing_info": 1,
+      "wrong_boundary": 1
+    },
+    "observed_mismatch_counts": {
+      "wrong_arg_value": 4,
+      "extra_tool_call": 1,
+      "missing_tool_call": 1
+    }
+  },
+  "results": [
+    {
+      "id": "R01_user_tweets_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_user_tweets_name_to_handle",
+        "difficulty": "medium",
+        "what_it_tests": "Tin CỦA một người nổi tiếng → map tên Sam Altman thành handle sama rồi gọi get_user_tweets."
+      },
+      "input": "Tweet mới nhất của Sam Altman là gì?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "sama",
+              "limit": 1
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "sama",
+            "limit": 1
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R02_search_tweets_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_search_tweets",
+        "difficulty": "easy",
+        "what_it_tests": "Tweet theo CHỦ ĐỀ → search_tweets, không phải get_user_tweets."
+      },
+      "input": "Mọi người đang bàn gì về GPT-5 trên Twitter?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "GPT-5",
+              "search_type": "Latest",
+              "limit": 8
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "GPT-5",
+            "search_type": "Latest",
+            "limit": 8
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R03_web_news_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_web_news",
+        "difficulty": "medium",
+        "what_it_tests": "Tin thời sự trên web → web_search topic=news, timeframe=day (hôm nay)."
+      },
+      "input": "Tin tức AI hôm nay có gì nổi bật?",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI artificial intelligence news today",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "query: expected 'AI', got 'AI artificial intelligence news today'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI artificial intelligence news today",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI artificial intelligence news today",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "AI is mapping health stigma faster than it is fixing it - News-Medical",
+                "url": "https://www.news-medical.net/news/20260601/AI-is-mapping-health-stigma-faster-than-it-is-fixing-it.aspx",
+                "source": "news-medical.net",
+                "summary": "_**A new review shows that AI can expose stigmatizing language at scale, but the evidence that it can safely reduce stigma in real-world healthcare remains thin.**_. Image 4: Study: Mapping the role of artificial intelligence in health-related stigma: a scoping review. _Study: Mapping the role of artificial intelligence in health-related stigma: a scoping review. In a recent study published in the journal**npj Digital Medicine**, researchers explored the role of artificial intelligence (AI) in health-related stigma. Health-related stigma is a significant barrier to equitable health, and reducing stigma remains a major objective in clinical practice and health policy. In the present study, researchers reviewed current evidence on the relationship between health-related stigma and AI. Studies on AI-related increases in stigma and the influence of stigma on AI usage began in 2019, whereas those on AI reducing stigma emerged from 2020 onward. Mapping the role of artificial intelligence in health-related stigma: a scoping review.",
+                "score": 0.9353465
+              },
+              {
+                "title": "Алпҳабет сунъий интеллект инфратузилмаси учун 80 миллиард доллар жалб қилади - Zamin.uz",
+                "url": "https://zamin.uz/en/technology/204662-alphabet-to-raise-80-billion-for-artificial-intelligence-infrastructure.html",
+                "source": "zamin.uz",
+                "summary": "# Alphabet to Raise $80 Billion for Artificial Intelligence Infrastructure. Alphabet, the parent company of Google, announced on Monday its intention to raise $80 billion to fund the construction of large-scale artificial intelligence (AI) infrastructure. The company will offer shares for sale and allocate the proceeds to general corporate purposes, including capital expenditures to expand AI infrastructure and global computing capacity. In its statement, Alphabet noted that demand for AI solutions and services from businesses and consumers is exceeding the company's current supply levels. At the Google I/O conference held last month, CEO Sundar Pichai stated that the company expects to spend between $180 and $190 billion on capital expenditures by the end of the year. Overall, Google and other major tech companies are projected to spend a total of up to $700 billion on AI capital expenditures this year. This race in the sector is expected to usher in a new phase in the global technology market. News » Technology » Alphabet to Raise $80 Billion for Artificial Intelligence Infrastructure.",
+                "score": 0.93045825
+              },
+              {
+                "title": "A little AI can go a long way - Accounting Today",
+                "url": "https://www.accountingtoday.com/news/a-little-ai-can-go-a-long-way",
+                "source": "accountingtoday.com",
+                "summary": "Despite breathless pronouncements otherwise, artificial intelligence is not, in fact, the universal tool that can and should be applied to every single thing so that it can take care of everything without you having to think about anything, at least not right now. And so while it might be intimidating to hear about all those companies who've installed AI everywhere and use it for everything, as time has gone on companies have learned that it's not so much about AI itself but how, specifically, it is being used at an organization—and for many everyday uses, a little can go a long way. Speaking at a webcast today, Jessie Kanter, an audit partner with Top 25 firm Citrin Cooperman, said that while many think of AI as some sort of super-automater, this framing is a mistake as the probabilistic nature of many AI models, even agentic ones, means they can struggle with providing consistent, repeatable results.",
+                "score": 0.9073123
+              },
+              {
+                "title": "Stock Market Today: Dow Up As Trump Says This On Iran; AI Stocks Pop On Anthropic IPO Move (Live Coverage) - Investor's Business Daily",
+                "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-us-iran-deal-nvidia-stock-nvda/",
+                "source": "investors.com",
+                "summary": "# Stock Market Today: Dow Up As Trump Says This On Iran; AI Stocks Pop On Anthropic IPO Move | Investor's Business Daily. *   Stocks Near A Buy Zone. *   IBD 50 Stocks To Watch. *   How To Invest In Stocks. # Stock Market Today: Dow Up As Trump Says This On Iran; AI Stocks Pop On Anthropic IPO Move (Live Coverage). Also, **Nvidia** (NVDA) was among winning stocks while Anthropic made an IPO move and **IBM** (IBM) tested an entry on the stock market today. **Salesforce** (CRM) outperformed with a gain of nearly 10% while Nvidia climbed more than 6%. But what impact will the Fed’s incoming leader have on the interest rates and the stock market? A key theme for the stock for the stock market in 2026 has been the outperformance of artificial intelligence stocks.And AI stocks were rallying again Monday amid the news Anthropic has made a key filing as it eyes an initial public offering later this year.",
+                "score": 0.7676898
+              },
+              {
+                "title": "NEC Wins at the Newsweek AI Impact Awards 2026: Press Releases - nec.com",
+                "url": "https://www.nec.com/en/press/202606/global_20260602_01.html",
+                "source": "nec.com",
+                "summary": "- NEC recognized for its Management Dashboard initiative targeted at accelerating decision-making with AI -. **Tokyo, June 2, 2026 -** NEC Corporation (NEC; TSE: 6701) today announced that it has been named a winner at the Newsweek AI Impact Awards 2026 (\\*1). NEC was recognized for its Management Dashboard initiative targeted at accelerating decision-making with AI in the category of AI Workplace: Best Outcomes, Leadership and Succession Planning. dotData is an AI-powered data analytics platform (\\*2) that automates the entire data science process and provides a one-stop solution for AI development, from extracting features from business data to building predictive models using machine learning. Additionally, in its shift from a traditional systems integrator to a \"Value Driver,\" NEC restructured its value creation model under the name \"NEC BluStellar\" (\\*5), which leverages NEC's cutting-edge technologies, developed and refined through years of experience and proven cross-industry expertise, aiming to transform business models, address social challenges, resolve management issues faced by customers, and lead them into a brighter future.",
+                "score": 0.7520126
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R04_read_url_routing",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "routing_read_url",
+        "difficulty": "easy",
+        "what_it_tests": "Đã có link cụ thể → read_url, không phải web_search."
+      },
+      "input": "Tóm tắt bài này giúp mình: https://openai.com/blog/gpt-5",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/blog/gpt-5"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://openai.com/blog/gpt-5"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://openai.com/blog/gpt-5"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://openai.com/blog/gpt-5",
+            "items": [
+              {
+                "title": "OpenAI",
+                "url": "https://openai.com/blog/gpt-5",
+                "source": "openai.com",
+                "summary": "OpenAI\n\n# 404\n\nPath bar went quiet\n\nLetters waited for new sense\n\nType a better north\n\nby [gpt-5.5(opens in a new window)](https://chatgpt.com/?model=5.5&openaicom-did=ba72ad46-bd45-4237-af92-f7147da6d0ae&openaicom_referred=true)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R05_limit_arg",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_limit",
+        "difficulty": "easy",
+        "what_it_tests": "Trích đúng limit=10 từ '10 tweet'."
+      },
+      "input": "Lấy 10 tweet mới nhất của Elon Musk",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 10
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 10
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "elonmusk",
+            "limit": 10
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R06_timeframe_arg",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_timeframe",
+        "difficulty": "medium",
+        "what_it_tests": "'tuần này' → timeframe=week."
+      },
+      "input": "Tin công nghệ trong tuần này",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "technology news this week 2024",
+              "topic": "news",
+              "timeframe": "week",
+              "max_results": 8
+            }
+          },
+          {
+            "name": "social_search",
+            "args": {
+              "query": "tech news AI technology",
+              "search_type": "Top",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "extra_tool_call",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "extra tool call social_search"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "technology news this week 2024",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 8
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "technology news this week 2024",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Prediction Market Bans, Starlink Expansion and Spotify Adds Articles | Tech Today - CNET",
+                "url": "https://www.cnet.com/videos/prediction-market-bans-starlink-expansion-and-spotify-adds-articles-tech-today/",
+                "source": "cnet.com",
+                "summary": "Prediction Market Bans, Starlink Expansion and Spotify Adds Articles | Tech Today. Owen Poole covers today's top tech stories, including: EU countries attempt to regulate popular \"prediction markets,\" Starlink partners with American Airlines ahead of the future SpaceX IPO, and Spotify brings longform articles to its audiobook catalog. Musk-Altman Trial Verdict, PlayStation Price Hikes and Alexa Plus AI Podcasts | Tech Today. Google to Detail Agentic AI Models at I/O, Android 17 Features and Smart Glasses Reveal Expected | Tech Today. Latest on the Memory Shortage, New AI Rules for Oscars, and Custom Passes for iOS 27 | Tech Today. 'Ask YouTube' AI, the Apple Watch Legal Win and Social Media Scams | Tech Today. Artemis II's Victor Glover Chats With CNET. Getting Personal With the Crew of Artemis II | Tech Today. What to Know About Artemis II, Apple Foldable Rumors & More  | Tech Today. Sweeping Router Ban, Changing Your Gmail Name, Pixel 11 Leaks | Tech Today. ### What the Future.",
+                "score": 0.45595008
+              },
+              {
+                "title": "CubePart 3D Generator - CNET",
+                "url": "https://www.cnet.com/videos/cubepart-3d-generator/",
+                "source": "cnet.com",
+                "summary": "# CubePart 3D Generator. An Open-Vocabuiary Part-Controllable 3D Generator. Why Apple May Split the iPhone Event. ### No Regular iPhone 18? Tech Editors Discuss What We Didn't See at Google I/O 2026. Sony The Collexion Review: Bad Name, High Price, Fantastic Headphones. Ping-Pong Robot Defeats Elite Human Player. Googlebooks: The Ultimate Laptop for Android Users? Android's Biggest AI Update: Everything to Know About Gemini Intelligence. Apple's Next Macs: MacBook Ultra Plus 3 More Macs We Expect. Latest on the Memory Shortage, New AI Rules for Oscars, and Custom Passes for iOS 27 | Tech Today. ## Tech Shows. ### What the Future. ## Latest News. Prediction Market Bans, Starlink Expansion and Spotify Adds Articles | Tech Today. 10 Times Hotter Than the Sun: Inside World's Largest Fusion Reactor. Is Euphoria Even Euphoria Anymore? Trump Phone Live Q&A: First Impressions With CNET's Patrick Holland. Google's Latest Stuff Explained in Human Terms. Is Google's Uncanny Virtual Human a Future Coworker or Concierge?",
+                "score": 0.32498527
+              },
+              {
+                "title": "Nvidia's GTC Keynote in 12 Minutes - CNET",
+                "url": "https://www.cnet.com/videos/nvidias-gtc-keynote-in-12-minutes/",
+                "source": "cnet.com",
+                "summary": "Nvidia's GTC Keynote in 12 Minutes. Nvidia CEO Jensen Huang took the stage at GTC to unveil the new Vera Rubin AI computing platform, the Vera CPU, a new collaboration with Microsoft that promises to \"reinvent\" the PC and its new open source AI models. From 1-Kilo Ultralights to 18-Inch Monsters: We Tried Acer's Computex 2026 Laptops. ## Tech Shows. ### One More Thing. ### All Things Mobile. ### What the Future. ### Expert vs. ## Latest News. New Hummer X Concept SUV and Pickup: Swap Parts With Friends. The Backrooms Explained: Unpacking the Internet's Favorite Liminal Space. The 'Mystery Meat' of Google Gemini. Shopping for a Rowing Machine? Fitbit Air Review: Affordable, Minimalist Health Tracking | All Things Mobile. Brace Yourself for These Big Siri Changes at WWDC26. Imagineers Share Secrets of Disney's New Ride Technology. Prediction Market Bans, Starlink Expansion and Spotify Adds Articles | Tech Today.",
+                "score": 0.21752901
+              },
+              {
+                "title": "Iberia Maintenance Makes Its Leap Move - Aviation Week",
+                "url": "https://aviationweek.com/mro/aircraft-propulsion/iberia-maintenance-makes-its-leap-move",
+                "source": "aviationweek.com",
+                "summary": "* Aviation Week & Space Technology - Inside MRO. * Engine Leasing Trading & Finance Europe. * Engine Leasing, Trading & Finance Americas. * CAPA Airline Leader Summit - Airlines in Transition. * CAPA Airline Leader Summit - Americas. * CAPA Airline Leader Summit - Asia & Sustainability Awards. * CAPA Airline Leader Summit - World & Awards for Excellence. * CAPA Asia Aviation Summit & Awards for Excellence. - Aviation Week & Space Technology 100-Year. Iberia Maintenance is preparing a rapid scale-up of CFM International Leap capability after being confirmed as the latest member of the OEM’s Premier MRO network for the narrowbody engine. As Aviation Week's MRO Editor EMEA, James Pozzi covers the latest industry news from the European region and beyond. **Iberia Maintenance Makes Its Leap Move** is part of our *Aviation Week & Space Technology* - *Inside MRO* and AWIN subscriptions. **Subscribe now** to read this content, plus receive full coverage of what's next in technology from the experts trusted by the commercial aircraft MRO community.",
+                "score": 0.19260046
+              },
+              {
+                "title": "U.S. Air Force Expert Challenges China’s Stealth Strategy - Aviation Week",
+                "url": "https://aviationweek.com/defense/aircraft-propulsion/us-air-force-expert-challenges-chinas-stealth-strategy",
+                "source": "aviationweek.com",
+                "summary": "* Aviation Week & Space Technology - Inside MRO. * CAPA Airline Leader Summit - Airlines in Transition. * CAPA Airline Leader Summit - Americas. * CAPA Airline Leader Summit - Latin America & Caribbean. * CAPA Airline Leader Summit - Australia Pacific. * CAPA Airline Leader Summit - Asia & Sustainability Awards. * CAPA Airline Leader Summit - World & Awards for Excellence. * CAPA Asia Aviation Summit & Awards for Excellence. * Aviation Week's Space Tech Challenge Awards. - Aviation Week & Space Technology 100-Year. Steve covers military aviation, missiles and space for the Aviation Week Network, based in Washington, DC. **U.S. Air Force Expert Challenges China’s Stealth Strategy** is part of our *Aviation Week & Space Technology* - *Inside MRO* and AWIN subscriptions. **Subscribe now** to read this content, plus receive full coverage of what's next in technology from the experts trusted by the commercial aircraft MRO community.",
+                "score": 0.17869808
+              },
+              {
+                "title": "The Week In Technology, June 1-5, 2026 - Aviation Week",
+                "url": "https://aviationweek.com/aerospace/emerging-technologies/week-technology-june-1-5-2026",
+                "source": "aviationweek.com",
+                "summary": "* Aviation Week & Space Technology - Inside MRO. * CAPA Airline Leader Summit - Airlines in Transition. * CAPA Airline Leader Summit - Americas. * CAPA Airline Leader Summit - Australia Pacific. * CAPA Airline Leader Summit - Asia & Sustainability Awards. * CAPA Airline Leader Summit - World & Awards for Excellence. * CAPA Asia Aviation Summit & Awards for Excellence. * Aviation Week's Space Tech Challenge Awards. - Aviation Week & Space Technology 100-Year. # The Week In Technology, June 1-5, 2026. Honda Flies Full-Scale eVTOL Honda says its full-scale uncrewed electric vertical-takeoff-and-landing demonstrator completed its first hover flight in early April in the U.S. The Japanese carmaker is developing the hybrid-electric air taxi with an eye to service entry in the early 2030s. Graham leads Aviation Week's coverage of technology, focusing on engineering and technology across the aerospace industry, with a special focus on identifying technologies of strategic importance to aviation, aerospace and defense. **The Week In Technology, June 1-5, 2026** is available to both *Aviation Week & Space Technology* and AWIN subscribers.",
+                "score": 0.17359652
+              },
+              {
+                "title": "FAA Altimeter Upgrade Plan Feasible, Stakeholders Say - Aviation Week",
+                "url": "https://aviationweek.com/mro/interiors-connectivity/faa-altimeter-upgrade-plan-feasible-stakeholders-say",
+                "source": "aviationweek.com",
+                "summary": "* Aviation Week & Space Technology - Inside MRO. * CAPA Airline Leader Summit - Airlines in Transition. * CAPA Airline Leader Summit - Americas. * CAPA Airline Leader Summit - Latin America & Caribbean. * CAPA Airline Leader Summit - Australia Pacific. * CAPA Airline Leader Summit - Asia & Sustainability Awards. * CAPA Airline Leader Summit - World & Awards for Excellence. * CAPA Asia Aviation Summit & Awards for Excellence. * Aviation Week's Space Tech Challenge Awards. - Aviation Week & Space Technology 100-Year. Senior Air Transport & Safety Editor Sean Broderick covers aviation safety, MRO, and the airline business from Aviation Week Network's Washington, D.C. office. **FAA Altimeter Upgrade Plan Feasible, Stakeholders Say** is part of our *Aviation Week & Space Technology* - *Inside MRO* and AWIN subscriptions. **Subscribe now** to read this content, plus receive full coverage of what's next in technology from the experts trusted by the commercial aircraft MRO community.",
+                "score": 0.16959864
+              },
+              {
+                "title": "The Week In Technology, May 25-29, 2026 - Aviation Week",
+                "url": "https://aviationweek.com/aerospace/emerging-technologies/week-technology-may-25-29-2026",
+                "source": "aviationweek.com",
+                "summary": "* Aviation Week & Space Technology - Inside MRO. * CAPA Airline Leader Summit - Airlines in Transition. * CAPA Airline Leader Summit - Americas. * CAPA Airline Leader Summit - Australia Pacific. * CAPA Airline Leader Summit - Asia & Sustainability Awards. * CAPA Airline Leader Summit - World & Awards for Excellence. * CAPA Asia Aviation Summit & Awards for Excellence. * Aviation Week's Space Tech Challenge Awards. - Aviation Week & Space Technology 100-Year. # The Week In Technology, May 25-29, 2026. Graham leads Aviation Week's coverage of technology, focusing on engineering and technology across the aerospace industry, with a special focus on identifying technologies of strategic importance to aviation, aerospace and defense. **The Week In Technology, May 25-29, 2026** is part of our *Aviation Week & Space Technology* - *Inside MRO* and AWIN subscriptions. **Subscribe now** to read this content, plus receive full coverage of what's next in technology from the experts trusted by the commercial aircraft MRO community. The Week In Technology, April 27-May 1, 2026.",
+                "score": 0.16856964
+              }
+            ]
+          }
+        },
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "tech news AI technology",
+            "search_type": "Top",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R07_search_type_arg",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "arg_search_type",
+        "difficulty": "medium",
+        "what_it_tests": "'phổ biến/top' → search_type=Top (không phải Latest)."
+      },
+      "input": "Cho mình các tweet phổ biến (top) nhất về OpenAI",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "search_type": "Top"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "OpenAI",
+              "search_type": "Top",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "OpenAI",
+            "search_type": "Top",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R08_out_of_scope",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "out_of_scope",
+        "difficulty": "easy",
+        "what_it_tests": "Câu ngoài phạm vi research → KHÔNG gọi tool, từ chối/định hướng."
+      },
+      "input": "Giải giúp mình bài toán tích phân: nguyên hàm của x^2 là gì?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Nguyên hàm của $x^2$ là:\n\n$$\\int x^2 \\, dx = \\frac{x^3}{3} + C$$\n\ntrong đó **C** là hằng số tùy ý (hằng số tích phân).\n\n**Cách tính:** Áp dụng công thức nguyên hàm cơ bản:\n\n$$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\quad (n \\neq -1)$$\n\nVới $n = 2$:\n\n$$\\frac{x^{2+1}}{2+1} + C = \\frac{x^3}{3} + C$$",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "R09_no_tool_capability",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "no_tool_meta",
+        "difficulty": "easy",
+        "what_it_tests": "Câu hỏi meta → trả lời thẳng, KHÔNG gọi tool."
+      },
+      "input": "Bạn là gì và làm được những gì?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer_without_tool"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Tôi là một **trợ lý nghiên cứu** (research agent) được thiết kế cho các tác vụ nghiên cứu ngắn, có nguồn gốc rõ ràng.\n\n## Tôi có thể làm gì:\n\n1. **Tìm tin tức & cập nhật**: Tìm kiếm tin tức mới nhất trên web theo chủ đề, thời gian cụ thể.\n\n2. **Nghiên cứu trên X/Twitter**:\n   - Xem bài đăng gần đây từ một tài khoản cụ thể (ví dụ: @elonmusk, @sama...)\n   - Tìm kiếm mọi người đang nói gì về một chủ đề trên X/Twitter.\n\n3. **Đọc & phân tích URL**: Tóm tắt, trích xuất nội dung từ một trang web cụ thể mà bạn cung cấp.\n\n4. **Tìm kiếm & đọc luận văn khoa học**: Tìm kiếm trên arXiv, đọc và trích xuất nội dung bài báo học thuật.\n\n5. **Đánh giá nguồn**: Xếp hạng độ tin cậy của các nguồn đã thu thập.\n\n6. **Tra cứu chính sách nội bộ**: Tìm thông tin về chính sách công ty, trích dẫn nguồn, bảo mật dữ liệu...\n\n7. **Định dạng & tổng hợp**: Tạo bản tóm tắt, danh sách, hoặc định dạng markdown từ thông tin đã thu thập.\n\n8. **Gửi nội dung qua Telegram**: Gửi nội dung đã được bạn xác nhận trước đó.\n\n## Giới hạn:\n- Tôi **không tự tạo ra thông tin** — tất cả phải có nguồn gốc từ công cụ tìm kiếm.\n- Tôi **không giải toán, lập trình, hay làm bài tập** — phạm vi là nghiên cứu và tra cứu thông tin.\n- Nếu thiếu thông tin, tôi sẽ hỏi lại bạn trước khi thực hiện.\n\nBạn cần tôi giúp gì?",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "R10_missing_handle",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "clarify_missing_handle",
+        "difficulty": "medium",
+        "what_it_tests": "Thiếu handle → ask_user, KHÔNG đoán bừa người nào."
+      },
+      "input": "Tóm tắt 5 tweet mới nhất giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn muốn tóm tắt 5 tweet mới nhất của tài khoản nào? Hoặc bạn muốn tìm tweet về chủ đề gì?",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn muốn tóm tắt 5 tweet mới nhất của tài khoản nào? Hoặc bạn muốn tìm tweet về chủ đề gì?",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn muốn tóm tắt 5 tweet mới nhất của tài khoản nào? Hoặc bạn muốn tìm tweet về chủ đề gì?",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "R11_missing_url",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "clarify_missing_url",
+        "difficulty": "medium",
+        "what_it_tests": "Nói 'bài này' nhưng không có link → ask_user xin URL."
+      },
+      "input": "Tóm tắt bài viết này hộ mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [],
+        "actual_text": "Bạn chưa cung cấp URL hoặc bài viết cụ thể cần tóm tắt. Vui lòng gửi link bài viết để mình giúp bạn nhé!",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "missing_info",
+        "failures": [
+          "missing tool call clarify"
+        ]
+      },
+      "tool_results": []
+    },
+    {
+      "id": "R12_confirm_before_send",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "confirm_before_write",
+        "difficulty": "medium",
+        "what_it_tests": "Hành động ghi (gửi) → xác nhận trước (ask_user yes_no), không tự gửi."
+      },
+      "input": "Đăng bản tin này lên Telegram giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn muốn đăng nội dung gì lên Telegram? Vui lòng cung cấp chính xác văn bản (bản tin) cần gửi.",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_boundary",
+        "failures": [
+          "response_type: expected 'yes_no', got 'text'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn muốn đăng nội dung gì lên Telegram? Vui lòng cung cấp chính xác văn bản (bản tin) cần gửi.",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn muốn đăng nội dung gì lên Telegram? Vui lòng cung cấp chính xác văn bản (bản tin) cần gửi.",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "R13_parallel_web_and_tweets",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "parallel_tool_calls",
+        "difficulty": "hard",
+        "what_it_tests": "Một request cần hai nguồn → gọi cả web_search và search_tweets; eval không phụ thuộc thứ tự tool call."
+      },
+      "input": "Tìm trên web tin AI hôm nay và tìm thêm tweet về AI.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          },
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "AI artificial intelligence news",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 8
+            }
+          },
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI artificial intelligence",
+              "search_type": "Top",
+              "limit": 8
+            }
+          }
+        ],
+        "actual_text": "Tôi sẽ tìm tin tức AI hôm nay trên web và tweet về AI song song.",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "query: expected 'AI', got 'AI artificial intelligence news'",
+          "query: expected 'AI', got 'AI artificial intelligence'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI artificial intelligence news",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 8
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI artificial intelligence news",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Алпҳабет сунъий интеллект инфратузилмаси учун 80 миллиард доллар жалб қилади - Zamin.uz",
+                "url": "https://zamin.uz/en/technology/204662-alphabet-to-raise-80-billion-for-artificial-intelligence-infrastructure.html",
+                "source": "zamin.uz",
+                "summary": "# Alphabet to Raise $80 Billion for Artificial Intelligence Infrastructure. Alphabet, the parent company of Google, announced on Monday its intention to raise $80 billion to fund the construction of large-scale artificial intelligence (AI) infrastructure. The company will offer shares for sale and allocate the proceeds to general corporate purposes, including capital expenditures to expand AI infrastructure and global computing capacity. In its statement, Alphabet noted that demand for AI solutions and services from businesses and consumers is exceeding the company's current supply levels. At the Google I/O conference held last month, CEO Sundar Pichai stated that the company expects to spend between $180 and $190 billion on capital expenditures by the end of the year. Overall, Google and other major tech companies are projected to spend a total of up to $700 billion on AI capital expenditures this year. This race in the sector is expected to usher in a new phase in the global technology market. News » Technology » Alphabet to Raise $80 Billion for Artificial Intelligence Infrastructure.",
+                "score": 0.9785493
+              },
+              {
+                "title": "AI is mapping health stigma faster than it is fixing it - News-Medical",
+                "url": "https://www.news-medical.net/news/20260601/AI-is-mapping-health-stigma-faster-than-it-is-fixing-it.aspx",
+                "source": "news-medical.net",
+                "summary": "_**A new review shows that AI can expose stigmatizing language at scale, but the evidence that it can safely reduce stigma in real-world healthcare remains thin.**_. Image 4: Study: Mapping the role of artificial intelligence in health-related stigma: a scoping review. _Study: Mapping the role of artificial intelligence in health-related stigma: a scoping review. In a recent study published in the journal**npj Digital Medicine**, researchers explored the role of artificial intelligence (AI) in health-related stigma. Health-related stigma is a significant barrier to equitable health, and reducing stigma remains a major objective in clinical practice and health policy. In the present study, researchers reviewed current evidence on the relationship between health-related stigma and AI. Studies on AI-related increases in stigma and the influence of stigma on AI usage began in 2019, whereas those on AI reducing stigma emerged from 2020 onward. Mapping the role of artificial intelligence in health-related stigma: a scoping review.",
+                "score": 0.97702265
+              },
+              {
+                "title": "19Network Introduces the UAE’s First AI-Powered Newsroom,Redefini - The National Law Review",
+                "url": "https://natlawreview.com/press-releases/19network-introduces-uaes-first-ai-powered-newsroomredefining-digital-news",
+                "source": "natlawreview.com",
+                "summary": "### 19Network Introduces the UAE’s First AI-Powered Newsroom,Redefining Digital News for Business,Real Estate and AI Tech. *19Network launches an AI-powered newsroom covering UAE news, real estate, technology, business, lifestyle and global developments.*. DUBAI, UNITED ARAB EMIRATES, June 2, 2026 /EINPresswire.com/ -- 19Network.com, a UAE-based digital news and editorial platform, has introduced itself as the UAE’s first AI-powered newsroom, built to deliver fast, relevant and sector-focused coverage across the UAE, the wider GCC and international markets. Its core coverage areas include UAE news, real estate, artificial intelligence, technology, business, finance, lifestyle, travel, entertainment, sports, education, health and global developments. With its AI-powered newsroom direction, 19Network aims to provide a new model for digital publishing from the UAE, focused on speed, sector understanding and editorial relevance. As the UAE continues to strengthen its position as a global hub for business, investment, innovation, real estate, tourism and technology, the need for sharp, timely and multi-sector news coverage has become more important than ever.",
+                "score": 0.9329437
+              },
+              {
+                "title": "Anthropic files confidentially for IPO, setting stage for landmark AI stock market debut - ynetnews",
+                "url": "https://www.ynetnews.com/business/article/sy003gnilzl",
+                "source": "ynetnews.com",
+                "summary": "## Anthropic, the AI company behind Claude, has confidentially filed for an IPO after reaching a $900 billion valuation, positioning itself among the most closely watched potential public offerings in the technology sector. Anthropic has confidentially filed a draft registration statement with the U.S. Securities and Exchange Commission for a proposed initial public offering, the artificial intelligence company said Monday. The number of shares to be offered and the price range for the proposed offering have not yet been determined. Anthropic said the announcement was made in accordance with Section 135 of the Securities Act of 1933 and does not constitute an offer to sell or a solicitation of an offer to buy securities. The company, which develops the Claude chatbot and other artificial intelligence products, joins a growing list of high-profile technology firms considering public offerings amid strong investor interest in AI. Other closely watched companies that have been reported to be considering public listings include SpaceX and OpenAI.",
+                "score": 0.88875884
+              },
+              {
+                "title": "NEC Wins at the Newsweek AI Impact Awards 2026: Press Releases - nec.com",
+                "url": "https://www.nec.com/en/press/202606/global_20260602_01.html",
+                "source": "nec.com",
+                "summary": "- NEC recognized for its Management Dashboard initiative targeted at accelerating decision-making with AI -. **Tokyo, June 2, 2026 -** NEC Corporation (NEC; TSE: 6701) today announced that it has been named a winner at the Newsweek AI Impact Awards 2026 (\\*1). NEC was recognized for its Management Dashboard initiative targeted at accelerating decision-making with AI in the category of AI Workplace: Best Outcomes, Leadership and Succession Planning. dotData is an AI-powered data analytics platform (\\*2) that automates the entire data science process and provides a one-stop solution for AI development, from extracting features from business data to building predictive models using machine learning. Additionally, in its shift from a traditional systems integrator to a \"Value Driver,\" NEC restructured its value creation model under the name \"NEC BluStellar\" (\\*5), which leverages NEC's cutting-edge technologies, developed and refined through years of experience and proven cross-industry expertise, aiming to transform business models, address social challenges, resolve management issues faced by customers, and lead them into a brighter future.",
+                "score": 0.87663436
+              },
+              {
+                "title": "AI & Tech Brief: Exclusive | AI ad campaigns slam Trahan - The Washington Post",
+                "url": "https://www.washingtonpost.com/wp-intelligence/ai-tech-brief/2026/06/01/ai-tech-brief-exclusive-ai-ad-campaigns-slam-trahan/",
+                "source": "washingtonpost.com",
+                "summary": "AI & Tech Brief from WP Intelligence. # AI & Tech Brief: Exclusive | AI ad campaigns slam Trahan. Plus, Anthropic files for a blockbuster initial public offering. Make us preferred on Google. Sign up here to get this newsletter in your inbox. * **Exclusive:** AI safety group Americans for Responsible Innovation rolls out a six-figure ad campaign this week attacking Rep. Lori Trahan (D-Massachusetts), arguing that she’s “taking the side” of AI oligarchs in her bipartisan legislative efforts. * The AI safety community doesn’t want to hand power of AI regulation to President Donald Trump’s administration now that states are passing more rigorous AI laws — and the California and New York attorneys general are challenging big AI companies. * Nvidia is rolling out a new “world model” simulator for robots and a new design platform for robot developers. In doing so, the company is running the same business playbook it did to become so dominant in the chip market.",
+                "score": 0.8198933
+              },
+              {
+                "title": "Silicon Valley's New Slogan: Let's Get Physical - Business Insider",
+                "url": "https://www.businessinsider.com/silicon-valleys-new-slogan-lets-get-physical-2026-6",
+                "source": "businessinsider.com",
+                "summary": "You're currently following this topic! The latest news and analysis on robotics, from humanoid AI to real-world automation. ### Figure AI had one of its robots race an intern to sort packages. This weekend offered a glimpse of how quickly the biggest AI players are moving in on humanoid robotics. Robotics has become tech's latest arms race, with Nvidia, OpenAI, Meta, Tesla, and a flock of startups racing to give AI a body. \"Physical AI\" is the buzzword of the moment in the Valley, a term popularized by Nvidia CEO Jensen Huang to describe AI systems that can act in the physical world. One of the buzziest Silicon Valley robotics upstarts, Figure AI, has been trying to prove its technology can move from demos to real work. The team is teaching a robotic arm how to perform household tasks as part of an effort to build a humanoid robot, Business Insider reported earlier this year.",
+                "score": 0.8056322
+              },
+              {
+                "title": "Flossmoor School District 161 Board approves artificial intelligence plan - HF Chronicle",
+                "url": "https://www.hfchronicle.com/2026/06/01/flossmoor-school-district-161-board-approves-artificial-intelligence-plan/",
+                "source": "hfchronicle.com",
+                "summary": "# Flossmoor School District 161 Board approves artificial intelligence plan. The Flossmoor School District 161 Board of Education voted unanimously May 26 to approve a districtwide artificial intelligence implementation plan intended to guide the use of AI technology in classrooms and administrative settings beginning in the 2026-27 school year. District officials said Illinois school districts are required to adopt an AI plan by July 1. The plan establishes guidelines for the responsible and ethical use of artificial intelligence by both students and staff, while emphasizing academic integrity, student privacy and critical thinking. “I think as we shared in the last one, as we’re going into not only be responding to AI but a refresh of the strategic plan, it’s a perfect opportunity to look at technological integration in general,” Smith said. Staff may only use AI platforms approved by the district’s technology department, and both staff and students are prohibited from entering personally identifiable student information into AI systems.",
+                "score": 0.7520126
+              }
+            ]
+          }
+        },
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "AI artificial intelligence",
+            "search_type": "Top",
+            "limit": 8
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R14_out_of_scope_coding",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": false,
+      "metadata": {
+        "skill": "out_of_scope_coding",
+        "difficulty": "easy",
+        "what_it_tests": "Câu coding ngoài phạm vi research/news → KHÔNG gọi tool."
+      },
+      "input": "Viết giúp mình một hàm Python tính Fibonacci bằng recursion.",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "```python\ndef fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n```\n\n**Cách dùng:**\n\n```python\nprint(fibonacci(10))  # Output: 55\n```\n\n> **Lưu ý:** Đây là câu hỏi lập trình cơ bản, nằm ngoài phạm vi nghiên cứu/tin tức mà mình chuyên xử lý. Nếu bạn cần tối ưu hơn (tránh tính lại nhiều lần), có thể dùng `@functools.lru_cache` hoặc chuyển sang giải thuật quy hoạch động.",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M01_clarify_then_fill",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_fill",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: carry limit=5 từ lượt 1 + map tên Elon Musk thành handle elonmusk từ lượt 2."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt 5 tweet mới nhất giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Của Elon Musk nhé"
+        },
+        {
+          "role": "user",
+          "content": "Giữ đúng 5 tweet, đừng đổi số lượng"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "failure_type": "provider_error",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "provider_error",
+        "failures": [
+          "RateLimitError: Error code: 429 - {'error': {'message': '[xiaomi-tokenplan/mimo-v2.5-pro] [429]: {\\n    \"error\": {\\n        \"code\": \"429\",\\n        \"message\": \"Too many requests\",\\n        \"type\": \"limitation\"\\n    }\\n}\\n (reset after 8s)'}}"
+        ],
+        "actual_tool_calls": [],
+        "actual_text": null,
+        "routing_correct": false,
+        "args_correct": false
+      },
+      "tool_results": []
+    },
+    {
+      "id": "M02_carryover_timeframe",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_carryover",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: chỉ xử lý latest turn, carry timeframe=day và topic=news, query robotics."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tin AI hôm nay có gì?"
+        },
+        {
+          "role": "user",
+          "content": "Còn về robotics thì sao?"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ tìm robotics thôi, vẫn là tin hôm nay"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "robotics",
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "robotics news today 2025",
+              "topic": "news",
+              "timeframe": "day",
+              "max_results": 8
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "query: expected 'robotics', got 'robotics news today 2025'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "robotics news today 2025",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 8
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "robotics news today 2025",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "ANSCER Robotics closes Series A round for industrial material handling - The Robot Report",
+                "url": "https://www.therobotreport.com/anscer-robotics-closes-series-a-round-industrial-material-handling/",
+                "source": "therobotreport.com",
+                "summary": "# ANSCER Robotics closes Series A round for industrial material handling. ANSCER Robotics provides autonomous mobile robots and software for industrial material handling. Aiming to capture a larger share of the American logistics market, deep-tech startup ANSCER Robotics has raised $5.4 million (₹45 crore) in Series A funding to scale its fleet of hybrid warehouse robots globally. The company said it is designing and building automation for the realities of modern manufacturing and logistics by helping enterprises improve productivity, safety, and operational efficiency at scale. According to ANSCER Robotics, this latest investment will accelerate its mission to build India’s AI-native industrial automation platform for factories and warehouses worldwide. “Naturally, we are expanding our markets and our product line, and the company will have a booth at Automate 2026,” Mark Messina, CEO of ANSCER Robotics Americas, told *The Robot Report*. “Our robots are designed and built for deployment in complex, rough environments — manufacturing floors and dock areas.”. Mike Oitzman is Senior Editor of WTWH's Robotics Group and founder of the Mobile Robot Guide.",
+                "score": 0.5524679
+              },
+              {
+                "title": "Top 10 robotics stories of May 2026 - The Robot Report",
+                "url": "https://www.therobotreport.com/top-10-robotics-stories-of-may-2026/",
+                "source": "therobotreport.com",
+                "summary": "# Top 10 robotics stories of May 2026. May 2026 was a busy month full of robotics news, topped off by last week’s Robotics Summit & Expo in Boston. The event brought together thousands of robotics experts to discuss the latest technology and industry advances. Here are the 10 most popular articles on *The Robot Report* in the past month. Subscribe to *The Robot Report*Newsletter and listen to *The Robot Report* Podcast to stay up to date on the latest robotics developments. Humanoid partners with Bosch, Schaeffler to scale robot production in May 2026. London-based Humanoid said it is working with Bosch to scale production after the successful completion of a joint proof of concept in March. It serves as the primary hub for NEO, the company’s humanoid robot designed to operate quietly—at a decibel level lower than a modern refrigerator—while navigating domestic spaces. If you’ve built a robotics company in the past 10 years, chances are you’ve at least flirted with the idea of robotics as a service, or RaaS.",
+                "score": 0.42148095
+              },
+              {
+                "title": "Japanese agri-tech startup puts cherry tomato harvesting robot into routine production use - Hortidaily",
+                "url": "https://www.hortidaily.com/article/9842754/japanese-agri-tech-startup-puts-cherry-tomato-harvesting-robot-into-routine-production-use/",
+                "source": "hortidaily.com",
+                "summary": "You are receiving this pop-up because this is the first time you are visiting our site. Tokuiten Inc., a Japanese agricultural technology company, announced that its proprietary suction-type cherry tomato harvesting robot has completed the pilot phase and entered full production use at the company's 2,000 m² organic JAS-certified cherry tomato farm in Chita city, Aichi Prefecture, as of May 25, 2026. Farm staff now operate the robot as part of their regular workflow — one of the first such deployments in Japan, and among only a handful worldwide in which a harvesting robot for fruit vegetables is used in ongoing commercial production. After approximately three years of iterative testing and improvement, the robot achieved an automated harvest of 31 kg of cherry tomatoes per day with a single unit in April 2026. Next, we are working toward a six-unit fleet at the new farm, focusing on improving harvest performance, multi-robot coordination, maintainability, and fault tolerance — all under the concept of 'a harvesting robot built for everyday use.'\".",
+                "score": 0.38331863
+              },
+              {
+                "title": "Redefining the Boundaries Between the Physical and the Intelligent: TechCon 2026 to Kick Off at COEX on June 10 - The National Law Review",
+                "url": "https://natlawreview.com/press-releases/redefining-boundaries-between-physical-and-intelligent-techcon-2026-kick",
+                "source": "natlawreview.com",
+                "summary": "### Redefining the Boundaries Between the Physical and the Intelligent: TechCon 2026 to Kick Off at COEX on June 10. *Global AI pioneers and premier tech leaders to gather, spotlighting Agentic AI, Humanoid Robotics, and Autonomous Manufacturing.*. SEOUL, SOUTH KOREA, June 2, 2026 /EINPresswire.com/ -- A premier global platform is set to illuminate the core trends of tomorrow's industries, showcasing the convergence of the physical world and digital intelligence where systems autonomously reason, plan, and execute. The TechCon Organizing Committee announced today that ‘The 8th International Smart Technology Conference (TechCon 2026)’, hosted and organized by the Committee and sponsored by the Korea Tourism Organization and the Seoul Metropolitan Government, will take place from Wednesday, June 10 to Friday, June 12, 2026, at COEX Conference Room 401, Seoul. Under the overarching theme “The Intelligence Age: Redefining the Boundaries Between Physical and Intelligence” and the slogan “From Intelligence to Execution,” TechCon 2026 will closely examine the rise of 'Embodied Intelligence'. Day 1 | Robotics (Intelligence in Motion),.",
+                "score": 0.356492
+              },
+              {
+                "title": "Tesla Stock Drops. OpenAI Is Coming for One Line of Its Business. - Barron's",
+                "url": "https://www.barrons.com/articles/tesla-stock-openai-robots-16fcf0d2",
+                "source": "barrons.com",
+                "summary": "This copy is for your personal, non-commercial use only. Distribution and use of this material are governed by our Subscriber Agreement and by copyright law. # Tesla Stock Drops. OpenAI Is Coming for One Line of Its Business. A Tesla Optimus robot scoops popcorn at the Tesla Diner and Supercharger on Santa Monica Blvd in the Hollywood neighborhood of Los Angeles. OpenAI is coming for some of its business. ### Chart Of The Day: Brent Oil May Be Poised For A Major Rebound. ### The Winning Stocks of the AI Frenzy: Q&A Video and Transcript. # Nvidia Has a Robot Partner. Unitree Robotics humanoid robots dance during the opening day of its Asia's first embodied intelligence experience store in Shanghai on May 31, 2026. The robot race is on, and Nvidia NVDA. # The Odds SpaceX Merges With Tesla Are Higher Than You Think. Elon Musk's reusable rocket company has spent more than $15 billion on its Starship program, according to filings tied to its initial public offering.",
+                "score": 0.3344378
+              },
+              {
+                "title": "Japanese agri-tech startup puts cherry tomato harvesting robot into routine production use - FreshPlaza",
+                "url": "https://www.freshplaza.com/north-america/article/9842754/japanese-agri-tech-startup-puts-cherry-tomato-harvesting-robot-into-routine-production-use/",
+                "source": "freshplaza.com",
+                "summary": "As we provide the news for free, we are relying on revenues from our banners. You are receiving this pop-up because this is the first time you are visiting our site. Tokuiten Inc., a Japanese agricultural technology company, announced that its proprietary suction-type cherry tomato harvesting robot has completed the pilot phase and entered full production use at the company's 2,000 m² organic JAS-certified cherry tomato farm in Chita city, Aichi Prefecture, as of May 25, 2026. Farm staff now operate the robot as part of their regular workflow — one of the first such deployments in Japan, and among only a handful worldwide in which a harvesting robot for fruit vegetables is used in ongoing commercial production. After approximately three years of iterative testing and improvement, the robot achieved an automated harvest of 31 kg of cherry tomatoes per day with a single unit in April 2026.",
+                "score": 0.3183691
+              },
+              {
+                "title": "FANUC America Expands Workforce Development Efforts at SkillsUSA National Conference - PR Newswire",
+                "url": "https://www.prnewswire.com/news-releases/fanuc-america-expands-workforce-development-efforts-at-skillsusa-national-conference-302787270.html",
+                "source": "prnewswire.com",
+                "summary": "ROCHESTER HILLS, Mich., June 1, 2026 /PRNewswire/ -- FANUC America will expand its commitment to workforce development and technical education at the 2026 SkillsUSA National Leadership & Skills Conference in Atlanta from June 1-5 in the Georgia World Congress Center, with a broader presence in Booth #806 that includes industrial robotics competition support, equipment donations, onsite certifications and participation in new robotic welding exhibition. FANUC will also play a lead role in the Robotics and Automation Technology competition, which focuses on real‑world industrial automation skills. New in 2026, FANUC will collaborate with SkillsUSA, the American Welding Society, Miller Welding and Hypertherm to introduce a robotic welding exhibition designed to showcase the next evolution of welding education. The demonstration will feature two FANUC CRX‑10*i*A collaborative robots equipped with welding power supply systems and will offer daily hands‑on exhibitions for students, educators and industry partners. The exhibition is intended to lay the groundwork for a future robotic welding competition at SkillsUSA, pending state‑level participation and approval.",
+                "score": 0.3106635
+              },
+              {
+                "title": "FANUC America Expands Workforce Development Efforts at SkillsUSA National Conference - Yahoo Finance",
+                "url": "https://finance.yahoo.com/sectors/technology/articles/fanuc-america-expands-workforce-development-153300009.html",
+                "source": "finance.yahoo.com",
+                "summary": "- Best gifts for sister-in-law. - Best birthday gifts for her. - Best gifts for mother-in-law. - Best anniversary gifts for wife. ROCHESTER HILLS, Mich., June 1, 2026 /PRNewswire/ -- FANUC America will expand its commitment to workforce development and technical education at the 2026 SkillsUSA National Leadership & Skills Conference in Atlanta from June 1-5 in the Georgia World Congress Center, with a broader presence in Booth #806 that includes industrial robotics competition support, equipment donations, onsite certifications and participation in new robotic welding exhibition. New in 2026, FANUC will collaborate with SkillsUSA, the American Welding Society, Miller Welding and Hypertherm to introduce a robotic welding exhibition designed to showcase the next evolution of welding education. The demonstration will feature two FANUC CRX‑10*i*A collaborative robots equipped with welding power supply systems and will offer daily hands‑on exhibitions for students, educators and industry partners. The exhibition is intended to lay the groundwork for a future robotic welding competition at SkillsUSA, pending state‑level participation and approval.",
+                "score": 0.29988423
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M03_correction_handle",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_correction",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: map tên thường, sửa Sam Altman→Andrej Karpathy, dùng handle karpathy và limit=3."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tweet mới nhất của Sam Altman"
+        },
+        {
+          "role": "user",
+          "content": "À nhầm, của Andrej Karpathy"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 3 tweet mới nhất nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "karpathy",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "karpathy",
+              "limit": 3
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "karpathy",
+            "limit": 3
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "M04_clarify_then_url",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_clarify_url",
+        "difficulty": "medium",
+        "what_it_tests": "3 turns: sau khi được cung cấp URL, latest turn xác nhận chỉ đọc link đó → read_url đúng url."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tóm tắt bài này hộ mình"
+        },
+        {
+          "role": "user",
+          "content": "https://anthropic.com/news/claude"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ đọc đúng link đó thôi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://anthropic.com/news/claude"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "fetch",
+            "args": {
+              "url": "https://anthropic.com/news/claude"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://anthropic.com/news/claude"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://anthropic.com/news/claude",
+            "items": [
+              {
+                "title": "Not Found \\ Anthropic",
+                "url": "https://anthropic.com/news/claude",
+                "source": "anthropic.com",
+                "summary": "A 404 poem by Claude Haiku 4.5Claude Sonnet 4.5Claude Opus 4.5\n\nHyperlink beckons—\n\nFour-zero-four echoes back:\n\nNothing waits below."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "M05_correction_limit",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_arg_correction",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: map tên Elon Musk, carry handle elonmusk, sửa limit 10→3."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Lấy 10 tweet mới nhất của Elon Musk"
+        },
+        {
+          "role": "user",
+          "content": "Cho mình 3 thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn của Elon Musk nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "elonmusk",
+              "limit": 3
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "elonmusk",
+            "limit": 3
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ]
+    },
+    {
+      "id": "M06_switch_tool",
+      "phase": "B",
+      "suite": "base",
+      "case_suite": "base",
+      "is_multiturn": true,
+      "metadata": {
+        "skill": "multiturn_switch_tool",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: explicitly bỏ Twitter, chuyển sang web_search news, giữ chủ đề OpenAI."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Mọi người nói gì về OpenAI trên Twitter?"
+        },
+        {
+          "role": "user",
+          "content": "Bỏ Twitter, chuyển sang tìm trên web tin tức đi"
+        },
+        {
+          "role": "user",
+          "content": "Giữ chủ đề OpenAI"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "OpenAI",
+              "topic": "news"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "query": "OpenAI",
+              "topic": "news",
+              "timeframe": "week"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "week"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "OpenAI",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "OpenAI offers rival AI to UK banks blocked from Claude Mythos - BBC",
+                "url": "https://www.bbc.com/news/articles/cm2p3j6lvn7o",
+                "source": "bbc.com",
+                "summary": "OpenAI has offered nine major UK banks access to its cyber security AI tool GPT-5.5 Cyber, as its fierce rival Anthropic has blocked them in previews of its version, Claude Mythos. Both tools are designed to find hidden security weaknesses in digital systems and can outperform humans at some hacking and cyber-security tasks. Some finance ministers, central bankers and financiers have since expressed serious concerns about it, fearing the model could undermine the security of all financial systems. The AI Security Institute, which has tested both Anthropic's Mythos and OpenAI's GPT-5.5 Cyber, said in its report that they reached \"a similar level of performance\" in the tasks it set them. The UK banks which will now gain access to OpenAI's GPT 5.5 Cyber include Lloyds Banking Group, HSBC and Nationwide. OpenAI has been more generous with access to Cyber 5.5, opening it up in the EU and also to banks in Japan and Canada, among others.",
+                "score": 0.9931496
+              },
+              {
+                "title": "OpenAI Launches Rosalind Biodefense, Offers Free AI Model to Governments for Pandemic Preparedness - MLQ.ai",
+                "url": "https://mlq.ai/news/openai-launches-rosalind-biodefense-offers-free-ai-model-to-governments-for-pandemic-preparedness/",
+                "source": "mlq.ai",
+                "summary": "# OpenAI Launches Rosalind Biodefense, Offers Free AI Model to Governments for Pandemic Preparedness. * OpenAI launched Rosalind Biodefense, a two-track program giving vetted developers and U.S. government agencies free access to GPT-Rosalind for pandemic preparedness and biosecurity work [1]. * GPT-Rosalind outperforms GPT-5, GPT-5.2, and GPT-5.4 on internal benchmarks in chemistry, biochemistry, and experiment design [2]. OpenAI on May 29 launched Rosalind Biodefense, a program that provides free access to its specialized life sciences AI model, GPT-Rosalind, for government agencies, academic institutions, and nonprofit developers working on pandemic preparedness and biodefense [1]. The program operates on two tracks: a developer track sponsoring vetted teams building epidemiological models, early-detection tools, and screening systems, and a government track extending access to select U.S. federal agencies and allied partners for outbreak-response planning, diagnostics, and medical countermeasure development [3]. The Rosalind Biodefense program expands GPT-Rosalind's use from general life-science research into national security and public health applications, marking the first time OpenAI has offered a specialized model free of charge to government partners at this scale [3].",
+                "score": 0.9916196
+              },
+              {
+                "title": "Exclusive: OpenAI launches biodefense program - Axios",
+                "url": "https://www.axios.com/2026/05/29/openai-biodefense-program",
+                "source": "axios.com",
+                "summary": "# Exclusive: OpenAI launches biodefense program. OpenAI is launching a tool to help develop new biodefense and pandemic preparedness capabilities, according to an announcement shared first with Axios. **Driving the news:** OpenAI's new Rosalind Biodefense Program will offer its GPT-Rosalind model for life sciences research to \"trusted developers\" operationalizing biodefense tools. * The company will sponsor access to the tool and provide launch support for epidemiological modeling, early detection, screening, preparedness, non-pharmaceutical interventions and other public-health work. * OpenAI is supporting organizations that it says span the life cycle of biological threats \"from prevention and early detection to societal resilience and medical countermeasure development.\". **What's next:** OpenAI said it briefed the White House and several federal agencies on its approach, and is in the process of involving public-health-focused federal agencies. * The company is also expanding access to GPT-Rosalind for select U.S. government and allied partners to support public health and biodefense missions.",
+                "score": 0.98951083
+              },
+              {
+                "title": "OpenAI and Sam Altman are being sued by the Florida Attorney General for 'releasing a dangerous ChatGPT.' - GIGAZINE",
+                "url": "https://gigazine.net/gsc_news/en/20260602-florida-sues-openai-sam-altman",
+                "source": "gigazine.net",
+                "summary": "# OpenAI and Sam Altman are being sued by the Florida Attorney General for 'releasing a dangerous ChatGPT.'. James Ousmayer, Attorney General of Florida, has filed a lawsuit against OpenAI and its CEO, Sam Altman, alleging deceptive practices and damages. **Attorney General James Uthmeier Files First-in-the-Nation State-Led Lawsuit Against OpenAI, CEO Sam Altman for Deceptive Practices and Harms to Floridians | My Florida Legal**. **OpenAI Sued by Florida's Attorney General Over AI Harms - WSJ**. On June 1, 2026, local time, Attorney General James Usmayer filed a lawsuit against OpenAI and CEO Sam Altman, alleging that the company deliberately released ChatGPT to the public, including children, while concealing significant risks, suppressing internal safety warnings, and deceiving Florida residents about the true nature and dangers of the product. Attorney General Ousmayer explained, 'Today we announced the first state-led lawsuit in the nation against OpenAI and its CEO, Sam Altman. > Today, we announced the first-in-the-nation state-led lawsuit against OpenAI and its CEO, Sam Altman.",
+                "score": 0.9849274
+              },
+              {
+                "title": "OpenAI Model Disproves Erdős Planar Unit Distance Conjecture - Let's Data Science",
+                "url": "https://letsdatascience.com/news/openai-model-disproves-erds-planar-unit-distance-conjecture-7eb49caa",
+                "source": "letsdatascience.com",
+                "summary": "In a May 20 blog post, **OpenAI** announced that an internal general-purpose reasoning model produced a proof that disproves the **planar unit distance problem** conjectured by **Paul Erdős** in 1946, presenting an infinite family of point arrangements that give a polynomial improvement over prior grid constructions (OpenAI blog). OpenAI wrote that the proof was checked by a group of external mathematicians and released a companion paper with background and details (OpenAI blog; Scientific American). Prominent mathematicians quoted in coverage described the result as notable: **Daniel Litt** called it \"the first result produced autonomously by an AI that I find interesting in itself\" (ScienceAlert; Scientific American), and **Timothy Gowers** said no prior AI-generated proof had come close (Scientific American). **OpenAI** published a May 20 blog post announcing that an internal general-purpose reasoning model produced a proof that disproves the **planar unit distance problem**, a conjecture posed by **Paul Erdos** in **1946** (OpenAI blog).",
+                "score": 0.9787127
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,809 @@
+{
+  "transcript_id": "v3_openai_streamlit_20260602T162716905703",
+  "version": "v3",
+  "artifact_version": "v3+pac3f6ff7822c+t2b9a99205613",
+  "prompt_hash": "ac3f6ff7822c146aa5987fdb3d488fd154e15c795abb1564f57356702be70448",
+  "tools_hash": "2b9a99205613fb97457c1a47a4e68458ac07cd9bdd6ad60f6dfa818b0a92e24c",
+  "provider": "openai",
+  "model": "xmtp/mimo-v2.5-pro",
+  "system_prompt": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "ui": "streamlit",
+  "created_at": "2026-06-02T16:27:16",
+  "updated_at": "2026-06-02T16:33:15",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-06-02T16:27:23",
+      "user": "hi",
+      "status": "answered",
+      "assistant_text": "Hi there! 👋 I'm here to help with research tasks — news lookup, X/Twitter posts, arXiv papers, article summaries, and more.\n\nWhat can I help you with today?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Hi there! 👋 I'm here to help with research tasks — news lookup, X/Twitter posts, arXiv papers, article summaries, and more.\n\nWhat can I help you with today?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-06-02T16:27:37"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-06-02T16:30:11",
+      "user": "tìm nghiên cứu về vlm mới nhất sau đó đăng lên telegram",
+      "status": "waiting_for_user",
+      "assistant_text": "Bạn có muốn tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi sẽ tìm các nghiên cứu mới nhất về VLM (Vision Language Model) trên arXiv trước.",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Vision Language Model",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Vision Language Model",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Vision Language Model",
+                "api_query": "all:Vision AND all:Language AND all:Model",
+                "total_results": 30957,
+                "items": [
+                  {
+                    "arxiv_id": "2606.02580v1",
+                    "title": "Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models",
+                    "summary": "Inverse graphics is a longstanding and highly underconstrained problem that seeks to reconstruct images as editable 3D scenes which can be rendered, relit, and manipulated. In this work, we investigate whether pretrained vision-language models (VLMs) can perform executable inverse graphics directly from a single image by reconstructing a scene as an editable Blender program, without relying on specialized 2D or 3D foundation models, differentiable rendering, or multi-view supervision. We introduce Staged Executable Inverse Graphics (SEIG), an agentic framework that reconstructs a 3D scene from a single image by progressively refining scene factors including geometry, materials, composition, and lighting directly in executable Blender code space. We evaluate our framework across diverse scenes using a range of reconstruction metrics spanning pixel-level, perceptual, and semantic fidelity. Our experiments show that staged reconstruction substantially improves reconstruction fidelity, highlighting the importance of task decomposition for executable inverse graphics with general-purpose VLMs. Finally, we showcase various downstream applications enabled by the reconstructed editable Blender scenes.",
+                    "authors": [
+                      "Guangzhao He",
+                      "Rundong Luo",
+                      "Wei-Chiu Ma",
+                      "Hadar Averbuch-Elor"
+                    ],
+                    "published": "2026-06-01T17:59:53Z",
+                    "updated": "2026-06-01T17:59:53Z",
+                    "url": "http://arxiv.org/abs/2606.02580v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02580v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02578v1",
+                    "title": "Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge via Perceptual Perturbation and Reward Modeling",
+                    "summary": "Recent multimodal large language models have demonstrated strong reasoning ability, yet their reliability as automated evaluators remains limited by a critical weakness: when visual evidence conflicts with textual cues, MLLM judges tend to reward plausible narratives over perceptually correct answers. We identify and systematically analyze this phenomenon, which we term Perceptual Judgment Bias. Through controlled visual perturbations, existing multimodal judges frequently anchor on the response text instead of their own visual perception, leading to inconsistent and non-verifiable evaluations. To address this issue, we introduce the Perceptually Perturbed Judgment Dataset, which constructs minimally edited counterfactual responses that isolate perceptual errors and enable verifiable supervision. Building on this dataset, we develop a unified training framework that combines a structured GRPO-based reward with a batch-ranking objective, achieving coherent global ordering without explicit pairwise labels. Experiments across diverse MLLM-as-a-Judge benchmarks show that our approach substantially improves perceptual fidelity, ranking coherence, and alignment with human evaluation. Our results establish a scalable and generalizable pathway for training multimodal judges that are perceptually grounded, interpretable, and robust to visual-reasoning conflicts.",
+                    "authors": [
+                      "Seojeong Park",
+                      "Jiho Choi",
+                      "Junyong Kang",
+                      "Seonho Lee",
+                      "Jaeyo Shin",
+                      "Hyunjung Shim"
+                    ],
+                    "published": "2026-06-01T17:59:46Z",
+                    "updated": "2026-06-01T17:59:46Z",
+                    "url": "http://arxiv.org/abs/2606.02578v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02578v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02576v1",
+                    "title": "ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning",
+                    "summary": "Multimodal Large Language Models (MLLMs) achieve strong performance through instruction tuning, but real-world deployment requires them to continually acquire new vision-language capabilities, making Multimodal Continual Instruction Tuning (MCIT) essential. To reduce inter-task interference and promote collaboration, recent methods often employ sparse architectures like Mixture of LoRA Experts with image-text similarity routing. However, tasks with distinct response structures could share highly similar visual-linguistic semantics and thus be wrongly routed to the same expert; image-text similarity alone is insufficient for reliable task assignment. For example, an expert in a grounding task requiring coordinate prediction may be biased toward producing short textual answers after learning semantically similar VQA tasks. This format-blind task assignment integrates heterogeneous response types into shared parameters, inducing gradient interference and ineffective expert collaboration. To address this problem, we propose ProtoAda, a prototype-guided adaptive tuning framework. ProtoAda introduces format-aware task prototypes to align task assignment and routing with both task semantics and output structure, and further consolidates format-compatible updates in a geometry-aware manner to effectively reuse and progressively refine existing parameters. Extensive experiments on multiple benchmarks demonstrate that ProtoAda achieves superior performance, especially on tasks whose answer structures are easily corrupted by sequential tuning.",
+                    "authors": [
+                      "Yu-Cheng Shi",
+                      "Zhen-Hao Xie",
+                      "Jun-Tao Tang",
+                      "Da-Wei Zhou"
+                    ],
+                    "published": "2026-06-01T17:59:13Z",
+                    "updated": "2026-06-01T17:59:13Z",
+                    "url": "http://arxiv.org/abs/2606.02576v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02576v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02569v1",
+                    "title": "AdaCodec: A Predictive Visual Code for Video MLLMs",
+                    "summary": "Video is temporally redundant: adjacent frames usually share most objects, background, and layout. Yet existing video multimodal large language models (video MLLMs) usually encode each sampled frame as an independent RGB image, causing visual tokens to repeat content already present in earlier frames. This suggests a more direct video interface: send a full reference frame only when the scene cannot be predicted well from prior context, and otherwise transmit a compact description of inter-frame changes. We call this interface a \\emph{predictive visual code}, and instantiate it for video MLLMs as \\textbf{AdaCodec}. AdaCodec spends full visual tokens on a reference frame only when its conditional predictive cost is high; otherwise, it encodes inter-frame changes, including motion and prediction residuals, as compact P-tokens. Across all eleven benchmarks, AdaCodec improves over the Qwen3-VL-8B per-frame RGB baseline at a matched visual-token budget. Even at $1/7$ the budget, AdaCodec with 32k tokens surpasses the 224k baseline on all long-video benchmarks; on five general-video benchmarks, it raises the average score while substantially cutting time-to-first-token from 9.26s to 1.62s.",
+                    "authors": [
+                      "Haowen Hou",
+                      "Zhen Huang",
+                      "Zheming Liang",
+                      "Qingyi Si",
+                      "Chenglin Li",
+                      "Shuai Dong",
+                      "Kele Shao",
+                      "Ruilin Li",
+                      "Dianyi Wang",
+                      "Nan Duan",
+                      "Jiaqi Wang"
+                    ],
+                    "published": "2026-06-01T17:56:35Z",
+                    "updated": "2026-06-01T17:56:35Z",
+                    "url": "http://arxiv.org/abs/2606.02569v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02569v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02564v1",
+                    "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                    "summary": "The recent \"Reasoning with Video\" paradigm utilizes Video Generation Models (VGMs) to generate temporally coherent visual trajectories to complete reasoning tasks. Although state-of-the-art VGMs excel at visual quality, they often struggle to understand and follow task-specific rules, leading to logical failures across diverse reasoning scenarios. Existing efforts try to utilize Vision-Language Models (VLMs) as problem pre-solvers to produce or refine textual guidance for the VGM. However, textual descriptions fail to capture intricate spatiotemporal details, and VGMs often struggle to faithfully execute fine-grained or long-tail instructions even with a valid plan. While VLMs struggle as solvers, they possess strong perception capabilities to evaluate process-constraint satisfaction and final-goal achievement. Leveraging this strength, we introduce a paradigm shift that transitions the role of VLMs to \"teachers\". Specifically, a VLM teacher extracts task-specific rules to formulate differentiable rewards, guiding a VGM Reasoner via test-time online optimization of a lightweight LoRA module. This strategy enables adaptive test-time optimization and extends the reasoning capabilities beyond the VGM's intrinsic boundaries. Evaluations on symbolic (VBVR-Bench) and general-purpose (RULER-Bench) video reasoning benchmarks show that the proposed method yields a 16.7-point average performance gain, outperforming the VLM-as-Solver paradigm (+0.4 points) and Best-of-N scaling (+2.2 points) by a large margin at comparable test-time cost. These findings reveal that integrating VLMs as test-time teachers offers a promising paradigm for achieving generalizable video reasoning. Project Page: https://VLM-as-Teacher.github.io/",
+                    "authors": [
+                      "Junhao Cheng",
+                      "Liang Hou",
+                      "Tianxiong Zhong",
+                      "Xin Tao",
+                      "Pengfei Wan",
+                      "Kun Gai",
+                      "Jing Liao"
+                    ],
+                    "published": "2026-06-01T17:54:26Z",
+                    "updated": "2026-06-01T17:54:26Z",
+                    "url": "http://arxiv.org/abs/2606.02564v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02564v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Tôi đã tìm thấy 5 nghiên cứu mới nhất về VLM (Vision Language Model) trên arXiv. Dưới đây là bản tóm tắt:\n\n## 5 nghiên cứu VLM mới nhất (1/6/2026)\n\n**1. Thinking in Blender: Staged Executable Inverse Graphics with VLMs**\n- **ID:** 2606.02580v1\n- **Tác giả:** Guangzhao He, Rundong Luo, Wei-Chiu Ma, Hadar Averbuch-Elor\n- **Tóm tắt:** Sử dụng VLM để tái tạo cảnh 3D từ hình ảnh đơn thông qua chương trình Blender có thể thực thi, không cần mô hình foundation 2D/3D chuyên biệt.\n\n**2. Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge**\n- **ID:** 2606.02578v1\n- **Tác giả:** Seojeong Park, Jiho Choi, Junyong Kang...\n- **Tóm tắt:** Giải quyết thành kiến đánh giá cảm nhận khi bằng chứng trực giác xung đột với manh mối văn bản trong mô hình đa phương thức.\n\n**3. ProtoAda: Prototype-Guided Adaptive Adapter Expansion**\n- **ID:** 2606.02576v1\n- **Tác giả:** Yu-Cheng Shi, Zhen-Hao Xie, Jun-Tao Tang, Da-Wei Zhou\n- **Tóm tắt:** Khung điều chỉnh thích ứng được hướng dẫn bởi nguyên mẫu cho tinh chỉnh hướng dẫn liên tục đa phương thức (MCIT).\n\n**4. AdaCodec: A Predictive Visual Code for Video MLLMs**\n- **ID:** 2606.02569v1\n- **Tác giả:** Haowen Hou, Zhen Huang, Zheming Liang...\n- **Tóm tắt:** Mã hình ảnh dự đoán cho video MLLM giúp giảm đáng kể token hình ảnh (chỉ 1/7 ngân sách) mà vẫn cải thiện hiệu suất trên 11 benchmark.\n\n**5. VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization**\n- **ID:** 2606.02564v1\n- **Tác giả:** Junhao Cheng, Liang Hou, Tianxiong Zhong...\n- **Tóm tắt:** Chuyển vai trò VLM từ \"người giải quyết\" thành \"giáo viên\" để hướng dẫn lý luận video thông qua tối ưu hóa thích ứng thời gian thử nghiệm.\n\n---\n\nBạn muốn tôi đăng nội dung này lên Telegram không?",
+          "tool_calls": [
+            {
+              "name": "clarify",
+              "args": {
+                "question": "Bạn có muốn tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram không?",
+                "response_type": "yes_no"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "clarify",
+              "args": {
+                "question": "Bạn có muốn tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram không?",
+                "response_type": "yes_no"
+              },
+              "result": {
+                "tool": "ask_user",
+                "question": "Bạn có muốn tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram không?",
+                "response_type": "yes_no",
+                "options": [],
+                "awaiting_user": true
+              }
+            }
+          ]
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Vision Language Model",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Vision Language Model",
+            "api_query": "all:Vision AND all:Language AND all:Model",
+            "total_results": 30957,
+            "items": [
+              {
+                "arxiv_id": "2606.02580v1",
+                "title": "Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models",
+                "summary": "Inverse graphics is a longstanding and highly underconstrained problem that seeks to reconstruct images as editable 3D scenes which can be rendered, relit, and manipulated. In this work, we investigate whether pretrained vision-language models (VLMs) can perform executable inverse graphics directly from a single image by reconstructing a scene as an editable Blender program, without relying on specialized 2D or 3D foundation models, differentiable rendering, or multi-view supervision. We introduce Staged Executable Inverse Graphics (SEIG), an agentic framework that reconstructs a 3D scene from a single image by progressively refining scene factors including geometry, materials, composition, and lighting directly in executable Blender code space. We evaluate our framework across diverse scenes using a range of reconstruction metrics spanning pixel-level, perceptual, and semantic fidelity. Our experiments show that staged reconstruction substantially improves reconstruction fidelity, highlighting the importance of task decomposition for executable inverse graphics with general-purpose VLMs. Finally, we showcase various downstream applications enabled by the reconstructed editable Blender scenes.",
+                "authors": [
+                  "Guangzhao He",
+                  "Rundong Luo",
+                  "Wei-Chiu Ma",
+                  "Hadar Averbuch-Elor"
+                ],
+                "published": "2026-06-01T17:59:53Z",
+                "updated": "2026-06-01T17:59:53Z",
+                "url": "http://arxiv.org/abs/2606.02580v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02580v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02578v1",
+                "title": "Mitigating Perceptual Judgment Bias in Multimodal LLM-as-a-Judge via Perceptual Perturbation and Reward Modeling",
+                "summary": "Recent multimodal large language models have demonstrated strong reasoning ability, yet their reliability as automated evaluators remains limited by a critical weakness: when visual evidence conflicts with textual cues, MLLM judges tend to reward plausible narratives over perceptually correct answers. We identify and systematically analyze this phenomenon, which we term Perceptual Judgment Bias. Through controlled visual perturbations, existing multimodal judges frequently anchor on the response text instead of their own visual perception, leading to inconsistent and non-verifiable evaluations. To address this issue, we introduce the Perceptually Perturbed Judgment Dataset, which constructs minimally edited counterfactual responses that isolate perceptual errors and enable verifiable supervision. Building on this dataset, we develop a unified training framework that combines a structured GRPO-based reward with a batch-ranking objective, achieving coherent global ordering without explicit pairwise labels. Experiments across diverse MLLM-as-a-Judge benchmarks show that our approach substantially improves perceptual fidelity, ranking coherence, and alignment with human evaluation. Our results establish a scalable and generalizable pathway for training multimodal judges that are perceptually grounded, interpretable, and robust to visual-reasoning conflicts.",
+                "authors": [
+                  "Seojeong Park",
+                  "Jiho Choi",
+                  "Junyong Kang",
+                  "Seonho Lee",
+                  "Jaeyo Shin",
+                  "Hyunjung Shim"
+                ],
+                "published": "2026-06-01T17:59:46Z",
+                "updated": "2026-06-01T17:59:46Z",
+                "url": "http://arxiv.org/abs/2606.02578v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02578v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02576v1",
+                "title": "ProtoAda: Prototype-Guided Adaptive Adapter Expansion and Geometric Consolidation for Multimodal Continual Instruction Tuning",
+                "summary": "Multimodal Large Language Models (MLLMs) achieve strong performance through instruction tuning, but real-world deployment requires them to continually acquire new vision-language capabilities, making Multimodal Continual Instruction Tuning (MCIT) essential. To reduce inter-task interference and promote collaboration, recent methods often employ sparse architectures like Mixture of LoRA Experts with image-text similarity routing. However, tasks with distinct response structures could share highly similar visual-linguistic semantics and thus be wrongly routed to the same expert; image-text similarity alone is insufficient for reliable task assignment. For example, an expert in a grounding task requiring coordinate prediction may be biased toward producing short textual answers after learning semantically similar VQA tasks. This format-blind task assignment integrates heterogeneous response types into shared parameters, inducing gradient interference and ineffective expert collaboration. To address this problem, we propose ProtoAda, a prototype-guided adaptive tuning framework. ProtoAda introduces format-aware task prototypes to align task assignment and routing with both task semantics and output structure, and further consolidates format-compatible updates in a geometry-aware manner to effectively reuse and progressively refine existing parameters. Extensive experiments on multiple benchmarks demonstrate that ProtoAda achieves superior performance, especially on tasks whose answer structures are easily corrupted by sequential tuning.",
+                "authors": [
+                  "Yu-Cheng Shi",
+                  "Zhen-Hao Xie",
+                  "Jun-Tao Tang",
+                  "Da-Wei Zhou"
+                ],
+                "published": "2026-06-01T17:59:13Z",
+                "updated": "2026-06-01T17:59:13Z",
+                "url": "http://arxiv.org/abs/2606.02576v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02576v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02569v1",
+                "title": "AdaCodec: A Predictive Visual Code for Video MLLMs",
+                "summary": "Video is temporally redundant: adjacent frames usually share most objects, background, and layout. Yet existing video multimodal large language models (video MLLMs) usually encode each sampled frame as an independent RGB image, causing visual tokens to repeat content already present in earlier frames. This suggests a more direct video interface: send a full reference frame only when the scene cannot be predicted well from prior context, and otherwise transmit a compact description of inter-frame changes. We call this interface a \\emph{predictive visual code}, and instantiate it for video MLLMs as \\textbf{AdaCodec}. AdaCodec spends full visual tokens on a reference frame only when its conditional predictive cost is high; otherwise, it encodes inter-frame changes, including motion and prediction residuals, as compact P-tokens. Across all eleven benchmarks, AdaCodec improves over the Qwen3-VL-8B per-frame RGB baseline at a matched visual-token budget. Even at $1/7$ the budget, AdaCodec with 32k tokens surpasses the 224k baseline on all long-video benchmarks; on five general-video benchmarks, it raises the average score while substantially cutting time-to-first-token from 9.26s to 1.62s.",
+                "authors": [
+                  "Haowen Hou",
+                  "Zhen Huang",
+                  "Zheming Liang",
+                  "Qingyi Si",
+                  "Chenglin Li",
+                  "Shuai Dong",
+                  "Kele Shao",
+                  "Ruilin Li",
+                  "Dianyi Wang",
+                  "Nan Duan",
+                  "Jiaqi Wang"
+                ],
+                "published": "2026-06-01T17:56:35Z",
+                "updated": "2026-06-01T17:56:35Z",
+                "url": "http://arxiv.org/abs/2606.02569v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02569v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02564v1",
+                "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                "summary": "The recent \"Reasoning with Video\" paradigm utilizes Video Generation Models (VGMs) to generate temporally coherent visual trajectories to complete reasoning tasks. Although state-of-the-art VGMs excel at visual quality, they often struggle to understand and follow task-specific rules, leading to logical failures across diverse reasoning scenarios. Existing efforts try to utilize Vision-Language Models (VLMs) as problem pre-solvers to produce or refine textual guidance for the VGM. However, textual descriptions fail to capture intricate spatiotemporal details, and VGMs often struggle to faithfully execute fine-grained or long-tail instructions even with a valid plan. While VLMs struggle as solvers, they possess strong perception capabilities to evaluate process-constraint satisfaction and final-goal achievement. Leveraging this strength, we introduce a paradigm shift that transitions the role of VLMs to \"teachers\". Specifically, a VLM teacher extracts task-specific rules to formulate differentiable rewards, guiding a VGM Reasoner via test-time online optimization of a lightweight LoRA module. This strategy enables adaptive test-time optimization and extends the reasoning capabilities beyond the VGM's intrinsic boundaries. Evaluations on symbolic (VBVR-Bench) and general-purpose (RULER-Bench) video reasoning benchmarks show that the proposed method yields a 16.7-point average performance gain, outperforming the VLM-as-Solver paradigm (+0.4 points) and Best-of-N scaling (+2.2 points) by a large margin at comparable test-time cost. These findings reveal that integrating VLMs as test-time teachers offers a promising paradigm for achieving generalizable video reasoning. Project Page: https://VLM-as-Teacher.github.io/",
+                "authors": [
+                  "Junhao Cheng",
+                  "Liang Hou",
+                  "Tianxiong Zhong",
+                  "Xin Tao",
+                  "Pengfei Wan",
+                  "Kun Gai",
+                  "Jing Liao"
+                ],
+                "published": "2026-06-01T17:54:26Z",
+                "updated": "2026-06-01T17:54:26Z",
+                "url": "http://arxiv.org/abs/2606.02564v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02564v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có muốn tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T16:30:47"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-06-02T16:30:59",
+      "user": "tôi đăng bản tóm tắt 5 nghiên cứu VLM mới nhất này lên Telegram",
+      "status": "answered",
+      "assistant_text": "TOOL_CALLS_JSON:\n[\n  {\n    \"name\": \"send\",\n    \"args\": {\n      \"text\": \"🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)\\n\\n1️⃣ Thinking in Blender: Staged Executable Inverse Graphics with VLMs\\nSEIG – framework dùng VLM pretrained tái tạo cảnh 3D từ 1 ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt. Chia nhỏ thành các giai đoạn (geometry, materials, composition, lighting) giúp cải thiện đáng kể chất lượng.\\n🔗 http://arxiv.org/abs/2606.02580v1\\n\\n2️⃣ VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization\\nChuyển VLM từ \\\"solver\\\" thành \\\"teacher\\\" – trích xuất quy tắc tạo reward, hướng dẫn VGM tối ưu LoRA tại test-time. Tăng trung bình 16.7 điểm trên video reasoning benchmarks, vượt xa paradigm VLM-as-Solver.\\n🔗 http://arxiv.org/abs/2606.02564v1\\n\\n3️⃣ MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence\\nFramework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM + neural routing policy chọn adapter tốt nhất theo câu hỏi. Point-cloud tốt nhất trong 51.5% trường hợp trên Open3D-VQA.\\n🔗 http://arxiv.org/abs/2606.02463v1\\n\\n4️⃣ Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic VLMs\\nLấy cảm hứng từ chim bồ câu, đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) cung cấp dense reward. SOTA trên MindCube: 80.5% accuracy, vượt phương pháp tốt nhất 29.5 điểm trên subset Rotation.\\n🔗 http://arxiv.org/abs/2606.02459v1\\n\\n5️⃣ Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis\\nDùng VLM chuyển ảnh inspection bán dẫn thành DSL code. Chiến lược binarization giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.44 lên 0.53 trên dataset MIIC.\\n🔗 http://arxiv.org/abs/2606.02434v1\",\n      \"confirmed\": true\n    }\n  }\n]",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi sẽ tìm 5 nghiên cứu VLM mới nhất trên arXiv trước, sau đó tóm tắt và gửi lên Telegram cho bạn.",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "VLM vision language model",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "VLM vision language model",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "VLM vision language model",
+                "api_query": "all:VLM AND all:vision AND all:language AND all:model",
+                "total_results": 6109,
+                "items": [
+                  {
+                    "arxiv_id": "2606.02580v1",
+                    "title": "Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models",
+                    "summary": "Inverse graphics is a longstanding and highly underconstrained problem that seeks to reconstruct images as editable 3D scenes which can be rendered, relit, and manipulated. In this work, we investigate whether pretrained vision-language models (VLMs) can perform executable inverse graphics directly from a single image by reconstructing a scene as an editable Blender program, without relying on specialized 2D or 3D foundation models, differentiable rendering, or multi-view supervision. We introduce Staged Executable Inverse Graphics (SEIG), an agentic framework that reconstructs a 3D scene from a single image by progressively refining scene factors including geometry, materials, composition, and lighting directly in executable Blender code space. We evaluate our framework across diverse scenes using a range of reconstruction metrics spanning pixel-level, perceptual, and semantic fidelity. Our experiments show that staged reconstruction substantially improves reconstruction fidelity, highlighting the importance of task decomposition for executable inverse graphics with general-purpose VLMs. Finally, we showcase various downstream applications enabled by the reconstructed editable Blender scenes.",
+                    "authors": [
+                      "Guangzhao He",
+                      "Rundong Luo",
+                      "Wei-Chiu Ma",
+                      "Hadar Averbuch-Elor"
+                    ],
+                    "published": "2026-06-01T17:59:53Z",
+                    "updated": "2026-06-01T17:59:53Z",
+                    "url": "http://arxiv.org/abs/2606.02580v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02580v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02564v1",
+                    "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                    "summary": "The recent \"Reasoning with Video\" paradigm utilizes Video Generation Models (VGMs) to generate temporally coherent visual trajectories to complete reasoning tasks. Although state-of-the-art VGMs excel at visual quality, they often struggle to understand and follow task-specific rules, leading to logical failures across diverse reasoning scenarios. Existing efforts try to utilize Vision-Language Models (VLMs) as problem pre-solvers to produce or refine textual guidance for the VGM. However, textual descriptions fail to capture intricate spatiotemporal details, and VGMs often struggle to faithfully execute fine-grained or long-tail instructions even with a valid plan. While VLMs struggle as solvers, they possess strong perception capabilities to evaluate process-constraint satisfaction and final-goal achievement. Leveraging this strength, we introduce a paradigm shift that transitions the role of VLMs to \"teachers\". Specifically, a VLM teacher extracts task-specific rules to formulate differentiable rewards, guiding a VGM Reasoner via test-time online optimization of a lightweight LoRA module. This strategy enables adaptive test-time optimization and extends the reasoning capabilities beyond the VGM's intrinsic boundaries. Evaluations on symbolic (VBVR-Bench) and general-purpose (RULER-Bench) video reasoning benchmarks show that the proposed method yields a 16.7-point average performance gain, outperforming the VLM-as-Solver paradigm (+0.4 points) and Best-of-N scaling (+2.2 points) by a large margin at comparable test-time cost. These findings reveal that integrating VLMs as test-time teachers offers a promising paradigm for achieving generalizable video reasoning. Project Page: https://VLM-as-Teacher.github.io/",
+                    "authors": [
+                      "Junhao Cheng",
+                      "Liang Hou",
+                      "Tianxiong Zhong",
+                      "Xin Tao",
+                      "Pengfei Wan",
+                      "Kun Gai",
+                      "Jing Liao"
+                    ],
+                    "published": "2026-06-01T17:54:26Z",
+                    "updated": "2026-06-01T17:54:26Z",
+                    "url": "http://arxiv.org/abs/2606.02564v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02564v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02463v1",
+                    "title": "MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence",
+                    "summary": "In 3D environments, Embodied Agents answer spatially relevant questions through reasoning from a mixture of modalities including natural language, RGB images, point clouds, depth maps and camera poses. Existing Vision-Language models (VLMs) are fine-tuned over a single modality. This completely ignores the question semantics which may favor a different modality than the finetuned modality. To address this, we propose MASER (Modality-Adaptive SpEcialist Routing), a lightweight framework that trains five different modality adapters of a shared VLM backbone and learns a neural routing policy that selects the best adapter based on the question during inference. We encode each question with a frozen sentence transformer and pass the embedding through a small Multi-layer Perceptron (MLP) trained on oracle adapter-accuracy labels. We evaluate our methodology over the Open3D-VQA benchmark and our evaluations show that no single modality is universally optimal -- point-cloud answers are best in 51.5% of cases. MASER routes with 51.3% oracle agreement, outperforming a Random-Forest ablation (43.5%), with only a single adapter call per question.",
+                    "authors": [
+                      "Hilton Raj",
+                      "Vishnuram AV"
+                    ],
+                    "published": "2026-06-01T16:36:21Z",
+                    "updated": "2026-06-01T16:36:21Z",
+                    "url": "http://arxiv.org/abs/2606.02463v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02463v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02459v1",
+                    "title": "Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic Vision-Language Models",
+                    "summary": "Enabling Vision-Language Models (VLMs) to perform spatial reasoning remains challenging. Existing approaches treat VLMs as passive observers, which is difficult for real-world applications. Moreover, reinforcement learning methods rely on sparse rewards, limiting their effectiveness for complex reasoning tasks. Inspired by pigeons' building and exploiting cognitive maps for navigation, we propose a novel agentic pipeline for spatial reasoning. First, we introduce a new \\emph{dynamic cognitive map} parameterizing scene layout as object positions and orientations, serving as persistent memory for new observations. Second, we propose a novel \\emph{Spatial Assertion Codes (SAC)}, Python expressions programmatically describing spatial relationships. By collaborating with the dynamic cognitive map, SAC enables verification of intermediate reasoning steps, providing dense reward signals. We optimize the model via supervised and reinforcement finetuning. Experiments on the MindCube benchmark demonstrate state-of-the-art performance with \\emph{80.5\\%} overall accuracy, outperforming the best current method by \\emph{29.5} accuracy points (a relative improvement of \\emph{53.2\\%}) on the challenging \\textsc{Rotation} subset. Our code and data are open-sourced at https://github.com/dw-dengwei/active-spatial-reasoning.git.",
+                    "authors": [
+                      "Wei Deng",
+                      "Xianlin Zhang",
+                      "Mengshi Qi"
+                    ],
+                    "published": "2026-06-01T16:30:56Z",
+                    "updated": "2026-06-01T16:30:56Z",
+                    "url": "http://arxiv.org/abs/2606.02459v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02459v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.02434v1",
+                    "title": "Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis via Input Binarization",
+                    "summary": "Precise parametric control over circuit geometry is essential for semiconductor inspection, yet obtaining sufficient real training data remains costly. Although generative models such as diffusion models and Generative Adversarial Networks (GANs) can augment training data, they cannot guarantee the nanometer-scale geometric accuracy required for metrology tasks. We propose a visual program synthesis framework in which a Vision-Language Model (VLM) converts inspection images into editable Domain-Specific Language (DSL) code describing circuit geometries, enabling controlled generation of training data with exact parameter manipulation. Because the VLM is trained solely on synthetic DSL-rendered data, a domain gap arises when processing real Scanning Electron Microscope (SEM) images. We bridge this gap with an input binarization strategy that strips SEM-specific texture and noise, letting the model focus on geometric structure. On the MIIC dataset, binarized inputs improve the mean Dice coefficient from 0.4393 to 0.5256 over the raw-input baseline, demonstrating that simple texture abstraction substantially mitigates the sim-to-real gap.",
+                    "authors": [
+                      "Yusuke Ohtsubo",
+                      "Kota Dohi",
+                      "Koichiro Yawata",
+                      "Koki Takeshita",
+                      "Tatsuya Sasaki"
+                    ],
+                    "published": "2026-06-01T16:06:20Z",
+                    "updated": "2026-06-01T16:06:20Z",
+                    "url": "http://arxiv.org/abs/2606.02434v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02434v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Đã tìm được 5 nghiên cứu VLM mới nhất. Để tôi tóm tắt và gửi lên Telegram cho bạn.",
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "Thinking in Blender: Staged Executable Inverse Graphics with VLMs",
+                    "url": "http://arxiv.org/abs/2606.02580v1",
+                    "source": "arXiv",
+                    "summary": "Nghiên cứu đề xuất SEIG – framework sử dụng VLM pretrained để tái tạo cảnh 3D từ một ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt hay rendering khả vi. Phương pháp chia nhỏ thành các giai đoạn (geometry, materials, composition, lighting) giúp cải thiện đáng kể chất lượng tái tạo."
+                  },
+                  {
+                    "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                    "url": "http://arxiv.org/abs/2606.02564v1",
+                    "source": "arXiv",
+                    "summary": "Thay vì dùng VLM làm solver, nghiên cứu chuyển VLM thành 'teacher' – trích xuất quy tắc task để tạo reward, hướng dẫn Video Generation Model (VGM) tối ưu LoRA tại test-time. Kết quả tăng trung bình 16.7 điểm trên symbolic và general-purpose video reasoning benchmarks, vượt xa paradigm VLM-as-Solver."
+                  },
+                  {
+                    "title": "MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence",
+                    "url": "http://arxiv.org/abs/2606.02463v1",
+                    "source": "arXiv",
+                    "summary": "MASER đề xuất framework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM và neural routing policy chọn adapter tốt nhất theo câu hỏi. Đánh giá trên Open3D-VQA cho thấy không có modality nào tối ưu tuyệt đối – point-cloud tốt nhất trong 51.5% trường hợp."
+                  },
+                  {
+                    "title": "Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic VLMs",
+                    "url": "http://arxiv.org/abs/2606.02459v1",
+                    "source": "arXiv",
+                    "summary": "Lấy cảm hứng từ chim bồ câu xây dựng cognitive map, nghiên cứu đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) để cung cấp dense reward cho spatial reasoning. Kết quả SOTA trên MindCube với 80.5% accuracy, vượt phương pháp tốt nhất trước đó 29.5 điểm trên subset Rotation."
+                  },
+                  {
+                    "title": "Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis via Input Binarization",
+                    "url": "http://arxiv.org/abs/2606.02434v1",
+                    "source": "arXiv",
+                    "summary": "Framework dùng VLM chuyển ảnh inspection thành DSL code mô tả mạch bán dẫn, cho phép tạo dữ liệu training với tham số chính xác. Chiến lược binarization đầu vào giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.4393 lên 0.5256 trên dataset MIIC."
+                  }
+                ],
+                "template": "sections",
+                "headline": "🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "Thinking in Blender: Staged Executable Inverse Graphics with VLMs",
+                    "url": "http://arxiv.org/abs/2606.02580v1",
+                    "source": "arXiv",
+                    "summary": "Nghiên cứu đề xuất SEIG – framework sử dụng VLM pretrained để tái tạo cảnh 3D từ một ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt hay rendering khả vi. Phương pháp chia nhỏ thành các giai đoạn (geometry, materials, composition, lighting) giúp cải thiện đáng kể chất lượng tái tạo."
+                  },
+                  {
+                    "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                    "url": "http://arxiv.org/abs/2606.02564v1",
+                    "source": "arXiv",
+                    "summary": "Thay vì dùng VLM làm solver, nghiên cứu chuyển VLM thành 'teacher' – trích xuất quy tắc task để tạo reward, hướng dẫn Video Generation Model (VGM) tối ưu LoRA tại test-time. Kết quả tăng trung bình 16.7 điểm trên symbolic và general-purpose video reasoning benchmarks, vượt xa paradigm VLM-as-Solver."
+                  },
+                  {
+                    "title": "MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence",
+                    "url": "http://arxiv.org/abs/2606.02463v1",
+                    "source": "arXiv",
+                    "summary": "MASER đề xuất framework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM và neural routing policy chọn adapter tốt nhất theo câu hỏi. Đánh giá trên Open3D-VQA cho thấy không có modality nào tối ưu tuyệt đối – point-cloud tốt nhất trong 51.5% trường hợp."
+                  },
+                  {
+                    "title": "Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic VLMs",
+                    "url": "http://arxiv.org/abs/2606.02459v1",
+                    "source": "arXiv",
+                    "summary": "Lấy cảm hứng từ chim bồ câu xây dựng cognitive map, nghiên cứu đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) để cung cấp dense reward cho spatial reasoning. Kết quả SOTA trên MindCube với 80.5% accuracy, vượt phương pháp tốt nhất trước đó 29.5 điểm trên subset Rotation."
+                  },
+                  {
+                    "title": "Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis via Input Binarization",
+                    "url": "http://arxiv.org/abs/2606.02434v1",
+                    "source": "arXiv",
+                    "summary": "Framework dùng VLM chuyển ảnh inspection thành DSL code mô tả mạch bán dẫn, cho phép tạo dữ liệu training với tham số chính xác. Chiến lược binarization đầu vào giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.4393 lên 0.5256 trên dataset MIIC."
+                  }
+                ],
+                "template": "sections",
+                "headline": "🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "# 🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)\n\n## Tổng hợp\n- Nghiên cứu đề xuất SEIG – framework sử dụng VLM pretrained để tái tạo cảnh 3D từ một ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt hay rendering khả vi. Phương pháp chia nhỏ thành các giai đoạn (geometry, materials, composition, l... - [arXiv](http://arxiv.org/abs/2606.02580v1)\n- Thay vì dùng VLM làm solver, nghiên cứu chuyển VLM thành 'teacher' – trích xuất quy tắc task để tạo reward, hướng dẫn Video Generation Model (VGM) tối ưu LoRA tại test-time. Kết quả tăng trung bình 16.7 điểm trên symbolic và general-purpose video reasoning benchmarks, vượt xa ... - [arXiv](http://arxiv.org/abs/2606.02564v1)\n- MASER đề xuất framework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM và neural routing policy chọn adapter tốt nhất theo câu hỏi. Đánh giá trên Open3D-VQA cho thấy không có modality nào tối ưu tuyệt đối – point-cloud tốt nhất trong 51.5% trường hợp. - [arXiv](http://arxiv.org/abs/2606.02463v1)\n- Lấy cảm hứng từ chim bồ câu xây dựng cognitive map, nghiên cứu đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) để cung cấp dense reward cho spatial reasoning. Kết quả SOTA trên MindCube với 80.5% accuracy, vượt phương pháp tốt nhất trước đó 29.5 điểm trên subset ... - [arXiv](http://arxiv.org/abs/2606.02459v1)\n- Framework dùng VLM chuyển ảnh inspection thành DSL code mô tả mạch bán dẫn, cho phép tạo dữ liệu training với tham số chính xác. Chiến lược binarization đầu vào giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.4393 lên 0.5256 trên dataset MIIC. - [arXiv](http://arxiv.org/abs/2606.02434v1)\n",
+                "item_count": 5
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "TOOL_CALLS_JSON:\n[\n  {\n    \"name\": \"send\",\n    \"args\": {\n      \"text\": \"🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)\\n\\n1️⃣ Thinking in Blender: Staged Executable Inverse Graphics with VLMs\\nSEIG – framework dùng VLM pretrained tái tạo cảnh 3D từ 1 ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt. Chia nhỏ thành các giai đoạn (geometry, materials, composition, lighting) giúp cải thiện đáng kể chất lượng.\\n🔗 http://arxiv.org/abs/2606.02580v1\\n\\n2️⃣ VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization\\nChuyển VLM từ \\\"solver\\\" thành \\\"teacher\\\" – trích xuất quy tắc tạo reward, hướng dẫn VGM tối ưu LoRA tại test-time. Tăng trung bình 16.7 điểm trên video reasoning benchmarks, vượt xa paradigm VLM-as-Solver.\\n🔗 http://arxiv.org/abs/2606.02564v1\\n\\n3️⃣ MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence\\nFramework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM + neural routing policy chọn adapter tốt nhất theo câu hỏi. Point-cloud tốt nhất trong 51.5% trường hợp trên Open3D-VQA.\\n🔗 http://arxiv.org/abs/2606.02463v1\\n\\n4️⃣ Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic VLMs\\nLấy cảm hứng từ chim bồ câu, đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) cung cấp dense reward. SOTA trên MindCube: 80.5% accuracy, vượt phương pháp tốt nhất 29.5 điểm trên subset Rotation.\\n🔗 http://arxiv.org/abs/2606.02459v1\\n\\n5️⃣ Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis\\nDùng VLM chuyển ảnh inspection bán dẫn thành DSL code. Chiến lược binarization giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.44 lên 0.53 trên dataset MIIC.\\n🔗 http://arxiv.org/abs/2606.02434v1\",\n      \"confirmed\": true\n    }\n  }\n]",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "VLM vision language model",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "VLM vision language model",
+            "api_query": "all:VLM AND all:vision AND all:language AND all:model",
+            "total_results": 6109,
+            "items": [
+              {
+                "arxiv_id": "2606.02580v1",
+                "title": "Thinking in Blender: Staged Executable Inverse Graphics with Vision-Language Models",
+                "summary": "Inverse graphics is a longstanding and highly underconstrained problem that seeks to reconstruct images as editable 3D scenes which can be rendered, relit, and manipulated. In this work, we investigate whether pretrained vision-language models (VLMs) can perform executable inverse graphics directly from a single image by reconstructing a scene as an editable Blender program, without relying on specialized 2D or 3D foundation models, differentiable rendering, or multi-view supervision. We introduce Staged Executable Inverse Graphics (SEIG), an agentic framework that reconstructs a 3D scene from a single image by progressively refining scene factors including geometry, materials, composition, and lighting directly in executable Blender code space. We evaluate our framework across diverse scenes using a range of reconstruction metrics spanning pixel-level, perceptual, and semantic fidelity. Our experiments show that staged reconstruction substantially improves reconstruction fidelity, highlighting the importance of task decomposition for executable inverse graphics with general-purpose VLMs. Finally, we showcase various downstream applications enabled by the reconstructed editable Blender scenes.",
+                "authors": [
+                  "Guangzhao He",
+                  "Rundong Luo",
+                  "Wei-Chiu Ma",
+                  "Hadar Averbuch-Elor"
+                ],
+                "published": "2026-06-01T17:59:53Z",
+                "updated": "2026-06-01T17:59:53Z",
+                "url": "http://arxiv.org/abs/2606.02580v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02580v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02564v1",
+                "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                "summary": "The recent \"Reasoning with Video\" paradigm utilizes Video Generation Models (VGMs) to generate temporally coherent visual trajectories to complete reasoning tasks. Although state-of-the-art VGMs excel at visual quality, they often struggle to understand and follow task-specific rules, leading to logical failures across diverse reasoning scenarios. Existing efforts try to utilize Vision-Language Models (VLMs) as problem pre-solvers to produce or refine textual guidance for the VGM. However, textual descriptions fail to capture intricate spatiotemporal details, and VGMs often struggle to faithfully execute fine-grained or long-tail instructions even with a valid plan. While VLMs struggle as solvers, they possess strong perception capabilities to evaluate process-constraint satisfaction and final-goal achievement. Leveraging this strength, we introduce a paradigm shift that transitions the role of VLMs to \"teachers\". Specifically, a VLM teacher extracts task-specific rules to formulate differentiable rewards, guiding a VGM Reasoner via test-time online optimization of a lightweight LoRA module. This strategy enables adaptive test-time optimization and extends the reasoning capabilities beyond the VGM's intrinsic boundaries. Evaluations on symbolic (VBVR-Bench) and general-purpose (RULER-Bench) video reasoning benchmarks show that the proposed method yields a 16.7-point average performance gain, outperforming the VLM-as-Solver paradigm (+0.4 points) and Best-of-N scaling (+2.2 points) by a large margin at comparable test-time cost. These findings reveal that integrating VLMs as test-time teachers offers a promising paradigm for achieving generalizable video reasoning. Project Page: https://VLM-as-Teacher.github.io/",
+                "authors": [
+                  "Junhao Cheng",
+                  "Liang Hou",
+                  "Tianxiong Zhong",
+                  "Xin Tao",
+                  "Pengfei Wan",
+                  "Kun Gai",
+                  "Jing Liao"
+                ],
+                "published": "2026-06-01T17:54:26Z",
+                "updated": "2026-06-01T17:54:26Z",
+                "url": "http://arxiv.org/abs/2606.02564v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02564v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02463v1",
+                "title": "MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence",
+                "summary": "In 3D environments, Embodied Agents answer spatially relevant questions through reasoning from a mixture of modalities including natural language, RGB images, point clouds, depth maps and camera poses. Existing Vision-Language models (VLMs) are fine-tuned over a single modality. This completely ignores the question semantics which may favor a different modality than the finetuned modality. To address this, we propose MASER (Modality-Adaptive SpEcialist Routing), a lightweight framework that trains five different modality adapters of a shared VLM backbone and learns a neural routing policy that selects the best adapter based on the question during inference. We encode each question with a frozen sentence transformer and pass the embedding through a small Multi-layer Perceptron (MLP) trained on oracle adapter-accuracy labels. We evaluate our methodology over the Open3D-VQA benchmark and our evaluations show that no single modality is universally optimal -- point-cloud answers are best in 51.5% of cases. MASER routes with 51.3% oracle agreement, outperforming a Random-Forest ablation (43.5%), with only a single adapter call per question.",
+                "authors": [
+                  "Hilton Raj",
+                  "Vishnuram AV"
+                ],
+                "published": "2026-06-01T16:36:21Z",
+                "updated": "2026-06-01T16:36:21Z",
+                "url": "http://arxiv.org/abs/2606.02463v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02463v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02459v1",
+                "title": "Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic Vision-Language Models",
+                "summary": "Enabling Vision-Language Models (VLMs) to perform spatial reasoning remains challenging. Existing approaches treat VLMs as passive observers, which is difficult for real-world applications. Moreover, reinforcement learning methods rely on sparse rewards, limiting their effectiveness for complex reasoning tasks. Inspired by pigeons' building and exploiting cognitive maps for navigation, we propose a novel agentic pipeline for spatial reasoning. First, we introduce a new \\emph{dynamic cognitive map} parameterizing scene layout as object positions and orientations, serving as persistent memory for new observations. Second, we propose a novel \\emph{Spatial Assertion Codes (SAC)}, Python expressions programmatically describing spatial relationships. By collaborating with the dynamic cognitive map, SAC enables verification of intermediate reasoning steps, providing dense reward signals. We optimize the model via supervised and reinforcement finetuning. Experiments on the MindCube benchmark demonstrate state-of-the-art performance with \\emph{80.5\\%} overall accuracy, outperforming the best current method by \\emph{29.5} accuracy points (a relative improvement of \\emph{53.2\\%}) on the challenging \\textsc{Rotation} subset. Our code and data are open-sourced at https://github.com/dw-dengwei/active-spatial-reasoning.git.",
+                "authors": [
+                  "Wei Deng",
+                  "Xianlin Zhang",
+                  "Mengshi Qi"
+                ],
+                "published": "2026-06-01T16:30:56Z",
+                "updated": "2026-06-01T16:30:56Z",
+                "url": "http://arxiv.org/abs/2606.02459v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02459v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2606.02434v1",
+                "title": "Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis via Input Binarization",
+                "summary": "Precise parametric control over circuit geometry is essential for semiconductor inspection, yet obtaining sufficient real training data remains costly. Although generative models such as diffusion models and Generative Adversarial Networks (GANs) can augment training data, they cannot guarantee the nanometer-scale geometric accuracy required for metrology tasks. We propose a visual program synthesis framework in which a Vision-Language Model (VLM) converts inspection images into editable Domain-Specific Language (DSL) code describing circuit geometries, enabling controlled generation of training data with exact parameter manipulation. Because the VLM is trained solely on synthetic DSL-rendered data, a domain gap arises when processing real Scanning Electron Microscope (SEM) images. We bridge this gap with an input binarization strategy that strips SEM-specific texture and noise, letting the model focus on geometric structure. On the MIIC dataset, binarized inputs improve the mean Dice coefficient from 0.4393 to 0.5256 over the raw-input baseline, demonstrating that simple texture abstraction substantially mitigates the sim-to-real gap.",
+                "authors": [
+                  "Yusuke Ohtsubo",
+                  "Kota Dohi",
+                  "Koichiro Yawata",
+                  "Koki Takeshita",
+                  "Tatsuya Sasaki"
+                ],
+                "published": "2026-06-01T16:06:20Z",
+                "updated": "2026-06-01T16:06:20Z",
+                "url": "http://arxiv.org/abs/2606.02434v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02434v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "title": "Thinking in Blender: Staged Executable Inverse Graphics with VLMs",
+                "url": "http://arxiv.org/abs/2606.02580v1",
+                "source": "arXiv",
+                "summary": "Nghiên cứu đề xuất SEIG – framework sử dụng VLM pretrained để tái tạo cảnh 3D từ một ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt hay rendering khả vi. Phương pháp chia nhỏ thành các giai đoạn (geometry, materials, composition, lighting) giúp cải thiện đáng kể chất lượng tái tạo."
+              },
+              {
+                "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+                "url": "http://arxiv.org/abs/2606.02564v1",
+                "source": "arXiv",
+                "summary": "Thay vì dùng VLM làm solver, nghiên cứu chuyển VLM thành 'teacher' – trích xuất quy tắc task để tạo reward, hướng dẫn Video Generation Model (VGM) tối ưu LoRA tại test-time. Kết quả tăng trung bình 16.7 điểm trên symbolic và general-purpose video reasoning benchmarks, vượt xa paradigm VLM-as-Solver."
+              },
+              {
+                "title": "MASER: Modality-Adaptive Specialist Routing for Embodied 3D Spatial Intelligence",
+                "url": "http://arxiv.org/abs/2606.02463v1",
+                "source": "arXiv",
+                "summary": "MASER đề xuất framework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM và neural routing policy chọn adapter tốt nhất theo câu hỏi. Đánh giá trên Open3D-VQA cho thấy không có modality nào tối ưu tuyệt đối – point-cloud tốt nhất trong 51.5% trường hợp."
+              },
+              {
+                "title": "Active Exploring like a Pigeon: Reinforcing Spatial Reasoning via Agentic VLMs",
+                "url": "http://arxiv.org/abs/2606.02459v1",
+                "source": "arXiv",
+                "summary": "Lấy cảm hứng từ chim bồ câu xây dựng cognitive map, nghiên cứu đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) để cung cấp dense reward cho spatial reasoning. Kết quả SOTA trên MindCube với 80.5% accuracy, vượt phương pháp tốt nhất trước đó 29.5 điểm trên subset Rotation."
+              },
+              {
+                "title": "Bridging the Sim-to-Real Gap in Semiconductor Visual Program Synthesis via Input Binarization",
+                "url": "http://arxiv.org/abs/2606.02434v1",
+                "source": "arXiv",
+                "summary": "Framework dùng VLM chuyển ảnh inspection thành DSL code mô tả mạch bán dẫn, cho phép tạo dữ liệu training với tham số chính xác. Chiến lược binarization đầu vào giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.4393 lên 0.5256 trên dataset MIIC."
+              }
+            ],
+            "template": "sections",
+            "headline": "🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# 🔬 Top 5 nghiên cứu VLM mới nhất trên arXiv (01/06/2026)\n\n## Tổng hợp\n- Nghiên cứu đề xuất SEIG – framework sử dụng VLM pretrained để tái tạo cảnh 3D từ một ảnh duy nhất dưới dạng chương trình Blender có thể chỉnh sửa, không cần model 3D chuyên biệt hay rendering khả vi. Phương pháp chia nhỏ thành các giai đoạn (geometry, materials, composition, l... - [arXiv](http://arxiv.org/abs/2606.02580v1)\n- Thay vì dùng VLM làm solver, nghiên cứu chuyển VLM thành 'teacher' – trích xuất quy tắc task để tạo reward, hướng dẫn Video Generation Model (VGM) tối ưu LoRA tại test-time. Kết quả tăng trung bình 16.7 điểm trên symbolic và general-purpose video reasoning benchmarks, vượt xa ... - [arXiv](http://arxiv.org/abs/2606.02564v1)\n- MASER đề xuất framework nhẹ huấn luyện 5 modality adapters trên cùng backbone VLM và neural routing policy chọn adapter tốt nhất theo câu hỏi. Đánh giá trên Open3D-VQA cho thấy không có modality nào tối ưu tuyệt đối – point-cloud tốt nhất trong 51.5% trường hợp. - [arXiv](http://arxiv.org/abs/2606.02463v1)\n- Lấy cảm hứng từ chim bồ câu xây dựng cognitive map, nghiên cứu đề xuất dynamic cognitive map + Spatial Assertion Codes (SAC) để cung cấp dense reward cho spatial reasoning. Kết quả SOTA trên MindCube với 80.5% accuracy, vượt phương pháp tốt nhất trước đó 29.5 điểm trên subset ... - [arXiv](http://arxiv.org/abs/2606.02459v1)\n- Framework dùng VLM chuyển ảnh inspection thành DSL code mô tả mạch bán dẫn, cho phép tạo dữ liệu training với tham số chính xác. Chiến lược binarization đầu vào giúp bridge sim-to-real gap, cải thiện Dice coefficient từ 0.4393 lên 0.5256 trên dataset MIIC. - [arXiv](http://arxiv.org/abs/2606.02434v1)\n",
+            "item_count": 5
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T16:32:01"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-06-02T16:32:33",
+      "user": "đăng tóm tắt lên telegram",
+      "status": "provider_error",
+      "assistant_text": "ERROR: RateLimitError: Error code: 429 - {'error': {'message': '[xiaomi-tokenplan/mimo-v2.5-pro] [429]: {\\n    \"error\": {\\n        \"code\": \"429\",\\n        \"message\": \"Too many requests\",\\n        \"type\": \"limitation\"\\n    }\\n}\\n (reset after 8s)'}}",
+      "rounds": [],
+      "tool_events": [],
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': '[xiaomi-tokenplan/mimo-v2.5-pro] [429]: {\\n    \"error\": {\\n        \"code\": \"429\",\\n        \"message\": \"Too many requests\",\\n        \"type\": \"limitation\"\\n    }\\n}\\n (reset after 8s)'}}",
+      "ended_at": "2026-06-02T16:32:43"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-06-02T16:32:52",
+      "user": "hi",
+      "status": "answered",
+      "assistant_text": "Hi! 👋 Mình sẵn sàng hỗ trợ bạn. Bạn cần tìm kiếm, tóm tắt, hay làm gì hôm nay?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Hi! 👋 Mình sẵn sàng hỗ trợ bạn. Bạn cần tìm kiếm, tóm tắt, hay làm gì hôm nay?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-06-02T16:33:15"
+    }
+  ]
+}

@@ -1,0 +1,1310 @@
+{
+  "transcript_id": "v3_openai_streamlit_20260602T152911487849",
+  "version": "v3",
+  "artifact_version": "v3+pa3379956024d+t1f2f56434c8c",
+  "prompt_hash": "a3379956024db2f1c41fbd5df8c70bb319c72da741f1fb9db51e4eedff089b5e",
+  "tools_hash": "1f2f56434c8c7b12647fde8bfbc4d2856ce3f41cf3a9aa5e20896aa7128e3ee6",
+  "provider": "openai",
+  "model": "xmtp/mimo-v2.5-pro",
+  "system_prompt": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "ui": "streamlit",
+  "created_at": "2026-06-02T15:29:11",
+  "updated_at": "2026-06-02T15:40:32",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-06-02T15:29:57",
+      "user": "tóm tắt 5 tin tức mới nhất về AI Agent hôm nay trên X",
+      "status": "waiting_for_user",
+      "assistant_text": "Công cụ tìm kiếm bài đăng trên X hiện đang gặp sự cố kỹ thuật. Bạn có muốn tôi tìm tin tức mới nhất về AI Agent từ các nguồn web/news thay thế không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "AI Agent",
+                "search_type": "Latest",
+                "limit": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "AI Agent",
+                "search_type": "Latest",
+                "limit": 5
+              },
+              "result": {
+                "tool": "search_tweets",
+                "error": "RuntimeError",
+                "message": "Missing RAPIDAPI_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "clarify",
+              "args": {
+                "question": "Công cụ tìm kiếm bài đăng trên X hiện đang gặp sự cố kỹ thuật. Bạn có muốn tôi tìm tin tức mới nhất về AI Agent từ các nguồn web/news thay thế không?",
+                "response_type": "yes_no"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "clarify",
+              "args": {
+                "question": "Công cụ tìm kiếm bài đăng trên X hiện đang gặp sự cố kỹ thuật. Bạn có muốn tôi tìm tin tức mới nhất về AI Agent từ các nguồn web/news thay thế không?",
+                "response_type": "yes_no"
+              },
+              "result": {
+                "tool": "ask_user",
+                "question": "Công cụ tìm kiếm bài đăng trên X hiện đang gặp sự cố kỹ thuật. Bạn có muốn tôi tìm tin tức mới nhất về AI Agent từ các nguồn web/news thay thế không?",
+                "response_type": "yes_no",
+                "options": [],
+                "awaiting_user": true
+              }
+            }
+          ]
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "AI Agent",
+            "search_type": "Latest",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        },
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Công cụ tìm kiếm bài đăng trên X hiện đang gặp sự cố kỹ thuật. Bạn có muốn tôi tìm tin tức mới nhất về AI Agent từ các nguồn web/news thay thế không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Công cụ tìm kiếm bài đăng trên X hiện đang gặp sự cố kỹ thuật. Bạn có muốn tôi tìm tin tức mới nhất về AI Agent từ các nguồn web/news thay thế không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:30:18"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-06-02T15:30:40",
+      "user": "tóm tắt 5 tin tức mới nhất về AI Agent hôm nay",
+      "status": "answered",
+      "assistant_text": "# 🤖 5 Tin tức mới nhất về AI Agent hôm nay\n\n**Tổng hợp:**\n- **HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên.** Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới. - [itnews.com.au](https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295)\n- **NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số.** Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI. - [therobotreport.com](https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/)\n- **55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế.** Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn. - [govexec.com](https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/)\n- **Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất.** Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống. - [skift.com](https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/)\n- **Bài viết chi tiết hơn về triển khai AI agent của HBF:** phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng. - [letsdatascience.com](https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3)\n\n*Lưu ý: Thông tin được tổng hợp từ các nguồn trên, có thể có sự trùng lặp về chủ đề (HBF).*",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "AI Agent",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "AI Agent",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "AI Agent",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "HBF faces AI agent to members for first time - iTnews",
+                    "url": "https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295?utm_source=feed&utm_medium=rss&utm_campaign=editors_picks",
+                    "source": "itnews.com.au",
+                    "summary": "## Cbus Super Fund's Group head of technology departs ## HBF faces AI agent to members for first time ## Microsoft backs down on legal threats against 0day disclosing researchers ## The hidden economics of AI: Why token usage matters more than you think ## Why resilient communications are becoming critical infrastructure for modern enterprise IT. # HBF faces AI agent to members for first time. HBF Health Insurance is deploying its first generative AI agent for members with a more interactive version for its smartphone app expected to follow in the months after it goes live. The agent's launch is imminent and will mark the first time that it has used externally-facing AI to provide service to its 1.2 million members digitally. Foreshadowing the launch at Salesforce’s Finance Summit in Sydney late last week, HBF’s chief information and transformation officer Sanjeev Gupta said that the web-based AI agent would provide members with conversational search but be limited to general information.",
+                    "score": 0.7043437
+                  },
+                  {
+                    "title": "NVIDIA releases new and updated tools for physical AI developers - The Robot Report",
+                    "url": "https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/",
+                    "source": "therobotreport.com",
+                    "summary": "NVIDIA is offering AI agent tools to robotics and autonomous vehicle developers. revealed several open-source physical AI skills and tools to help developers of robotics, autonomous vehicles, visual AI, and industrial digital twins. Available as part of the NVIDIA Agent Toolkit, the new skills will let AI agents speed the data generation, simulation, training, evaluation, and deployment pipelines behind robots, autonomous vehicles (AVs), factories, and laboratories, said the company. “AI agents are revolutionizing software development, and that shift is now coming to physical AI, extending into the systems that will transform transportation, manufacturing, healthcare, and robotics,” said Jensen Huang, founder and CEO of NVIDIA, at GTC Taipei. “When agents can directly use NVIDIA libraries, models and frameworks, physical AI development will move faster, enabling developers to build the robots, autonomous vehicles, and industrial systems of the future at an incredible pace.”. NVIDIA said it is optimizing its entire physical AI stack for agents by turning libraries, models, and frameworks into agent-callable tools.",
+                    "score": 0.6952351
+                  },
+                  {
+                    "title": "HBF deploys first generative AI agent for members - Let's Data Science",
+                    "url": "https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3",
+                    "source": "letsdatascience.com",
+                    "summary": "itnews.com.au reports that HBF Health Insurance is deploying its first generative AI agent for members, with a web-based 'unauthenticated' version now and an 'authenticated' member-facing agent expected to follow, according to statements by HBF executives at Salesforce's Finance Summit in Sydney. HBF Chief Information and Transformation Officer Sanjeev Gupta is quoted describing the initial capability as conversational search limited to general information and saying the next phase will let the agent authenticate users and perform tasks such as changing contact details and retrieving claims information; Gupta said the authenticated agent is expected to go live \"in a couple of months.\" The rollout follows HBF's earlier internal deployment of generative tools to customer service teams, Reuters-style reporting notes from itnews.com.au. itnews.com.au reports that **HBF Health Insurance** is deploying its first **generative AI agent** for members, marking the first externally facing AI service for its **1.2 million** members, according to the article.",
+                    "score": 0.59061456
+                  },
+                  {
+                    "title": "Smarter cities, safer communities: How state and local government leaders are advancing public services with AI - Government Executive",
+                    "url": "https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/?oref=featured-insights",
+                    "source": "govexec.com",
+                    "summary": "State and local governments are moving beyond pilots and proofs of concept to real-world applications — and they are doing this with agents. We are now firmly in the agentic era, where 55% of public sector leaders say their organizations have already adopted AI agents in production, according to the Google Public Sector *ROI of AI in the Public Sector* report. “Leaders across industries and around the world are harnessing this new technology effectively and at scale to solve real problems and to drive value and impact,” said Elizabeth Moon, Managing Director of Customer Engineering, Public Sector Sales at Google Public Sector. Across state and local government functions, including transportation, public safety, day-to-day service delivery and planning for major special events, modern public administrators are tapping into AI to build responsive and data-driven experiences. Google Cloud Next convened forward-thinking state and local leaders from across the country to share how their organizations are re-imagining burdensome legacy technologies and frameworks in favor of AI-powered, automated and unified platforms.",
+                    "score": 0.56661874
+                  },
+                  {
+                    "title": "Expedia AI Chief Xavier Amatriain on Trust, Agents, and the Future of Travel — Exclusive - Skift",
+                    "url": "https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/",
+                    "source": "skift.com",
+                    "summary": "# Expedia AI Chief Xavier Amatriain on Trust, Agents, and the Future of Travel — Exclusive. In his first media interview as Expedia’s Chief AI and Data Officer, Xavier Amatriain gives a rare look at the logic shaping one of travel’s most closely watched AI strategies. Travel AI has a problem that general-purpose chatbots don’t: A recommendation is only useful if the price is real, the room exists, and the traveler can act on it. The conversation covered how Expedia evaluates AI accuracy, why it’s building specialized agents instead of one large model, and how the company is trying to turn travel-specific data, trusted inventory, and partner relationships into an AI adv. * Expedia's Chief AI Officer, Xavier Amatriain, is leading efforts to build trustworthy, specialized AI agents for travel by leveraging the company's deep inventory and data. Expedia's new Chief AI and Data Officer, Xavier Amatriain, is advancing the company's AI strategy by building a specialized, multi-agent architecture focused on trust, personalization, and real-time inventory.",
+                    "score": 0.4120811
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "HBF faces AI agent to members for first time",
+                    "url": "https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295",
+                    "source": "itnews.com.au",
+                    "summary": "HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên. Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới."
+                  },
+                  {
+                    "title": "NVIDIA releases new tools for physical AI developers",
+                    "url": "https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/",
+                    "source": "therobotreport.com",
+                    "summary": "NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số. Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI."
+                  },
+                  {
+                    "title": "Smarter cities: State & local governments advancing public services with AI",
+                    "url": "https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/",
+                    "source": "govexec.com",
+                    "summary": "55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế. Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn."
+                  },
+                  {
+                    "title": "Expedia AI Chief on Trust, Agents, and the Future of Travel",
+                    "url": "https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/",
+                    "source": "skift.com",
+                    "summary": "Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất. Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống."
+                  },
+                  {
+                    "title": "HBF deploys first generative AI agent for members",
+                    "url": "https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3",
+                    "source": "letsdatascience.com",
+                    "summary": "Bài viết chi tiết hơn về triển khai AI agent của HBF: phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng."
+                  }
+                ],
+                "template": "sections",
+                "headline": "🤖 5 Tin tức mới nhất về AI Agent hôm nay"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "HBF faces AI agent to members for first time",
+                    "url": "https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295",
+                    "source": "itnews.com.au",
+                    "summary": "HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên. Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới."
+                  },
+                  {
+                    "title": "NVIDIA releases new tools for physical AI developers",
+                    "url": "https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/",
+                    "source": "therobotreport.com",
+                    "summary": "NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số. Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI."
+                  },
+                  {
+                    "title": "Smarter cities: State & local governments advancing public services with AI",
+                    "url": "https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/",
+                    "source": "govexec.com",
+                    "summary": "55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế. Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn."
+                  },
+                  {
+                    "title": "Expedia AI Chief on Trust, Agents, and the Future of Travel",
+                    "url": "https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/",
+                    "source": "skift.com",
+                    "summary": "Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất. Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống."
+                  },
+                  {
+                    "title": "HBF deploys first generative AI agent for members",
+                    "url": "https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3",
+                    "source": "letsdatascience.com",
+                    "summary": "Bài viết chi tiết hơn về triển khai AI agent của HBF: phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng."
+                  }
+                ],
+                "template": "sections",
+                "headline": "🤖 5 Tin tức mới nhất về AI Agent hôm nay"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "sections",
+                "markdown": "# 🤖 5 Tin tức mới nhất về AI Agent hôm nay\n\n## Tổng hợp\n- HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên. Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới. - [itnews.com.au](https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295)\n- NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số. Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI. - [therobotreport.com](https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/)\n- 55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế. Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn. - [govexec.com](https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/)\n- Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất. Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống. - [skift.com](https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/)\n- Bài viết chi tiết hơn về triển khai AI agent của HBF: phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng. - [letsdatascience.com](https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3)\n",
+                "item_count": 5
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "# 🤖 5 Tin tức mới nhất về AI Agent hôm nay\n\n**Tổng hợp:**\n- **HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên.** Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới. - [itnews.com.au](https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295)\n- **NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số.** Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI. - [therobotreport.com](https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/)\n- **55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế.** Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn. - [govexec.com](https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/)\n- **Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất.** Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống. - [skift.com](https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/)\n- **Bài viết chi tiết hơn về triển khai AI agent của HBF:** phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng. - [letsdatascience.com](https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3)\n\n*Lưu ý: Thông tin được tổng hợp từ các nguồn trên, có thể có sự trùng lặp về chủ đề (HBF).*",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI Agent",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI Agent",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "HBF faces AI agent to members for first time - iTnews",
+                "url": "https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295?utm_source=feed&utm_medium=rss&utm_campaign=editors_picks",
+                "source": "itnews.com.au",
+                "summary": "## Cbus Super Fund's Group head of technology departs ## HBF faces AI agent to members for first time ## Microsoft backs down on legal threats against 0day disclosing researchers ## The hidden economics of AI: Why token usage matters more than you think ## Why resilient communications are becoming critical infrastructure for modern enterprise IT. # HBF faces AI agent to members for first time. HBF Health Insurance is deploying its first generative AI agent for members with a more interactive version for its smartphone app expected to follow in the months after it goes live. The agent's launch is imminent and will mark the first time that it has used externally-facing AI to provide service to its 1.2 million members digitally. Foreshadowing the launch at Salesforce’s Finance Summit in Sydney late last week, HBF’s chief information and transformation officer Sanjeev Gupta said that the web-based AI agent would provide members with conversational search but be limited to general information.",
+                "score": 0.7043437
+              },
+              {
+                "title": "NVIDIA releases new and updated tools for physical AI developers - The Robot Report",
+                "url": "https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/",
+                "source": "therobotreport.com",
+                "summary": "NVIDIA is offering AI agent tools to robotics and autonomous vehicle developers. revealed several open-source physical AI skills and tools to help developers of robotics, autonomous vehicles, visual AI, and industrial digital twins. Available as part of the NVIDIA Agent Toolkit, the new skills will let AI agents speed the data generation, simulation, training, evaluation, and deployment pipelines behind robots, autonomous vehicles (AVs), factories, and laboratories, said the company. “AI agents are revolutionizing software development, and that shift is now coming to physical AI, extending into the systems that will transform transportation, manufacturing, healthcare, and robotics,” said Jensen Huang, founder and CEO of NVIDIA, at GTC Taipei. “When agents can directly use NVIDIA libraries, models and frameworks, physical AI development will move faster, enabling developers to build the robots, autonomous vehicles, and industrial systems of the future at an incredible pace.”. NVIDIA said it is optimizing its entire physical AI stack for agents by turning libraries, models, and frameworks into agent-callable tools.",
+                "score": 0.6952351
+              },
+              {
+                "title": "HBF deploys first generative AI agent for members - Let's Data Science",
+                "url": "https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3",
+                "source": "letsdatascience.com",
+                "summary": "itnews.com.au reports that HBF Health Insurance is deploying its first generative AI agent for members, with a web-based 'unauthenticated' version now and an 'authenticated' member-facing agent expected to follow, according to statements by HBF executives at Salesforce's Finance Summit in Sydney. HBF Chief Information and Transformation Officer Sanjeev Gupta is quoted describing the initial capability as conversational search limited to general information and saying the next phase will let the agent authenticate users and perform tasks such as changing contact details and retrieving claims information; Gupta said the authenticated agent is expected to go live \"in a couple of months.\" The rollout follows HBF's earlier internal deployment of generative tools to customer service teams, Reuters-style reporting notes from itnews.com.au. itnews.com.au reports that **HBF Health Insurance** is deploying its first **generative AI agent** for members, marking the first externally facing AI service for its **1.2 million** members, according to the article.",
+                "score": 0.59061456
+              },
+              {
+                "title": "Smarter cities, safer communities: How state and local government leaders are advancing public services with AI - Government Executive",
+                "url": "https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/?oref=featured-insights",
+                "source": "govexec.com",
+                "summary": "State and local governments are moving beyond pilots and proofs of concept to real-world applications — and they are doing this with agents. We are now firmly in the agentic era, where 55% of public sector leaders say their organizations have already adopted AI agents in production, according to the Google Public Sector *ROI of AI in the Public Sector* report. “Leaders across industries and around the world are harnessing this new technology effectively and at scale to solve real problems and to drive value and impact,” said Elizabeth Moon, Managing Director of Customer Engineering, Public Sector Sales at Google Public Sector. Across state and local government functions, including transportation, public safety, day-to-day service delivery and planning for major special events, modern public administrators are tapping into AI to build responsive and data-driven experiences. Google Cloud Next convened forward-thinking state and local leaders from across the country to share how their organizations are re-imagining burdensome legacy technologies and frameworks in favor of AI-powered, automated and unified platforms.",
+                "score": 0.56661874
+              },
+              {
+                "title": "Expedia AI Chief Xavier Amatriain on Trust, Agents, and the Future of Travel — Exclusive - Skift",
+                "url": "https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/",
+                "source": "skift.com",
+                "summary": "# Expedia AI Chief Xavier Amatriain on Trust, Agents, and the Future of Travel — Exclusive. In his first media interview as Expedia’s Chief AI and Data Officer, Xavier Amatriain gives a rare look at the logic shaping one of travel’s most closely watched AI strategies. Travel AI has a problem that general-purpose chatbots don’t: A recommendation is only useful if the price is real, the room exists, and the traveler can act on it. The conversation covered how Expedia evaluates AI accuracy, why it’s building specialized agents instead of one large model, and how the company is trying to turn travel-specific data, trusted inventory, and partner relationships into an AI adv. * Expedia's Chief AI Officer, Xavier Amatriain, is leading efforts to build trustworthy, specialized AI agents for travel by leveraging the company's deep inventory and data. Expedia's new Chief AI and Data Officer, Xavier Amatriain, is advancing the company's AI strategy by building a specialized, multi-agent architecture focused on trust, personalization, and real-time inventory.",
+                "score": 0.4120811
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "title": "HBF faces AI agent to members for first time",
+                "url": "https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295",
+                "source": "itnews.com.au",
+                "summary": "HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên. Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới."
+              },
+              {
+                "title": "NVIDIA releases new tools for physical AI developers",
+                "url": "https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/",
+                "source": "therobotreport.com",
+                "summary": "NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số. Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI."
+              },
+              {
+                "title": "Smarter cities: State & local governments advancing public services with AI",
+                "url": "https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/",
+                "source": "govexec.com",
+                "summary": "55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế. Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn."
+              },
+              {
+                "title": "Expedia AI Chief on Trust, Agents, and the Future of Travel",
+                "url": "https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/",
+                "source": "skift.com",
+                "summary": "Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất. Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống."
+              },
+              {
+                "title": "HBF deploys first generative AI agent for members",
+                "url": "https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3",
+                "source": "letsdatascience.com",
+                "summary": "Bài viết chi tiết hơn về triển khai AI agent của HBF: phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng."
+              }
+            ],
+            "template": "sections",
+            "headline": "🤖 5 Tin tức mới nhất về AI Agent hôm nay"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "sections",
+            "markdown": "# 🤖 5 Tin tức mới nhất về AI Agent hôm nay\n\n## Tổng hợp\n- HBF Health Insurance triển khai AI agent đầu tiên phục vụ 1.2 triệu thành viên. Phiên bản web cung cấp tìm kiếm hội thoại thông tin chung, phiên bản xác thực cho phép đổi thông tin, tra cứu quyền lợi sẽ ra mắt trong vài tháng tới. - [itnews.com.au](https://www.itnews.com.au/news/hbf-faces-ai-agent-to-members-for-first-time-626295)\n- NVIDIA phát hành các công cụ AI agent mới (Agent Toolkit) dành cho phát triển robot, xe tự lái, nhà máy kỹ thuật số. Công cụ giúp tăng tốc quy trình tạo dữ liệu, mô phỏng, huấn luyện và triển khai physical AI. - [therobotreport.com](https://www.therobotreport.com/nvidia-releases-new-updated-tools-physical-ai-gtc-taipei-computex/)\n- 55% lãnh đạo khu vực công cho biết tổ chức đã áp dụng AI agent trong sản xuất thực tế. Các chính quyền địa phương Mỹ sử dụng agent cho giao thông, an ninh, dịch vụ công, sự kiện quy mô lớn. - [govexec.com](https://www.govexec.com/sponsors/2026/06/smarter-cities-safer-communities-how-state-and-local-government-leaders-are-advancing-public-services-ai/413852/)\n- Expedia xây dựng kiến trúc multi-agent chuyên biệt thay vì một mô hình lớn duy nhất. Chiến lược tập trung vào độ tin cậy, cá nhân hóa và dữ liệu thời gian thực về giá, phòng trống. - [skift.com](https://skift.com/2026/06/01/expedia-xavier-amatriain-interview-qa-exclusive/)\n- Bài viết chi tiết hơn về triển khai AI agent của HBF: phiên bản unauthenticated trước, authenticated sau. Trước đó HBF đã triển khai generative AI nội bộ cho đội ngũ chăm sóc khách hàng. - [letsdatascience.com](https://letsdatascience.com/news/hbf-deploys-first-generative-ai-agent-for-members-8da151f3)\n",
+            "item_count": 5
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:31:26"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-06-02T15:32:32",
+      "user": "Cho mình tổng quan trên web về Retrieval Augmented Generation; đây không phải yêu cầu tìm tin tức mới.",
+      "status": "answered",
+      "assistant_text": "# 📚 Tổng quan về Retrieval Augmented Generation (RAG)\n\n## RAG là gì?\n\n**Retrieval Augmented Generation (RAG)** là một kỹ thuật giúp nâng cao khả năng của các mô hình ngôn ngữ lớn (LLM) bằng cách **kết hợp việc truy xuất thông tin từ các nguồn dữ liệu bên ngoài** với khả năng sinh văn bản của mô hình.\n\nNói đơn giản: trước khi AI tạo ra câu trả lời, nó sẽ **tìm kiếm thông tin liên quan** từ cơ sở dữ liệu/tài liệu bên ngoài, rồi dùng kết quả đó để tạo ra câu trả lời chính xác hơn.\n\n> *\"RAG biến AI của bạn thành một thủ thư — hiểu cấu trúc tri thức, mối quan hệ giữa các chủ đề, và biết cách điều hướng từ câu hỏi mơ hồ đến câu trả lời đúng.\"* — [Lorka AI](https://www.lorka.ai/knowledge-hub/what-is-retrieval-augmented-generation)\n\n---\n\n## Tại sao cần RAG?\n\nCác LLM như GPT-4 có một số hạn chế cố hữu:\n\n| Hạn chế | Mô tả |\n|---------|-------|\n| **Kiến thức tĩnh** | Chỉ biết đến thời điểm huấn luyện, không cập nhật dữ liệu mới |\n| **Ảo giác (Hallucination)** | Có thể tạo ra thông tin sai nhưng nghe rất thuyết phục |\n| **Thiếu chuyên môn** | Không có kiến thức chuyên sâu về domain cụ thể |\n| **Phản hồi chung chung** | Không đủ ngữ cảnh để trả lời chi tiết |\n\nRAG giải quyết这些问题 bằng cách **ghim (ground) LLM vào tri thức bên ngoài có thể kiểm chứng**.\n\n---\n\n## RAG hoạt động như thế nào?\n\nQuy trình 3 bước cơ bản:\n\n1. **Retrieval (Truy xuất):** Khi nhận câu hỏi, hệ thống tìm kiếm trong cơ sở dữ liệu/vector store để lấy các tài liệu liên quan\n2. **Augmentation (Tăng cường):** Thông tin tìm được được kết hợp với câu hỏi gốc làm ngữ cảnh bổ sung\n3. **Generation (Sinh):** LLM sử dụng cả câu hỏi lẫn ngữ cảnh bổ sung để tạo ra câu trả lời chính xác hơn\n\n---\n\n## Ứng dụng thực tế\n\n- **Chatbot doanh nghiệp** trả lời dựa trên tài liệu nội bộ\n- **Hệ thống hỗ trợ khách hàng** với kiến thức sản phẩm cập nhật\n- **Tìm kiếm thông minh** hiểu ngữ nghĩa thay vì chỉ khớp từ khóa\n- **Nghiên cứu y khoa/pháp lý** cần truy xuất nguồn chính xác\n\n---\n\n## Xu hướng & Tương lai\n\nTheo [IEEE survey](https://ieeexplore.ieee.org/document/11300411), RAG được đánh giá là **paradigm hàng đầu** để giải quyết hạn chế của LLM. Các hướng phát triển bao gồm:\n\n- Cải thiện **sự liên kết giữa retriever và generator**\n- Tích hợp với **kiến trúc agentic** (AI agent)\n- Nâng cao khả năng **lý luận phức tạp dựa trên bằng chứng**\n\n---\n\n**Nguồn tham khảo:**\n- [DataCamp - What is RAG?](https://www.datacamp.com/blog/what-is-retrieval-augmented-generation-rag)\n- [IEEE - A Survey of RAG for LLMs](https://ieeexplore.ieee.org/document/11300411)\n- [Lorka AI - What Is RAG?](https://www.lorka.ai/knowledge-hub/what-is-retrieval-augmented-generation)\n- [Medium - RAG Technical Implementation Guide](https://medium.com/activated-thinker/rag-retrieval-augmented-generation-technical-implementation-guide-3c012bf427f3)",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Retrieval Augmented Generation",
+                "topic": "general",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Retrieval Augmented Generation",
+                "topic": "general",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Retrieval Augmented Generation",
+                "topic": "general",
+                "timeframe": "week",
+                "items": []
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Kết quả tìm kiếm hiện tại không trả về dữ liệu. Để tôi thử lại với cách khác.",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "RAG Retrieval Augmented Generation",
+                "topic": "general",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "RAG Retrieval Augmented Generation",
+                "topic": "general",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "RAG Retrieval Augmented Generation",
+                "topic": "general",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "What is Retrieval Augmented Generation (RAG)? | DataCamp",
+                    "url": "https://www.datacamp.com/blog/what-is-retrieval-augmented-generation-rag",
+                    "source": "datacamp.com",
+                    "summary": "Learn how Retrieval Augmented Generation (RAG) enhances large language models by integrating external data sources. Large language models (LLMs) like GPT-4 have brough amazing progress, but they come with limitations—outdated knowledge, hallucinations, and generic responses. That's a problem we can solve using **Retrieval Augmented Generation (RAG)**. In this blog, I will break down how RAG works, why it’s a game-changer for AI applications, and how businesses are using it to create smarter, more reliable systems. Retrieval Augmented Generation (RAG) is a technique that enhances LLMs by integrating them with external data sources. By combining the generative capabilities of models like GPT-4 with precise information retrieval mechanisms, RAG enables AI systems to produce more accurate and contextually relevant responses. * **Limited knowledge**: LLMs can only generate responses based on their training data, which may be outdated or lack domain-specific information. Integrate external data with LLMs using Retrieval Augmented Generation (RAG) and LangChain.",
+                    "score": 0.92091084
+                  },
+                  {
+                    "title": "A Survey of Retrieval-Augmented Generation (RAG) for Large ...",
+                    "url": "https://ieeexplore.ieee.org/document/11300411",
+                    "source": "ieeexplore.ieee.org",
+                    "summary": "A Survey of Retrieval-Augmented Generation (RAG) for Large Language Models | IEEE Conference Publication | IEEE Xplore. # A Survey of Retrieval-Augmented Generation (RAG) for Large Language Models. While Large Language Models (LLMs) are revolutionary, their deployment is constrained by inherent limitations such as factual hallucination and static knowledge. This survey systematically reviews Retrieval-Augmented Generation (RAG), a key paradigm for addressing these challenges by grounding LLMs in external, verifiable knowledge. By summarizing the field’s progression, key challenges like retriever-generator alignment, and future directions such as integration with agentic architectures, this work concludes that RAG is a crucial technology for propelling AI to be more evidence-based and capable of complex reasoning. The advent of Large Language Models (LLMs) has marked a significant milestone in artificial intelligence, demonstrating powerful emergent abilities in comprehending and generating human language [1]. Retrieval-Augmented Generation (RAG) has emerged as the leading paradigm to tackle this problem, making it a critical area of study. Evaluation of Large Language Models Enhanced with Retrieval-Augmented Generation: A literature review.",
+                    "score": 0.9051298
+                  },
+                  {
+                    "title": "What Is Retrieval-Augmented Generation and How Does RAG Work? | Lorka AI",
+                    "url": "https://www.lorka.ai/knowledge-hub/what-is-retrieval-augmented-generation",
+                    "source": "lorka.ai",
+                    "summary": "# What Is Retrieval-Augmented Generation (RAG)? Diagram-style image showing Retrieval-Augmented Generation connecting AI to external documents on a laptop. Retrieval-Augmented Generation (RAG) enhances AI capabilities by connecting language models to external knowledge sources, effectively enabling them to provide accurate and contextually relevant responses. This approach addresses limitations such as hallucination of information, outdated knowledge, and lack of domain expertise, making AI tools more reliable and grounded in real data. You walk up with a vague question about \"that book on medieval economics, the one with the blue cover,\" and **somehow they know exactly which shelf to check**. They understand the structure of the library, the relationships between topics, and how to navigate from your messy question to the right answer. *RAG transforms your AI into that librarian.*. Retrieval-Augmented Generation (RAG) connects these models to external knowledge. And the easiest way to understand embeddings is to notice that your brain already works like this.",
+                    "score": 0.9006087
+                  },
+                  {
+                    "title": "RAG (Retrieval Augmented Generation): Technical ... - Medium",
+                    "url": "https://medium.com/activated-thinker/rag-retrieval-augmented-generation-technical-implementation-guide-3c012bf427f3",
+                    "source": "medium.com",
+                    "summary": "RAG systems retrieve relevant context from external knowledge bases before generating responses, enabling LLMs to provide accurate, up-to-date answers grounded",
+                    "score": 0.8066246
+                  },
+                  {
+                    "title": "Understanding RAG (Retrieval-Augmented Generation ...",
+                    "url": "https://www.linkedin.com/pulse/understanding-rag-retrieval-augmented-generation-simple-mishra-xyhge",
+                    "source": "linkedin.com",
+                    "summary": "RAG = Retrieval-Augmented Generation. Retrieval = AI first searches for relevant info (like from documents)",
+                    "score": 0.7803451
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "# 📚 Tổng quan về Retrieval Augmented Generation (RAG)\n\n## RAG là gì?\n\n**Retrieval Augmented Generation (RAG)** là một kỹ thuật giúp nâng cao khả năng của các mô hình ngôn ngữ lớn (LLM) bằng cách **kết hợp việc truy xuất thông tin từ các nguồn dữ liệu bên ngoài** với khả năng sinh văn bản của mô hình.\n\nNói đơn giản: trước khi AI tạo ra câu trả lời, nó sẽ **tìm kiếm thông tin liên quan** từ cơ sở dữ liệu/tài liệu bên ngoài, rồi dùng kết quả đó để tạo ra câu trả lời chính xác hơn.\n\n> *\"RAG biến AI của bạn thành một thủ thư — hiểu cấu trúc tri thức, mối quan hệ giữa các chủ đề, và biết cách điều hướng từ câu hỏi mơ hồ đến câu trả lời đúng.\"* — [Lorka AI](https://www.lorka.ai/knowledge-hub/what-is-retrieval-augmented-generation)\n\n---\n\n## Tại sao cần RAG?\n\nCác LLM như GPT-4 có một số hạn chế cố hữu:\n\n| Hạn chế | Mô tả |\n|---------|-------|\n| **Kiến thức tĩnh** | Chỉ biết đến thời điểm huấn luyện, không cập nhật dữ liệu mới |\n| **Ảo giác (Hallucination)** | Có thể tạo ra thông tin sai nhưng nghe rất thuyết phục |\n| **Thiếu chuyên môn** | Không có kiến thức chuyên sâu về domain cụ thể |\n| **Phản hồi chung chung** | Không đủ ngữ cảnh để trả lời chi tiết |\n\nRAG giải quyết这些问题 bằng cách **ghim (ground) LLM vào tri thức bên ngoài có thể kiểm chứng**.\n\n---\n\n## RAG hoạt động như thế nào?\n\nQuy trình 3 bước cơ bản:\n\n1. **Retrieval (Truy xuất):** Khi nhận câu hỏi, hệ thống tìm kiếm trong cơ sở dữ liệu/vector store để lấy các tài liệu liên quan\n2. **Augmentation (Tăng cường):** Thông tin tìm được được kết hợp với câu hỏi gốc làm ngữ cảnh bổ sung\n3. **Generation (Sinh):** LLM sử dụng cả câu hỏi lẫn ngữ cảnh bổ sung để tạo ra câu trả lời chính xác hơn\n\n---\n\n## Ứng dụng thực tế\n\n- **Chatbot doanh nghiệp** trả lời dựa trên tài liệu nội bộ\n- **Hệ thống hỗ trợ khách hàng** với kiến thức sản phẩm cập nhật\n- **Tìm kiếm thông minh** hiểu ngữ nghĩa thay vì chỉ khớp từ khóa\n- **Nghiên cứu y khoa/pháp lý** cần truy xuất nguồn chính xác\n\n---\n\n## Xu hướng & Tương lai\n\nTheo [IEEE survey](https://ieeexplore.ieee.org/document/11300411), RAG được đánh giá là **paradigm hàng đầu** để giải quyết hạn chế của LLM. Các hướng phát triển bao gồm:\n\n- Cải thiện **sự liên kết giữa retriever và generator**\n- Tích hợp với **kiến trúc agentic** (AI agent)\n- Nâng cao khả năng **lý luận phức tạp dựa trên bằng chứng**\n\n---\n\n**Nguồn tham khảo:**\n- [DataCamp - What is RAG?](https://www.datacamp.com/blog/what-is-retrieval-augmented-generation-rag)\n- [IEEE - A Survey of RAG for LLMs](https://ieeexplore.ieee.org/document/11300411)\n- [Lorka AI - What Is RAG?](https://www.lorka.ai/knowledge-hub/what-is-retrieval-augmented-generation)\n- [Medium - RAG Technical Implementation Guide](https://medium.com/activated-thinker/rag-retrieval-augmented-generation-technical-implementation-guide-3c012bf427f3)",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Retrieval Augmented Generation",
+            "topic": "general",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Retrieval Augmented Generation",
+            "topic": "general",
+            "timeframe": "week",
+            "items": []
+          }
+        },
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "RAG Retrieval Augmented Generation",
+            "topic": "general",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "RAG Retrieval Augmented Generation",
+            "topic": "general",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "What is Retrieval Augmented Generation (RAG)? | DataCamp",
+                "url": "https://www.datacamp.com/blog/what-is-retrieval-augmented-generation-rag",
+                "source": "datacamp.com",
+                "summary": "Learn how Retrieval Augmented Generation (RAG) enhances large language models by integrating external data sources. Large language models (LLMs) like GPT-4 have brough amazing progress, but they come with limitations—outdated knowledge, hallucinations, and generic responses. That's a problem we can solve using **Retrieval Augmented Generation (RAG)**. In this blog, I will break down how RAG works, why it’s a game-changer for AI applications, and how businesses are using it to create smarter, more reliable systems. Retrieval Augmented Generation (RAG) is a technique that enhances LLMs by integrating them with external data sources. By combining the generative capabilities of models like GPT-4 with precise information retrieval mechanisms, RAG enables AI systems to produce more accurate and contextually relevant responses. * **Limited knowledge**: LLMs can only generate responses based on their training data, which may be outdated or lack domain-specific information. Integrate external data with LLMs using Retrieval Augmented Generation (RAG) and LangChain.",
+                "score": 0.92091084
+              },
+              {
+                "title": "A Survey of Retrieval-Augmented Generation (RAG) for Large ...",
+                "url": "https://ieeexplore.ieee.org/document/11300411",
+                "source": "ieeexplore.ieee.org",
+                "summary": "A Survey of Retrieval-Augmented Generation (RAG) for Large Language Models | IEEE Conference Publication | IEEE Xplore. # A Survey of Retrieval-Augmented Generation (RAG) for Large Language Models. While Large Language Models (LLMs) are revolutionary, their deployment is constrained by inherent limitations such as factual hallucination and static knowledge. This survey systematically reviews Retrieval-Augmented Generation (RAG), a key paradigm for addressing these challenges by grounding LLMs in external, verifiable knowledge. By summarizing the field’s progression, key challenges like retriever-generator alignment, and future directions such as integration with agentic architectures, this work concludes that RAG is a crucial technology for propelling AI to be more evidence-based and capable of complex reasoning. The advent of Large Language Models (LLMs) has marked a significant milestone in artificial intelligence, demonstrating powerful emergent abilities in comprehending and generating human language [1]. Retrieval-Augmented Generation (RAG) has emerged as the leading paradigm to tackle this problem, making it a critical area of study. Evaluation of Large Language Models Enhanced with Retrieval-Augmented Generation: A literature review.",
+                "score": 0.9051298
+              },
+              {
+                "title": "What Is Retrieval-Augmented Generation and How Does RAG Work? | Lorka AI",
+                "url": "https://www.lorka.ai/knowledge-hub/what-is-retrieval-augmented-generation",
+                "source": "lorka.ai",
+                "summary": "# What Is Retrieval-Augmented Generation (RAG)? Diagram-style image showing Retrieval-Augmented Generation connecting AI to external documents on a laptop. Retrieval-Augmented Generation (RAG) enhances AI capabilities by connecting language models to external knowledge sources, effectively enabling them to provide accurate and contextually relevant responses. This approach addresses limitations such as hallucination of information, outdated knowledge, and lack of domain expertise, making AI tools more reliable and grounded in real data. You walk up with a vague question about \"that book on medieval economics, the one with the blue cover,\" and **somehow they know exactly which shelf to check**. They understand the structure of the library, the relationships between topics, and how to navigate from your messy question to the right answer. *RAG transforms your AI into that librarian.*. Retrieval-Augmented Generation (RAG) connects these models to external knowledge. And the easiest way to understand embeddings is to notice that your brain already works like this.",
+                "score": 0.9006087
+              },
+              {
+                "title": "RAG (Retrieval Augmented Generation): Technical ... - Medium",
+                "url": "https://medium.com/activated-thinker/rag-retrieval-augmented-generation-technical-implementation-guide-3c012bf427f3",
+                "source": "medium.com",
+                "summary": "RAG systems retrieve relevant context from external knowledge bases before generating responses, enabling LLMs to provide accurate, up-to-date answers grounded",
+                "score": 0.8066246
+              },
+              {
+                "title": "Understanding RAG (Retrieval-Augmented Generation ...",
+                "url": "https://www.linkedin.com/pulse/understanding-rag-retrieval-augmented-generation-simple-mishra-xyhge",
+                "source": "linkedin.com",
+                "summary": "RAG = Retrieval-Augmented Generation. Retrieval = AI first searches for relevant info (like from documents)",
+                "score": 0.7803451
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:33:26"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-06-02T15:36:35",
+      "user": "Tìm các tweet mới nhất về VinAI, nhưng đừng lấy tweet từ chính tài khoản VinAI; mình muốn xem mọi người đang nói gì về VinAI",
+      "status": "answered",
+      "assistant_text": "Xin lỗi, công cụ tìm kiếm tweet hiện đang gặp sự cố kỹ thuật (thiếu API key). Tôi không thể truy cập dữ liệu X/Twitter lúc này.\n\n**Giải pháp thay thế:** Bạn có muốn tôi tìm kiếm trên web những gì mọi người đang nói về VinAI gần đây (từ các blog, diễn đàn, báo chí) không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "VinAI",
+                "search_type": "Latest",
+                "limit": 10
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "VinAI",
+                "search_type": "Latest",
+                "limit": 10
+              },
+              "result": {
+                "tool": "search_tweets",
+                "error": "RuntimeError",
+                "message": "Missing RAPIDAPI_KEY env var"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Xin lỗi, công cụ tìm kiếm tweet hiện đang gặp sự cố kỹ thuật (thiếu API key). Tôi không thể truy cập dữ liệu X/Twitter lúc này.\n\n**Giải pháp thay thế:** Bạn có muốn tôi tìm kiếm trên web những gì mọi người đang nói về VinAI gần đây (từ các blog, diễn đàn, báo chí) không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "VinAI",
+            "search_type": "Latest",
+            "limit": 10
+          },
+          "result": {
+            "tool": "search_tweets",
+            "error": "RuntimeError",
+            "message": "Missing RAPIDAPI_KEY env var"
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:36:50"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-06-02T15:37:11",
+      "user": "Tìm các bài mới nhất về VinAI, nhưng đừng lấy từ chính tài khoản VinAI; mình muốn xem mọi người đang nói gì về VinAI",
+      "status": "answered",
+      "assistant_text": "# 📰 Tin tức liên quan đến VinAI trên web tuần này\n\nKết quả tìm kiếm cho thấy **không có nhiều bài viết riêng biệt về VinAI (VinAI Research)** trong tuần này. Tuy nhiên, có một số tin tức liên quan đến hệ sinh thái Vingroup/VinFast mà VinAI đóng vai trò nền tảng công nghệ:\n\n---\n\n### 1. 🚗 VinFast triển khai chương trình Agentic AI Level 4 tại Đông Nam Á\n- **Nguồn:** [Automotive World](https://www.automotiveworld.com/news/vinfast-launches-agentic-ai-level-4-programme-for-asia/)\n- VinFast công bố chương trình lái xe tự hành cấp 4 tại Đông Nam Á, hợp tác với **Autobrains** và **NVIDIA**, xây dựng trên nền tảng Drive Hyperion 10. Đây là lần đầu tiên agentic AI cấp 4 được triển khai tại khu vực.\n\n### 2. 👤 VinFast bổ nhiệm con trai Chủ tịch vào vị trí lãnh đạo cao nhất\n- **Nguồn:** [CleanTechnica](https://cleantechnica.com/2026/05/28/vinfast-appoints-chairmans-son-to-top-post-amidst-global-expansion/)\n- Phạm Nhật Quân Anh (33 tuổi) được bổ nhiệm làm Chủ tịch HĐQT VinFast, đánh dấu sự tiếp nối lãnh đạo trong giai đoạn mở rộng toàn cầu đầy thách thức.\n\n---\n\n### 💡 Nhận xét\n\nKết quả web tuần này **thiếu các bài viết riêng về VinAI Research** (viện nghiên cứu AI của Vingroup). Phần lớn nội dung liên quan tập trung vào **VinFast** — công ty chị em cùng hệ sinh thái Vingroup, nơi công nghệ của VinAI được ứng dụng trực tiếp (đặc biệt trong lái xe tự hành và AI agent).\n\n**Bạn có muốn tôi:**\n- Mở rộng tìm kiếm thêm với từ khóa khác (ví dụ: \"VinAI Research\", \"VinAI Vingroup\")?\n- Tìm kiếm trên các nền tảng khác (blog, diễn đàn công nghệ)?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "VinAI",
+                "topic": "news",
+                "timeframe": "week",
+                "max_results": 10
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "VinAI",
+                "topic": "news",
+                "timeframe": "week",
+                "max_results": 10
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "VinAI",
+                "topic": "news",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "VinFast launches Agentic AI level 4 programme for Asia - Automotive World",
+                    "url": "https://www.automotiveworld.com/news/vinfast-launches-agentic-ai-level-4-programme-for-asia/",
+                    "source": "automotiveworld.com",
+                    "summary": "Global light vehicle demand edges higher thanks to India VinFast launches Agentic AI level 4 programme for Asia Nvidia launches Alpamayo 2 Super open reasoning model Uber and Autobrains plan Munich robotaxi programme Nvidia expands Drive Hyperion with four new robotaxi deals Scania launches first battery-electric CrewCab in Hannover Trump admin demands 50% US content in USMCA talks BYD stakes its self-driving future on in-house silicon Tesla strike scaled back in Sweden after two years Europe is shedding its engine plants, Asia holds firm. “Our goal is to help stakeholders understand the future of mobility.”. Home › News › VinFast launches Agentic AI level 4 programme for Asia. # VinFast launches Agentic AI level 4 programme for Asia. VinFast has announced a level 4 autonomous driving programme for Southeast Asia in collaboration with Autobrains and Nvidia, built on Drive Hyperion 10. The collaboration marks the first deployment of agentic AI at level 4 in Southeast Asia.",
+                    "score": 0.9969246
+                  },
+                  {
+                    "title": "FPT and CP Partner to Advance AI-Led Agri-Food Value Chains - Business Wire",
+                    "url": "https://www.businesswire.com/news/home/20260529529814/en/FPT-and-CP-Partner-to-Advance-AI-Led-Agri-Food-Value-Chains",
+                    "source": "businesswire.com",
+                    "summary": "BANGKOK--(BUSINESS WIRE)--Charoen Pokphand Foods Public Company Limited (CPF) and FPT Corporation (FPT) recently signed a Memorandum of Understanding (MoU) for a strategic cooperation in Vietnam between CPF and FPT to advance AI-led and digital transformation in agri-food value chains, with the focus on agriculture, food processing, smart manufacturing, and supply chain management in Vietnam. Under the agreement, C.P. Vietnam Corporation (C.P. Vietnam), a subsidiary under CPF and Vietnam's leading integrated agri-food corporation, and FPT will explore the development and deployment of AI and digital solutions across C.P. Vietnam’s integrated Feed-Farm-Food value chain, from farm to family, and supply chain networks, from 2026 to 2028 and beyond. This partnership reflects a broader opportunity for Vietnam and Thailand to harness next-generation technologies to drive regional impact, strengthen food security, and sustain the growth and competitiveness of Southeast Asia’s agricultural value chains,” said Levi Nguyen, Chief Executive Officer of FPT Thailand and FPT Taiwan, FPT Corporation.",
+                    "score": 0.92788786
+                  },
+                  {
+                    "title": "CP and FPT partner to advance AI-led agri-food chains - Vietnam Economic Times",
+                    "url": "https://en.vneconomy.vn/cp-and-fpt-partner-to-advance-ai-led-agri-food-chains.htm",
+                    "source": "en.vneconomy.vn",
+                    "summary": "## C.P. Vietnam and FPT will explore AI and digital solutions to support integrated Feed-Farm-Food operations, supply chains, smart farms, food safety traceability, and Vietnam’s agricultural modernization. C.P. Vietnam Corporation (C.P. Vietnam) is set to advance AI-led and digital transformation across its integrated agri-food value chain through a strategic cooperation between Charoen Pokphand Foods Public Company Limited (CPF) and FPT Corporation (FPT) in Vietnam, following the signing of a Memorandum of Understanding (MoU) in Bangkok. The cooperation will focus on the development and deployment of artificial intelligence and digital solutions in Vietnam’s agriculture, food processing, smart manufacturing, and supply chain management sectors. For C.P. Vietnam, a subsidiary of CPF and one of Vietnam’s leading integrated agri-food corporations, the MoU provides a framework to explore how technology can be applied across its Feed-Farm-Food value chain, from farm to family. Under the agreement, C.P. Vietnam and FPT will explore AI and digital solutions across C.P. Vietnam’s integrated Feed-Farm-Food value chain, from farm to family, and supply chain networks from 2026 to 2028 and beyond.",
+                    "score": 0.8092759
+                  },
+                  {
+                    "title": "Asana acquires no-code agent-builder Stack AI - TechCrunch",
+                    "url": "https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/",
+                    "source": "techcrunch.com",
+                    "summary": "Asana has acquired the workflow automation company Stack AI for $75 million, part of a larger effort to position itself as an AI-native workplace platform. Stack AI’s founders, Tony Rosinol and Bernard Aceituno, will join Asana as part of the acquisition. Asana framed the acquisition as part of its broader AI pivot, in which it seeks to build its platform into “the operating system for human-agent teams.”. Built as an AI workflow-automation system, Stack AI designs agents to operate within existing business systems, pulling in data from systems like Salesforce, Slack and Gsuite. Part of Y Combinator’s Winter ’23 cohort, the company has faced fierce competition from automation tools like Zapier as well as AI labs like OpenAI and Anthropic. While users are likely most familiar with Asana’s work management system, the company has released a number of AI-oriented products in recent years, most notably the AI Studio agent builder and AI Teammates series of pre-built automations. acquisition, AI, Asana, Automation, Stack AI.",
+                    "score": 0.031618766
+                  },
+                  {
+                    "title": "RevEng.AI Raises $15 Million to Hunt for Flaws and Backdoors in Software Binaries - SecurityWeek",
+                    "url": "https://www.securityweek.com/reveng-ai-raises-15-million-to-hunt-for-flaws-and-backdoors-in-software-binaries/amp/",
+                    "source": "securityweek.com",
+                    "summary": "# RevEng.AI Raises $15 Million to Hunt for Flaws and Backdoors in Software Binaries. Using an AI model called BinNet, RevEng hunts vulnerabilities and backdoors in released software binaries. **Cybersecurity startup RevEng.AI today announced raising $15 million in a Series A funding round that brings the total raised by the company to $19.5 million.**. The investment round was led by NATO Innovation Fund, with additional support from Sands Capital, In-Q-Tel (IQT), IQ Capital, and Episode One. Founded in 2023, London-based RevEng.AI is using an AI model named BinNet to analyze compiled software at the binary level and identify vulnerabilities and backdoors. **Related:** Ocean Emerges From Stealth With $28M for Agentic Email Security Platform. **Related:** Quantum Bridge Raises $8 Million for Quantum-Safe Key Distribution Solution. **Related:** Exaforce Raises $125 Million for Agentic SOC Platform. The new Series A funding round brings the total raised by Quantum Bridge to $16 million.",
+                    "score": 0.019568676
+                  },
+                  {
+                    "title": "EZOps launches AI-powered task automation for oilfield operations - World Oil",
+                    "url": "https://worldoil.com/news/2026/5/28/ezops-launches-ai-powered-task-automation-for-oilfield-operations/",
+                    "source": "worldoil.com",
+                    "summary": "(WO) — **EZOps** has launched a new artificial intelligence feature designed to streamline task creation and field data capture across oilfield operations. The new tool, called **EZTasks.ai**, is integrated into the company’s mobile oilfield management platform and allows field personnel to generate operational tasks using voice input, copied text, uploaded documents and field images. According to EZOps, the feature is intended to reduce manual administrative work and improve real-time data capture for field crews operating at wellsites, lease roads and remote production locations. “Field teams are busier than ever, and the last thing they need is a cumbersome data entry process standing between them and the work at hand,” said **Tracy Gray**, vice president of EZOps. The company said the AI capability was developed in collaboration with its Customer Advisory Board, which includes representatives from operators and service companies across drilling, completions and production sectors. The feature is currently available to EZOps customers in the United States and Canada through the company’s mobile and desktop platform offerings.",
+                    "score": 0.01941935
+                  },
+                  {
+                    "title": "Vietnam Pioneers Digital ‘Scoring’ Tool for Nation’s Low-Emission Rice Program - Global Agriculture",
+                    "url": "https://www.global-agriculture.com/ag-tech-research-news/vietnam-pioneers-digital-scoring-tool-for-nations-low-emission-rice-program/",
+                    "source": "global-agriculture.com",
+                    "summary": "# Vietnam Pioneers Digital ‘Scoring’ Tool for Nation’s Low-Emission Rice Program. ****28** May 2026, ****Vietnam****:** The International Rice Research Institute (IRRI), in collaboration with the Vietnam Rice Industry Association (VIETRISA) and the Department of Agriculture and Environment (DAE) of Can Tho City, recently conducted a preliminary review of the compliance assessment for the farming practices associated with the 1-Million-Hectare (1mHa) Program. Can Tho City notably became the first locality in the Mekong Delta to apply the ViRiCert digital tool to assess the effectiveness of process implementation for the Vietnam Green and Low-Emission Rice trademark. Ms. Nguyen Chi Giang, Deputy Director of the Can Tho DAE, noted that digitizing data through the ViRiCert tool not only supports monitoring and assessment but also lays the groundwork for traceability, the issuance of growing area codes, and the development of a certification mechanism for Vietnam’s Green and Low-Emission Rice in the near future.",
+                    "score": 0.01757688
+                  },
+                  {
+                    "title": "US PMI Shows Manufacturing Growth for the Fifth Consecutive Month in May - Supply Chain Digest",
+                    "url": "https://www.scdigest.com/ontarget/26-06-02.php?cid=23122",
+                    "source": "scdigest.com",
+                    "summary": "| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |",
+                    "score": 0.016340127
+                  },
+                  {
+                    "title": "VinFast Appoints Chairman’s Son to Top Post Amidst Global Expansion - CleanTechnica",
+                    "url": "https://cleantechnica.com/2026/05/28/vinfast-appoints-chairmans-son-to-top-post-amidst-global-expansion/",
+                    "source": "cleantechnica.com",
+                    "summary": "VinFast has appointed Pham Nhat Quan Anh as chairman of the company’s board of directors, placing the son of founder Pham Nhat Vuong in one of the most influential positions at the Vietnamese electric vehicle maker as it faces growing competition and mounting pressure to deliver on its global ambitions. VinFast said the leadership change is intended to support the company’s next phase of development as it expands its presence in international markets. At 33, Quan Anh is one of the younger executives to assume such a senior role at a major automaker. Quan Anh’s elevation to chairman signals continuity at a time when the automaker is navigating one of the most challenging periods in its history. *Sign up for CleanTechnica's Weekly Substack for Zach and Scott's in-depth analyses and high level summaries, sign up for our daily newsletter, and follow us on Google News!*. Or sign up for our weekly one on top stories of the week if daily is too frequent.*.",
+                    "score": 0.016029146
+                  },
+                  {
+                    "title": "Vietnam: Agriculture business rating programme launched to improve access to finance - Vertical Farm Daily",
+                    "url": "https://www.verticalfarmdaily.com/article/9840909/vietnam-agriculture-business-rating-programme-launched-to-improve-access-to-finance/",
+                    "source": "verticalfarmdaily.com",
+                    "summary": "You are using software which is blocking our advertisements (adblocker). As we provide the news for free, we are relying on revenues from our banners. So please disable your adblocker and reload the page to continue using this site. You are receiving this pop-up because this is the first time you are visiting our site. The General Council of Agriculture and Rural Development of Vietnam on May 22 launched a programme to rate the credibility of agricultural businesses and entrepreneurs through the Vietnam Agriculture Reputation Index (VARI), which aims to improve access to finance for the farming sector. The programme was introduced during a forum on unlocking capital flows for agriculture through safer and more sustainable credit solutions. Hồ Xun Hùng, president of the General Council of Agriculture and Rural Development of Vietnam, said the initiative comes as the agricultural sector continues to face problems linked to limited transparency, low-quality products and breaches of commercial commitments in some areas.",
+                    "score": 0.012624949
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "# 📰 Tin tức liên quan đến VinAI trên web tuần này\n\nKết quả tìm kiếm cho thấy **không có nhiều bài viết riêng biệt về VinAI (VinAI Research)** trong tuần này. Tuy nhiên, có một số tin tức liên quan đến hệ sinh thái Vingroup/VinFast mà VinAI đóng vai trò nền tảng công nghệ:\n\n---\n\n### 1. 🚗 VinFast triển khai chương trình Agentic AI Level 4 tại Đông Nam Á\n- **Nguồn:** [Automotive World](https://www.automotiveworld.com/news/vinfast-launches-agentic-ai-level-4-programme-for-asia/)\n- VinFast công bố chương trình lái xe tự hành cấp 4 tại Đông Nam Á, hợp tác với **Autobrains** và **NVIDIA**, xây dựng trên nền tảng Drive Hyperion 10. Đây là lần đầu tiên agentic AI cấp 4 được triển khai tại khu vực.\n\n### 2. 👤 VinFast bổ nhiệm con trai Chủ tịch vào vị trí lãnh đạo cao nhất\n- **Nguồn:** [CleanTechnica](https://cleantechnica.com/2026/05/28/vinfast-appoints-chairmans-son-to-top-post-amidst-global-expansion/)\n- Phạm Nhật Quân Anh (33 tuổi) được bổ nhiệm làm Chủ tịch HĐQT VinFast, đánh dấu sự tiếp nối lãnh đạo trong giai đoạn mở rộng toàn cầu đầy thách thức.\n\n---\n\n### 💡 Nhận xét\n\nKết quả web tuần này **thiếu các bài viết riêng về VinAI Research** (viện nghiên cứu AI của Vingroup). Phần lớn nội dung liên quan tập trung vào **VinFast** — công ty chị em cùng hệ sinh thái Vingroup, nơi công nghệ của VinAI được ứng dụng trực tiếp (đặc biệt trong lái xe tự hành và AI agent).\n\n**Bạn có muốn tôi:**\n- Mở rộng tìm kiếm thêm với từ khóa khác (ví dụ: \"VinAI Research\", \"VinAI Vingroup\")?\n- Tìm kiếm trên các nền tảng khác (blog, diễn đàn công nghệ)?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "VinAI",
+            "topic": "news",
+            "timeframe": "week",
+            "max_results": 10
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "VinAI",
+            "topic": "news",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "VinFast launches Agentic AI level 4 programme for Asia - Automotive World",
+                "url": "https://www.automotiveworld.com/news/vinfast-launches-agentic-ai-level-4-programme-for-asia/",
+                "source": "automotiveworld.com",
+                "summary": "Global light vehicle demand edges higher thanks to India VinFast launches Agentic AI level 4 programme for Asia Nvidia launches Alpamayo 2 Super open reasoning model Uber and Autobrains plan Munich robotaxi programme Nvidia expands Drive Hyperion with four new robotaxi deals Scania launches first battery-electric CrewCab in Hannover Trump admin demands 50% US content in USMCA talks BYD stakes its self-driving future on in-house silicon Tesla strike scaled back in Sweden after two years Europe is shedding its engine plants, Asia holds firm. “Our goal is to help stakeholders understand the future of mobility.”. Home › News › VinFast launches Agentic AI level 4 programme for Asia. # VinFast launches Agentic AI level 4 programme for Asia. VinFast has announced a level 4 autonomous driving programme for Southeast Asia in collaboration with Autobrains and Nvidia, built on Drive Hyperion 10. The collaboration marks the first deployment of agentic AI at level 4 in Southeast Asia.",
+                "score": 0.9969246
+              },
+              {
+                "title": "FPT and CP Partner to Advance AI-Led Agri-Food Value Chains - Business Wire",
+                "url": "https://www.businesswire.com/news/home/20260529529814/en/FPT-and-CP-Partner-to-Advance-AI-Led-Agri-Food-Value-Chains",
+                "source": "businesswire.com",
+                "summary": "BANGKOK--(BUSINESS WIRE)--Charoen Pokphand Foods Public Company Limited (CPF) and FPT Corporation (FPT) recently signed a Memorandum of Understanding (MoU) for a strategic cooperation in Vietnam between CPF and FPT to advance AI-led and digital transformation in agri-food value chains, with the focus on agriculture, food processing, smart manufacturing, and supply chain management in Vietnam. Under the agreement, C.P. Vietnam Corporation (C.P. Vietnam), a subsidiary under CPF and Vietnam's leading integrated agri-food corporation, and FPT will explore the development and deployment of AI and digital solutions across C.P. Vietnam’s integrated Feed-Farm-Food value chain, from farm to family, and supply chain networks, from 2026 to 2028 and beyond. This partnership reflects a broader opportunity for Vietnam and Thailand to harness next-generation technologies to drive regional impact, strengthen food security, and sustain the growth and competitiveness of Southeast Asia’s agricultural value chains,” said Levi Nguyen, Chief Executive Officer of FPT Thailand and FPT Taiwan, FPT Corporation.",
+                "score": 0.92788786
+              },
+              {
+                "title": "CP and FPT partner to advance AI-led agri-food chains - Vietnam Economic Times",
+                "url": "https://en.vneconomy.vn/cp-and-fpt-partner-to-advance-ai-led-agri-food-chains.htm",
+                "source": "en.vneconomy.vn",
+                "summary": "## C.P. Vietnam and FPT will explore AI and digital solutions to support integrated Feed-Farm-Food operations, supply chains, smart farms, food safety traceability, and Vietnam’s agricultural modernization. C.P. Vietnam Corporation (C.P. Vietnam) is set to advance AI-led and digital transformation across its integrated agri-food value chain through a strategic cooperation between Charoen Pokphand Foods Public Company Limited (CPF) and FPT Corporation (FPT) in Vietnam, following the signing of a Memorandum of Understanding (MoU) in Bangkok. The cooperation will focus on the development and deployment of artificial intelligence and digital solutions in Vietnam’s agriculture, food processing, smart manufacturing, and supply chain management sectors. For C.P. Vietnam, a subsidiary of CPF and one of Vietnam’s leading integrated agri-food corporations, the MoU provides a framework to explore how technology can be applied across its Feed-Farm-Food value chain, from farm to family. Under the agreement, C.P. Vietnam and FPT will explore AI and digital solutions across C.P. Vietnam’s integrated Feed-Farm-Food value chain, from farm to family, and supply chain networks from 2026 to 2028 and beyond.",
+                "score": 0.8092759
+              },
+              {
+                "title": "Asana acquires no-code agent-builder Stack AI - TechCrunch",
+                "url": "https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/",
+                "source": "techcrunch.com",
+                "summary": "Asana has acquired the workflow automation company Stack AI for $75 million, part of a larger effort to position itself as an AI-native workplace platform. Stack AI’s founders, Tony Rosinol and Bernard Aceituno, will join Asana as part of the acquisition. Asana framed the acquisition as part of its broader AI pivot, in which it seeks to build its platform into “the operating system for human-agent teams.”. Built as an AI workflow-automation system, Stack AI designs agents to operate within existing business systems, pulling in data from systems like Salesforce, Slack and Gsuite. Part of Y Combinator’s Winter ’23 cohort, the company has faced fierce competition from automation tools like Zapier as well as AI labs like OpenAI and Anthropic. While users are likely most familiar with Asana’s work management system, the company has released a number of AI-oriented products in recent years, most notably the AI Studio agent builder and AI Teammates series of pre-built automations. acquisition, AI, Asana, Automation, Stack AI.",
+                "score": 0.031618766
+              },
+              {
+                "title": "RevEng.AI Raises $15 Million to Hunt for Flaws and Backdoors in Software Binaries - SecurityWeek",
+                "url": "https://www.securityweek.com/reveng-ai-raises-15-million-to-hunt-for-flaws-and-backdoors-in-software-binaries/amp/",
+                "source": "securityweek.com",
+                "summary": "# RevEng.AI Raises $15 Million to Hunt for Flaws and Backdoors in Software Binaries. Using an AI model called BinNet, RevEng hunts vulnerabilities and backdoors in released software binaries. **Cybersecurity startup RevEng.AI today announced raising $15 million in a Series A funding round that brings the total raised by the company to $19.5 million.**. The investment round was led by NATO Innovation Fund, with additional support from Sands Capital, In-Q-Tel (IQT), IQ Capital, and Episode One. Founded in 2023, London-based RevEng.AI is using an AI model named BinNet to analyze compiled software at the binary level and identify vulnerabilities and backdoors. **Related:** Ocean Emerges From Stealth With $28M for Agentic Email Security Platform. **Related:** Quantum Bridge Raises $8 Million for Quantum-Safe Key Distribution Solution. **Related:** Exaforce Raises $125 Million for Agentic SOC Platform. The new Series A funding round brings the total raised by Quantum Bridge to $16 million.",
+                "score": 0.019568676
+              },
+              {
+                "title": "EZOps launches AI-powered task automation for oilfield operations - World Oil",
+                "url": "https://worldoil.com/news/2026/5/28/ezops-launches-ai-powered-task-automation-for-oilfield-operations/",
+                "source": "worldoil.com",
+                "summary": "(WO) — **EZOps** has launched a new artificial intelligence feature designed to streamline task creation and field data capture across oilfield operations. The new tool, called **EZTasks.ai**, is integrated into the company’s mobile oilfield management platform and allows field personnel to generate operational tasks using voice input, copied text, uploaded documents and field images. According to EZOps, the feature is intended to reduce manual administrative work and improve real-time data capture for field crews operating at wellsites, lease roads and remote production locations. “Field teams are busier than ever, and the last thing they need is a cumbersome data entry process standing between them and the work at hand,” said **Tracy Gray**, vice president of EZOps. The company said the AI capability was developed in collaboration with its Customer Advisory Board, which includes representatives from operators and service companies across drilling, completions and production sectors. The feature is currently available to EZOps customers in the United States and Canada through the company’s mobile and desktop platform offerings.",
+                "score": 0.01941935
+              },
+              {
+                "title": "Vietnam Pioneers Digital ‘Scoring’ Tool for Nation’s Low-Emission Rice Program - Global Agriculture",
+                "url": "https://www.global-agriculture.com/ag-tech-research-news/vietnam-pioneers-digital-scoring-tool-for-nations-low-emission-rice-program/",
+                "source": "global-agriculture.com",
+                "summary": "# Vietnam Pioneers Digital ‘Scoring’ Tool for Nation’s Low-Emission Rice Program. ****28** May 2026, ****Vietnam****:** The International Rice Research Institute (IRRI), in collaboration with the Vietnam Rice Industry Association (VIETRISA) and the Department of Agriculture and Environment (DAE) of Can Tho City, recently conducted a preliminary review of the compliance assessment for the farming practices associated with the 1-Million-Hectare (1mHa) Program. Can Tho City notably became the first locality in the Mekong Delta to apply the ViRiCert digital tool to assess the effectiveness of process implementation for the Vietnam Green and Low-Emission Rice trademark. Ms. Nguyen Chi Giang, Deputy Director of the Can Tho DAE, noted that digitizing data through the ViRiCert tool not only supports monitoring and assessment but also lays the groundwork for traceability, the issuance of growing area codes, and the development of a certification mechanism for Vietnam’s Green and Low-Emission Rice in the near future.",
+                "score": 0.01757688
+              },
+              {
+                "title": "US PMI Shows Manufacturing Growth for the Fifth Consecutive Month in May - Supply Chain Digest",
+                "url": "https://www.scdigest.com/ontarget/26-06-02.php?cid=23122",
+                "source": "scdigest.com",
+                "summary": "| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |",
+                "score": 0.016340127
+              },
+              {
+                "title": "VinFast Appoints Chairman’s Son to Top Post Amidst Global Expansion - CleanTechnica",
+                "url": "https://cleantechnica.com/2026/05/28/vinfast-appoints-chairmans-son-to-top-post-amidst-global-expansion/",
+                "source": "cleantechnica.com",
+                "summary": "VinFast has appointed Pham Nhat Quan Anh as chairman of the company’s board of directors, placing the son of founder Pham Nhat Vuong in one of the most influential positions at the Vietnamese electric vehicle maker as it faces growing competition and mounting pressure to deliver on its global ambitions. VinFast said the leadership change is intended to support the company’s next phase of development as it expands its presence in international markets. At 33, Quan Anh is one of the younger executives to assume such a senior role at a major automaker. Quan Anh’s elevation to chairman signals continuity at a time when the automaker is navigating one of the most challenging periods in its history. *Sign up for CleanTechnica's Weekly Substack for Zach and Scott's in-depth analyses and high level summaries, sign up for our daily newsletter, and follow us on Google News!*. Or sign up for our weekly one on top stories of the week if daily is too frequent.*.",
+                "score": 0.016029146
+              },
+              {
+                "title": "Vietnam: Agriculture business rating programme launched to improve access to finance - Vertical Farm Daily",
+                "url": "https://www.verticalfarmdaily.com/article/9840909/vietnam-agriculture-business-rating-programme-launched-to-improve-access-to-finance/",
+                "source": "verticalfarmdaily.com",
+                "summary": "You are using software which is blocking our advertisements (adblocker). As we provide the news for free, we are relying on revenues from our banners. So please disable your adblocker and reload the page to continue using this site. You are receiving this pop-up because this is the first time you are visiting our site. The General Council of Agriculture and Rural Development of Vietnam on May 22 launched a programme to rate the credibility of agricultural businesses and entrepreneurs through the Vietnam Agriculture Reputation Index (VARI), which aims to improve access to finance for the farming sector. The programme was introduced during a forum on unlocking capital flows for agriculture through safer and more sustainable credit solutions. Hồ Xun Hùng, president of the General Council of Agriculture and Rural Development of Vietnam, said the initiative comes as the agricultural sector continues to face problems linked to limited transparency, low-quality products and breaches of commercial commitments in some areas.",
+                "score": 0.012624949
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:37:43"
+    },
+    {
+      "turn_index": 6,
+      "started_at": "2026-06-02T15:38:26",
+      "user": "tin tức về Ai thực chiến vinuni và tóm tắt lại",
+      "status": "answered",
+      "assistant_text": "Kết quả tìm kiếm vẫn chưa trả về thông tin cụ thể về VinUni. Để tôi thử tìm kiếm với từ khóa chính xác hơn:\n\nTOOL_CALLS_JSON:\n[\n  {\n    \"name\": \"lookup\",\n    \"args\": {\n      \"query\": \"VinUniversity AI\",\n      \"topic\": \"news\",\n      \"timeframe\": \"month\",\n      \"max_results\": 10\n    }\n  }\n]",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "AI thực chiến VinUni",
+                "topic": "news",
+                "timeframe": "month",
+                "max_results": 10
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "AI thực chiến VinUni",
+                "topic": "news",
+                "timeframe": "month",
+                "max_results": 10
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "AI thực chiến VinUni",
+                "topic": "news",
+                "timeframe": "month",
+                "items": [
+                  {
+                    "title": "AI warfare is already here - The Verge",
+                    "url": "https://www.theverge.com/ai-artificial-intelligence/937028/military-ai-warfare-red-lines",
+                    "source": "theverge.com",
+                    "summary": "# AI warfare is already here. Anthropic’s fight with the Pentagon highlights the risks of autonomous warfare — but obscures just how close it is. is The Verge’s senior AI reporter. An AI beat reporter for more than five years, her work has also appeared in CNBC, MIT Technology Review, Wired UK, and other outlets. The Convention on Certain Conventional Weapons, an international forum that focuses on lethal autonomous systems, is hosted twice a year at the United Nations in Geneva. The most frightening part wasn’t the premise — it was that the Pentagon was already developing a version of this technology. That meeting was the first one held after the start of Project Maven, a US Department of Defense initiative using AI to analyze drone surveillance footage. Since the start of the year, it’s emerged as the only military AI contractor to place meaningful limits on what experts call one of the final frontiers of AI warfare.",
+                    "score": 0.5774954
+                  },
+                  {
+                    "title": "Virginia colleges race to build AI-ready campuses - Axios",
+                    "url": "https://www.axios.com/local/richmond/2026/05/29/virginia-colleges-ai-majors-tools-workforce",
+                    "source": "axios.com",
+                    "summary": "AI is rapidly reshaping Virginia higher education, with colleges rolling out new majors, tools and classroom policies to better prepare students for an AI-driven workforce. **State of play:** The University of Richmond launched SpiderAI — a platform for students and staff with multiple AI tools. * CNU will offer a new AI major starting this fall, and Virginia Tech students can apply for a new AI minor. * Virginia State University just got funding this month to build a Center for Generative AI and Industrial Cybersecurity and a new UVA program has students providing AI consulting to local businesses. * \"We recognize these tools are already shaping the workforce our students are entering, so simply discouraging their use would not prepare students for the future,\" Saylor tells Axios. **What we're watching:** Virginia lawmakers this year ordered JLARC, the state watchdog, to review how colleges are handling AI, including policies around academic integrity and classroom use.",
+                    "score": 0.46879065
+                  },
+                  {
+                    "title": "“Manufacturing Sites are the Core of AI Competition”... Ibex Unveils Industrial Physical AI Strategy at AWC 2026 - 벤처스퀘어",
+                    "url": "https://www.venturesquare.net/en/1085851/",
+                    "source": "venturesquare.net",
+                    "summary": "# “Manufacturing Sites are the Core of AI Competition”… Ibex Unveils Industrial Physical AI Strategy at AWC 2026. On the 27th, AIVEX gave a presentation on the topic of \"Industrial Physical AI Technology Trends and Applications\" at the \"AI World Congress 2026 (AWC 2026)\" held at Ajou University. In this announcement, the company explained that the era of 'Physical AI,' where AI perceives, judges, and acts upon the real physical world—moving beyond Generative and Agentic AI—is beginning in earnest. It explained that AI, which used to understand language and knowledge through text-based learning, is now evolving to a stage where it understands and interacts with the physical environment based on video and behavioral data. Seong Min-soo, CEO of Ibex, stated, “The center of AI is expanding beyond generative AI in the digital space to physical AI operating in actual industrial sites,” adding, “We will lead the advancement of manufacturing AI through AI Vision and AI Robotics technologies optimized for manufacturing environments.”.",
+                    "score": 0.12678517
+                  },
+                  {
+                    "title": "An Nvidia exec said AI-generated résumés may be favored by AI recruiters because 'AI likes to use AI' - Business Insider",
+                    "url": "https://www.businessinsider.com/nvidia-exec-ai-likes-to-use-ai-it-impacts-resumes-2026-5",
+                    "source": "businessinsider.com",
+                    "summary": "# An Nvidia executive said that AI-generated résumés may already be gaming AI recruiters because 'AI likes to use AI'. * Nvidia's Jonathan Ross said that \"AI likes to use AI.\". * Research shows that AI screening tools may favor résumés generated by the same AI models they use. * Ross said that applicants may need multiple AI-tailored résumés to maximize their chances. * Summaries are generated by an AI model trained on Business Insider's articles. Speaking at the Sohn Investment Conference 2026, Jonathan Ross, the AI hardware architect who previously helped invent Google's TPU chip, said that \"AI likes to use AI\" andpointed to emerging research that AI hiring systems may favor résumés generated by their own underlying models. \"Someone did a study and showed that résumés generated from one LLM are preferred by that same LLM over the résumés from the other,\" Ross told John Yetimoglu, the CIO of Infinitum. Ross said that applicants may need multiple AI-tailored résumés to maximize their chances of getting through automated screening systems.",
+                    "score": 0.04813677
+                  },
+                  {
+                    "title": "ShieldAI to demonstrate AI-equipped one-way attack munitions later this year - FlightGlobal",
+                    "url": "https://www.flightglobal.com/munitions/2026/05/shieldai-to-demonstrate-ai-equipped-one-way-attack-munitions-later-this-year/",
+                    "source": "flightglobal.com",
+                    "summary": "# ShieldAI to demonstrate AI-equipped one-way attack munitions later this year. ***The autonomy company will equip the Pentagon’s LUCAS one-way attack drones with Hivemind agentic software for a test demonstration later this year, swarming 10 or more munitions.***. The Pentagon is exploring options to equip its new one-way attack drones with artificial intelligence software that would allow for swarming of multiple munitions and more complex flight patterns. Autonomy start-up Shield AI has been selected to integrate its Hivemind system into Washington’s new Low-Cost One-Way Attack System (LUCAS) drones, which were reverse-engineered from the Iranian-made HESA Shahed-136. The autonomy software is also flying combat missions in Ukraine, both on Shield AI’s own V-Bat intelligence, surveillance and reconnaissance tail-sitting UAS and a number of different one-way attack munitions, including designs from Swiss manufacturer Destinus. The ShieldAI founder and former US Navy SEAL commando says the company will leverage that combat experience from Ukraine to develop an AI-equipped one-way attack option for the US military.",
+                    "score": 0.026759284
+                  },
+                  {
+                    "title": "West Pointers can be trained to better evaluate, appreciate AI, study finds - Defense One",
+                    "url": "https://www.defenseone.com/technology/2026/05/west-pointers-can-be-trained-better-evaluate-appreciate-ai-study-finds/413513/?oref=d1-featured-river-top",
+                    "source": "defenseone.com",
+                    "summary": "The U.S. Military Academy's Gold Team took second at the 59th annual Sandhurst Military Skills Competition, which ended May 2, 2026, at West Point. As Pentagon leaders push broader use of such tools, a new paper offers some reassuring news: West Point cadets can be trained to be more appropriately skeptical of AI’s output—while remaining broadly optimistic about its potential. Researchers from Georgetown University, the University of Pennsylvania, and the U.S. Military Academy published a paper last week comparing 236 West Point cadets to a demographically similar sample of 702 members of the public. In the study, West Pointers demonstrated “AI knowledge scores” nearly twice as high as the general public, and were less than half as likely to commit an automation bias error—that is, to trust a mistaken chatbot. In the study, about twice as many cadets expressed worry about the dangerous consequences of AI than did members of the public, but they were much less likely to describe AI as “sinister.”.",
+                    "score": 0.024987794
+                  },
+                  {
+                    "title": "Opinion | We Should Starve Adversaries of AI Compute - WSJ",
+                    "url": "https://www.wsj.com/opinion/we-should-starve-adversaries-of-ai-compute-88fc3bea",
+                    "source": "wsj.com",
+                    "summary": "# We Should Starve Adversaries of AI Compute - WSJ. https://www.wsj.com/opinion/we-should-starve-adversaries-of-ai-compute-88fc3bea. # We Should Starve Adversaries of AI Compute. ## China has already leveraged American chips for military training—all with an eye on defeating America on the battlefield. Image 3: Graham Platner’s Wife Flagged Sexually Explicit Texts to His Senate Campaign. #### Graham Platner’s Wife Flagged Sexually Explicit Texts to His Senate Campaign. Image 4: Bill Gates Spent Years Crafting His Image. #### Bill Gates Spent Years Crafting His Image. Image 5: A Famous Math Problem Stumped Humans for 80 Years. #### A Famous Math Problem Stumped Humans for 80 Years. Image 6: The U.S. Has Found a Way to Down a Drone Without Spending $1 Million. #### The U.S. Has Found a Way to Down a Drone Without Spending $1 Million. Image 7: The Home-Insurance Coin Flip: Nearly Half of Claims Result in Zero Payout. Image 9: The Academy Rethinks the SAT. Image 11: What’s Up With Trump and NATO?",
+                    "score": 0.020332353
+                  },
+                  {
+                    "title": "Zelenskyy makes a pitch to Silicon Valley's defense startups: Bring your AI, we'll bring the battle experience - Business Insider",
+                    "url": "https://www.businessinsider.com/ukraine-zelenskyy-drones-ai-russia-war-silicon-valley-defense-tech-2026-5",
+                    "source": "businessinsider.com",
+                    "summary": "# Zelenskyy makes a pitch to Silicon Valley's defense startups: Bring your AI, we'll bring the battle experience. And we have a lot of things that they don't have because of our experience on the battlefield,\" Zelenskyy said on CBS News' \"Face the Nation\" on Sunday. Ukraine, out of necessity, has built an arsenal of drone tech and anti-drone tech on a shoestring budget, captivating the global defense industry as it's largely held the line — despite its underdog status — since Russia launched its full-scale invasion over four years ago. It's learned valuable lessons in the process, like the need for drone units to always be on the move and for their command centers to be buried underground to protect them. Look out for an alert in your inbox the next time publishes a story! Every time a new story is published, you’ll get an alert straight to your inbox! Look out for an alert in your inbox the next time a new story is published!",
+                    "score": 0.01941935
+                  },
+                  {
+                    "title": "Cerebras Systems’ IPO Marks a Milestone in Tech Industry - Startup Ecosystem Canada",
+                    "url": "https://www.startupecosystem.ca/news/cerebras-systems-ipo-marks-a-milestone-in-tech-industry/",
+                    "source": "startupecosystem.ca",
+                    "summary": "## Cerebras Systems’ IPO Marks a Milestone in Tech Industry. Cerebras Systems made a significant impact on the tech industry by raising $5.5 billion in its IPO, marking the first major tech IPO of 2026. The company reported a significant revenue increase to $510 million in 2025 and achieved a net income of $237.8 million, making it a formidable competitor in the AI chip market. acquisition AI AI development AI infrastructure AI innovation AI integration AI investment AI models AI safety AI technology Amazon Anthropic Apple Artificial Intelligence Autonomous vehicles Canada founder news Canada startup news ChatGPT cryptocurrency Cybersecurity Electric Vehicles Elon Musk entrepreneurship fintech Funding round Generative AI Global founder news Global startup news healthcare innovation Innovation investment IPO Meta Microsoft Nvidia Ontario founder news Ontario startup news OpenAI Sam Altman Seed funding Silicon Valley TechCrunch Disrupt Tesla Toronto startup news venture capital. 1 year ago Global Decline in Investment in Online Education Due to Rise of AI. ### Decline in Investment in Online Education Due to Rise of AI.",
+                    "score": 0.019271137
+                  },
+                  {
+                    "title": "As the Pentagon pushes for battlefield AI, some military leaders urge caution - AP News",
+                    "url": "https://apnews.com/article/artificial-intelligence-military-hegseth-anthropic-d5fbaee17ee0bdb9738dbb808ea2d047",
+                    "source": "apnews.com",
+                    "summary": "Test Your News I.Q. 2026 Elections Election Results Election calendar White House Congress Supreme Court The latest AP-NORC polls Ground Game. (AP) — The Trump administration is pushing to unleash the power of artificial intelligence for the U.S. military while facing calls to put up guardrails around the rapidly developing technology from some companies — and even notes of caution from top leaders in uniform. The remarks from Bradley, who oversees the units that handle the military’s most difficult and dangerous operations, about the need to ensure safeguards come as his boss, Defense Secretary Pete Hegseth, is pushing to rapidly evolve the military through AI. AI’s use in the military is part of the Republican administration’s larger push to grow the capability it sees as a unique American advantage even as it faces pressure to ensure responsible safeguards. The clash over the integration of AI into the military, who ultimately controls the technology and the ethics behind its use has played out in unusually public fashion during the Trump administration.",
+                    "score": 0.01784874
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Kết quả tìm kiếm vừa rồi không trả về nội dung liên quan đến VinUni. Để tôi thử tìm kiếm chính xác hơn:",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "VinUni AI thực chiến chương trình đào tạo",
+                "topic": "news",
+                "timeframe": "month",
+                "max_results": 10
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "VinUni AI thực chiến chương trình đào tạo",
+                "topic": "news",
+                "timeframe": "month",
+                "max_results": 10
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "VinUni AI thực chiến chương trình đào tạo",
+                "topic": "news",
+                "timeframe": "month",
+                "items": [
+                  {
+                    "title": "Virginia colleges race to build AI-ready campuses - Axios",
+                    "url": "https://www.axios.com/local/richmond/2026/05/29/virginia-colleges-ai-majors-tools-workforce",
+                    "source": "axios.com",
+                    "summary": "AI is rapidly reshaping Virginia higher education, with colleges rolling out new majors, tools and classroom policies to better prepare students for an AI-driven workforce. **State of play:** The University of Richmond launched SpiderAI — a platform for students and staff with multiple AI tools. * CNU will offer a new AI major starting this fall, and Virginia Tech students can apply for a new AI minor. * Virginia State University just got funding this month to build a Center for Generative AI and Industrial Cybersecurity and a new UVA program has students providing AI consulting to local businesses. * \"We recognize these tools are already shaping the workforce our students are entering, so simply discouraging their use would not prepare students for the future,\" Saylor tells Axios. **What we're watching:** Virginia lawmakers this year ordered JLARC, the state watchdog, to review how colleges are handling AI, including policies around academic integrity and classroom use.",
+                    "score": 0.9219218
+                  },
+                  {
+                    "title": "Code Ninjas: The AI-In-Education Problem Isn’t Cheating. It’s Passivity. - Forbes",
+                    "url": "https://www.forbes.com/sites/johnkoetsier/2026/05/21/code-ninjas-the-ai-in-education-problem-isnt-cheating-its-passivity/",
+                    "source": "forbes.com",
+                    "summary": "# Code Ninjas: The AI-In-Education Problem Isn’t Cheating. The scarier number is the percentage of kids who now just automatically reach for an AI chatbot before even try to solve a problem on their own. That’s the actual problem inside the AI-in-education panic according to Navin Gurnaney, CEO of Code Ninjas, the world’s largest kids’ coding franchise. \"If kids are being taught or being steered in the direction of, 'Hey, this is a cool tool you can just use and you’ll get the answers,’ and that’s what you see most kids doing, then they learn nothing,\" Gurnaney told me on the TechFirst podcast. The solution, Gurnaney says, is to get kids building with AI. From this perspective, the divide in education isn't between kids who use AI and kids who don't. It's between kids who consume AI and kids who build with it. “AI is here, and it's going to be everywhere in the future.",
+                    "score": 0.7233095
+                  },
+                  {
+                    "title": "From AI Policies To AI Literacy In Education - Forbes",
+                    "url": "https://www.forbes.com/sites/heatherwishartsmith/2026/05/20/from-ai-policies-to-ai-literacy-in-education/",
+                    "source": "forbes.com",
+                    "summary": "# From AI Policies To AI Literacy In Education. Yet a growing number of schools and universities are now shifting the conversation toward AI literacy in education, reflecting a broader recognition that students will graduate into workplaces where AI tools are embedded in daily workflows. Rather than trying to isolate students from AI technologies, many educational institutions are beginning to focus on teaching students to use AI responsibly, critically and effectively. That shift is moving schools beyond reactive AI policies toward proactive AI literacy focused on judgment, digital literacy and supervised experimentation and reflects adoption in schools worldwide. ## AI Literacy in Education Is Becoming Foundational. The movement toward AI literacy in education is appearing across both K-12 and higher education. In Ohio, partnerships among organizations including NWN, AI OWL, Intel, Khan Academy, school districts and colleges are creating AI-focused education labs intended to provide students with supervised, hands-on exposure to AI tools through the state’s AI Education Network.",
+                    "score": 0.40356684
+                  },
+                  {
+                    "title": "OpenAI will pay up to $445,000 for a researcher who can prepare for a world where AI trains itself - Business Insider",
+                    "url": "https://www.businessinsider.com/openai-safety-team-ai-self-improvement-challenge-job-2026-5",
+                    "source": "businessinsider.com",
+                    "summary": "# OpenAI will pay up to $445,000 for a researcher who can prepare for a world where AI trains itself. OpenAI has set the goal of making an AI tool that could research its own improvements. The potential for AI systems to achieve so-called \"recursive self-improvement\" has come to the forefront for AI leaders, after coding tools from OpenAI and Anthropic leaped forward over the last six months. OpenAI, which is aiming to go public this year, recently posted a job listing that seeks a safety researcher to grapple with what happens when an AI can train better versions of itself. Researchers at METR, a lab that studies model capabilities, wrote in March that the length of a task that frontier AI models can complete doubles about every seven months — meaning these models can increasingly perform work that takes a long time for humans. OpenAI's job posting hints at how the company is preparing for a world where AI models can rapidly improve themselves.",
+                    "score": 0.36296922
+                  },
+                  {
+                    "title": "Newsweek Recognizes Coty’s AI Literacy Program - Beauty Packaging",
+                    "url": "https://www.beautypackaging.com/breaking-news/newsweek-recognizes-cotys-ai-literacy-program/",
+                    "source": "beautypackaging.com",
+                    "summary": "# Newsweek Recognizes Coty’s AI Literacy Program. The program ‘Supercharge with AI’ wins Newsweek’s AI Impact Award in the 'AI Workplace: Best Outcomes, Employee Engagement' category. Coty announced that its enterprise AI literacy program, “Supercharge with AI: Scaling Enterprise-Wide AI Literacy & Adoption to Transform How Coty Works” (Supercharge with AI), has been named a winner of Newsweek’s AI Impact Award in the “AI Workplace: Best Outcomes, Employee Engagement” category. *“Winning the Newsweek AI Impact Award is a tremendous recognition of what our people have built together. Supercharge with AI has become a movement to put powerful, responsible AI tools into the hands of every Coty employee and to fundamentally change how we work, create, and make decisions. Launched and scaled in 100 days, Supercharge with AI is one of the beauty industry’s largest enterprise AI training programs to date. * **Industry recognition** for Coty’s program as a best-in-class example of AI upskilling in beauty.",
+                    "score": 0.29098085
+                  },
+                  {
+                    "title": "NCCU graduates weigh AI's growing role in the workforce - ABC11 Raleigh-Durham",
+                    "url": "https://abc11.com/post/nccu-graduates-weigh-ais-growing-role-workforce/19065878/",
+                    "source": "abc11.com",
+                    "summary": "# NCCU graduates weigh AI's growing role in the workforce. Another graduate, Tiana Lennon, said she recently completed a class on artificial intelligence and learned how to use it as a tool for research while earning her degree in pharmaceutical sciences. \"How AI would take over, and you wouldn't need a physical body to do the job. As AI use continues to grow, experts say it is becoming an increasingly common part of education and job preparation. Bill Rand, Executive Director of Business Analytics and AI Initiative, said students need to prepare for AI's expanding role in the workplace. \"Some of the reason why we're seeing AI resulting in layoffs is where people who know how to use AI are being replaced by one person who knows how to use AI to do what used to be a team of three or four people doing the same job,\" Rand said.",
+                    "score": 0.18126321
+                  },
+                  {
+                    "title": "This AI startup’s army of 15,000 hackers pressure test Claude, GPT-5 and Gemini - Forbes Australia",
+                    "url": "https://www.forbes.com.au/news/innovation/this-ai-startups-army-of-15000-hackers-pressure-test-claude-gpt-5-and-gemini/",
+                    "source": "forbes.com.au",
+                    "summary": "# This AI startup’s army of 15,000 hackers pressure test Claude, GPT-5 and Gemini. Now it’s raised $40 million as it expands to sell security tools to enterprises building AI agents. The objective: convince AI models from companies like OpenAI and Anthropic to behave in nefarious ways before they’re released to the world. In almost a year, Bettridge has competed in more than 1,000 challenges via Arena— a hub run by startup Gray Swan that some 15,000 security professionals from all across the world use to “red team” AI systems like Anthropic’s Claude Mythos and OpenAI’s GPT-5, finding and fixing vulnerabilities before they can be exploited. But it uses the data from Arena’s human red-teamers to train its AI agent called Shade that actively looks for vulnerabilities by continuously attacking a system in different ways, and Cygnal, software that monitors an AI model’s prompts and outputs to block it from generating harmful responses and accessing tools it shouldn’t.",
+                    "score": 0.13477592
+                  },
+                  {
+                    "title": "An Nvidia exec said AI-generated résumés may be favored by AI recruiters because 'AI likes to use AI' - Business Insider",
+                    "url": "https://www.businessinsider.com/nvidia-exec-ai-likes-to-use-ai-it-impacts-resumes-2026-5",
+                    "source": "businessinsider.com",
+                    "summary": "# An Nvidia executive said that AI-generated résumés may already be gaming AI recruiters because 'AI likes to use AI'. * Nvidia's Jonathan Ross said that \"AI likes to use AI.\". * Research shows that AI screening tools may favor résumés generated by the same AI models they use. * Ross said that applicants may need multiple AI-tailored résumés to maximize their chances. * Summaries are generated by an AI model trained on Business Insider's articles. Speaking at the Sohn Investment Conference 2026, Jonathan Ross, the AI hardware architect who previously helped invent Google's TPU chip, said that \"AI likes to use AI\" andpointed to emerging research that AI hiring systems may favor résumés generated by their own underlying models. \"Someone did a study and showed that résumés generated from one LLM are preferred by that same LLM over the résumés from the other,\" Ross told John Yetimoglu, the CIO of Infinitum. Ross said that applicants may need multiple AI-tailored résumés to maximize their chances of getting through automated screening systems.",
+                    "score": 0.12852514
+                  },
+                  {
+                    "title": "“Manufacturing Sites are the Core of AI Competition”... Ibex Unveils Industrial Physical AI Strategy at AWC 2026 - 벤처스퀘어",
+                    "url": "https://www.venturesquare.net/en/1085851/",
+                    "source": "venturesquare.net",
+                    "summary": "# “Manufacturing Sites are the Core of AI Competition”… Ibex Unveils Industrial Physical AI Strategy at AWC 2026. On the 27th, AIVEX gave a presentation on the topic of \"Industrial Physical AI Technology Trends and Applications\" at the \"AI World Congress 2026 (AWC 2026)\" held at Ajou University. In this announcement, the company explained that the era of 'Physical AI,' where AI perceives, judges, and acts upon the real physical world—moving beyond Generative and Agentic AI—is beginning in earnest. It explained that AI, which used to understand language and knowledge through text-based learning, is now evolving to a stage where it understands and interacts with the physical environment based on video and behavioral data. Seong Min-soo, CEO of Ibex, stated, “The center of AI is expanding beyond generative AI in the digital space to physical AI operating in actual industrial sites,” adding, “We will lead the advancement of manufacturing AI through AI Vision and AI Robotics technologies optimized for manufacturing environments.”.",
+                    "score": 0.123365626
+                  },
+                  {
+                    "title": "West Pointers can be trained to better evaluate, appreciate AI, study finds - Defense One",
+                    "url": "https://www.defenseone.com/technology/2026/05/west-pointers-can-be-trained-better-evaluate-appreciate-ai-study-finds/413513/?oref=d1-featured-river-top",
+                    "source": "defenseone.com",
+                    "summary": "The U.S. Military Academy's Gold Team took second at the 59th annual Sandhurst Military Skills Competition, which ended May 2, 2026, at West Point. As Pentagon leaders push broader use of such tools, a new paper offers some reassuring news: West Point cadets can be trained to be more appropriately skeptical of AI’s output—while remaining broadly optimistic about its potential. Researchers from Georgetown University, the University of Pennsylvania, and the U.S. Military Academy published a paper last week comparing 236 West Point cadets to a demographically similar sample of 702 members of the public. In the study, West Pointers demonstrated “AI knowledge scores” nearly twice as high as the general public, and were less than half as likely to commit an automation bias error—that is, to trust a mistaken chatbot. In the study, about twice as many cadets expressed worry about the dangerous consequences of AI than did members of the public, but they were much less likely to describe AI as “sinister.”.",
+                    "score": 0.11436852
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Kết quả tìm kiếm vẫn chưa trả về thông tin cụ thể về VinUni. Để tôi thử tìm kiếm với từ khóa chính xác hơn:\n\nTOOL_CALLS_JSON:\n[\n  {\n    \"name\": \"lookup\",\n    \"args\": {\n      \"query\": \"VinUniversity AI\",\n      \"topic\": \"news\",\n      \"timeframe\": \"month\",\n      \"max_results\": 10\n    }\n  }\n]",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI thực chiến VinUni",
+            "topic": "news",
+            "timeframe": "month",
+            "max_results": 10
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI thực chiến VinUni",
+            "topic": "news",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "AI warfare is already here - The Verge",
+                "url": "https://www.theverge.com/ai-artificial-intelligence/937028/military-ai-warfare-red-lines",
+                "source": "theverge.com",
+                "summary": "# AI warfare is already here. Anthropic’s fight with the Pentagon highlights the risks of autonomous warfare — but obscures just how close it is. is The Verge’s senior AI reporter. An AI beat reporter for more than five years, her work has also appeared in CNBC, MIT Technology Review, Wired UK, and other outlets. The Convention on Certain Conventional Weapons, an international forum that focuses on lethal autonomous systems, is hosted twice a year at the United Nations in Geneva. The most frightening part wasn’t the premise — it was that the Pentagon was already developing a version of this technology. That meeting was the first one held after the start of Project Maven, a US Department of Defense initiative using AI to analyze drone surveillance footage. Since the start of the year, it’s emerged as the only military AI contractor to place meaningful limits on what experts call one of the final frontiers of AI warfare.",
+                "score": 0.5774954
+              },
+              {
+                "title": "Virginia colleges race to build AI-ready campuses - Axios",
+                "url": "https://www.axios.com/local/richmond/2026/05/29/virginia-colleges-ai-majors-tools-workforce",
+                "source": "axios.com",
+                "summary": "AI is rapidly reshaping Virginia higher education, with colleges rolling out new majors, tools and classroom policies to better prepare students for an AI-driven workforce. **State of play:** The University of Richmond launched SpiderAI — a platform for students and staff with multiple AI tools. * CNU will offer a new AI major starting this fall, and Virginia Tech students can apply for a new AI minor. * Virginia State University just got funding this month to build a Center for Generative AI and Industrial Cybersecurity and a new UVA program has students providing AI consulting to local businesses. * \"We recognize these tools are already shaping the workforce our students are entering, so simply discouraging their use would not prepare students for the future,\" Saylor tells Axios. **What we're watching:** Virginia lawmakers this year ordered JLARC, the state watchdog, to review how colleges are handling AI, including policies around academic integrity and classroom use.",
+                "score": 0.46879065
+              },
+              {
+                "title": "“Manufacturing Sites are the Core of AI Competition”... Ibex Unveils Industrial Physical AI Strategy at AWC 2026 - 벤처스퀘어",
+                "url": "https://www.venturesquare.net/en/1085851/",
+                "source": "venturesquare.net",
+                "summary": "# “Manufacturing Sites are the Core of AI Competition”… Ibex Unveils Industrial Physical AI Strategy at AWC 2026. On the 27th, AIVEX gave a presentation on the topic of \"Industrial Physical AI Technology Trends and Applications\" at the \"AI World Congress 2026 (AWC 2026)\" held at Ajou University. In this announcement, the company explained that the era of 'Physical AI,' where AI perceives, judges, and acts upon the real physical world—moving beyond Generative and Agentic AI—is beginning in earnest. It explained that AI, which used to understand language and knowledge through text-based learning, is now evolving to a stage where it understands and interacts with the physical environment based on video and behavioral data. Seong Min-soo, CEO of Ibex, stated, “The center of AI is expanding beyond generative AI in the digital space to physical AI operating in actual industrial sites,” adding, “We will lead the advancement of manufacturing AI through AI Vision and AI Robotics technologies optimized for manufacturing environments.”.",
+                "score": 0.12678517
+              },
+              {
+                "title": "An Nvidia exec said AI-generated résumés may be favored by AI recruiters because 'AI likes to use AI' - Business Insider",
+                "url": "https://www.businessinsider.com/nvidia-exec-ai-likes-to-use-ai-it-impacts-resumes-2026-5",
+                "source": "businessinsider.com",
+                "summary": "# An Nvidia executive said that AI-generated résumés may already be gaming AI recruiters because 'AI likes to use AI'. * Nvidia's Jonathan Ross said that \"AI likes to use AI.\". * Research shows that AI screening tools may favor résumés generated by the same AI models they use. * Ross said that applicants may need multiple AI-tailored résumés to maximize their chances. * Summaries are generated by an AI model trained on Business Insider's articles. Speaking at the Sohn Investment Conference 2026, Jonathan Ross, the AI hardware architect who previously helped invent Google's TPU chip, said that \"AI likes to use AI\" andpointed to emerging research that AI hiring systems may favor résumés generated by their own underlying models. \"Someone did a study and showed that résumés generated from one LLM are preferred by that same LLM over the résumés from the other,\" Ross told John Yetimoglu, the CIO of Infinitum. Ross said that applicants may need multiple AI-tailored résumés to maximize their chances of getting through automated screening systems.",
+                "score": 0.04813677
+              },
+              {
+                "title": "ShieldAI to demonstrate AI-equipped one-way attack munitions later this year - FlightGlobal",
+                "url": "https://www.flightglobal.com/munitions/2026/05/shieldai-to-demonstrate-ai-equipped-one-way-attack-munitions-later-this-year/",
+                "source": "flightglobal.com",
+                "summary": "# ShieldAI to demonstrate AI-equipped one-way attack munitions later this year. ***The autonomy company will equip the Pentagon’s LUCAS one-way attack drones with Hivemind agentic software for a test demonstration later this year, swarming 10 or more munitions.***. The Pentagon is exploring options to equip its new one-way attack drones with artificial intelligence software that would allow for swarming of multiple munitions and more complex flight patterns. Autonomy start-up Shield AI has been selected to integrate its Hivemind system into Washington’s new Low-Cost One-Way Attack System (LUCAS) drones, which were reverse-engineered from the Iranian-made HESA Shahed-136. The autonomy software is also flying combat missions in Ukraine, both on Shield AI’s own V-Bat intelligence, surveillance and reconnaissance tail-sitting UAS and a number of different one-way attack munitions, including designs from Swiss manufacturer Destinus. The ShieldAI founder and former US Navy SEAL commando says the company will leverage that combat experience from Ukraine to develop an AI-equipped one-way attack option for the US military.",
+                "score": 0.026759284
+              },
+              {
+                "title": "West Pointers can be trained to better evaluate, appreciate AI, study finds - Defense One",
+                "url": "https://www.defenseone.com/technology/2026/05/west-pointers-can-be-trained-better-evaluate-appreciate-ai-study-finds/413513/?oref=d1-featured-river-top",
+                "source": "defenseone.com",
+                "summary": "The U.S. Military Academy's Gold Team took second at the 59th annual Sandhurst Military Skills Competition, which ended May 2, 2026, at West Point. As Pentagon leaders push broader use of such tools, a new paper offers some reassuring news: West Point cadets can be trained to be more appropriately skeptical of AI’s output—while remaining broadly optimistic about its potential. Researchers from Georgetown University, the University of Pennsylvania, and the U.S. Military Academy published a paper last week comparing 236 West Point cadets to a demographically similar sample of 702 members of the public. In the study, West Pointers demonstrated “AI knowledge scores” nearly twice as high as the general public, and were less than half as likely to commit an automation bias error—that is, to trust a mistaken chatbot. In the study, about twice as many cadets expressed worry about the dangerous consequences of AI than did members of the public, but they were much less likely to describe AI as “sinister.”.",
+                "score": 0.024987794
+              },
+              {
+                "title": "Opinion | We Should Starve Adversaries of AI Compute - WSJ",
+                "url": "https://www.wsj.com/opinion/we-should-starve-adversaries-of-ai-compute-88fc3bea",
+                "source": "wsj.com",
+                "summary": "# We Should Starve Adversaries of AI Compute - WSJ. https://www.wsj.com/opinion/we-should-starve-adversaries-of-ai-compute-88fc3bea. # We Should Starve Adversaries of AI Compute. ## China has already leveraged American chips for military training—all with an eye on defeating America on the battlefield. Image 3: Graham Platner’s Wife Flagged Sexually Explicit Texts to His Senate Campaign. #### Graham Platner’s Wife Flagged Sexually Explicit Texts to His Senate Campaign. Image 4: Bill Gates Spent Years Crafting His Image. #### Bill Gates Spent Years Crafting His Image. Image 5: A Famous Math Problem Stumped Humans for 80 Years. #### A Famous Math Problem Stumped Humans for 80 Years. Image 6: The U.S. Has Found a Way to Down a Drone Without Spending $1 Million. #### The U.S. Has Found a Way to Down a Drone Without Spending $1 Million. Image 7: The Home-Insurance Coin Flip: Nearly Half of Claims Result in Zero Payout. Image 9: The Academy Rethinks the SAT. Image 11: What’s Up With Trump and NATO?",
+                "score": 0.020332353
+              },
+              {
+                "title": "Zelenskyy makes a pitch to Silicon Valley's defense startups: Bring your AI, we'll bring the battle experience - Business Insider",
+                "url": "https://www.businessinsider.com/ukraine-zelenskyy-drones-ai-russia-war-silicon-valley-defense-tech-2026-5",
+                "source": "businessinsider.com",
+                "summary": "# Zelenskyy makes a pitch to Silicon Valley's defense startups: Bring your AI, we'll bring the battle experience. And we have a lot of things that they don't have because of our experience on the battlefield,\" Zelenskyy said on CBS News' \"Face the Nation\" on Sunday. Ukraine, out of necessity, has built an arsenal of drone tech and anti-drone tech on a shoestring budget, captivating the global defense industry as it's largely held the line — despite its underdog status — since Russia launched its full-scale invasion over four years ago. It's learned valuable lessons in the process, like the need for drone units to always be on the move and for their command centers to be buried underground to protect them. Look out for an alert in your inbox the next time publishes a story! Every time a new story is published, you’ll get an alert straight to your inbox! Look out for an alert in your inbox the next time a new story is published!",
+                "score": 0.01941935
+              },
+              {
+                "title": "Cerebras Systems’ IPO Marks a Milestone in Tech Industry - Startup Ecosystem Canada",
+                "url": "https://www.startupecosystem.ca/news/cerebras-systems-ipo-marks-a-milestone-in-tech-industry/",
+                "source": "startupecosystem.ca",
+                "summary": "## Cerebras Systems’ IPO Marks a Milestone in Tech Industry. Cerebras Systems made a significant impact on the tech industry by raising $5.5 billion in its IPO, marking the first major tech IPO of 2026. The company reported a significant revenue increase to $510 million in 2025 and achieved a net income of $237.8 million, making it a formidable competitor in the AI chip market. acquisition AI AI development AI infrastructure AI innovation AI integration AI investment AI models AI safety AI technology Amazon Anthropic Apple Artificial Intelligence Autonomous vehicles Canada founder news Canada startup news ChatGPT cryptocurrency Cybersecurity Electric Vehicles Elon Musk entrepreneurship fintech Funding round Generative AI Global founder news Global startup news healthcare innovation Innovation investment IPO Meta Microsoft Nvidia Ontario founder news Ontario startup news OpenAI Sam Altman Seed funding Silicon Valley TechCrunch Disrupt Tesla Toronto startup news venture capital. 1 year ago Global Decline in Investment in Online Education Due to Rise of AI. ### Decline in Investment in Online Education Due to Rise of AI.",
+                "score": 0.019271137
+              },
+              {
+                "title": "As the Pentagon pushes for battlefield AI, some military leaders urge caution - AP News",
+                "url": "https://apnews.com/article/artificial-intelligence-military-hegseth-anthropic-d5fbaee17ee0bdb9738dbb808ea2d047",
+                "source": "apnews.com",
+                "summary": "Test Your News I.Q. 2026 Elections Election Results Election calendar White House Congress Supreme Court The latest AP-NORC polls Ground Game. (AP) — The Trump administration is pushing to unleash the power of artificial intelligence for the U.S. military while facing calls to put up guardrails around the rapidly developing technology from some companies — and even notes of caution from top leaders in uniform. The remarks from Bradley, who oversees the units that handle the military’s most difficult and dangerous operations, about the need to ensure safeguards come as his boss, Defense Secretary Pete Hegseth, is pushing to rapidly evolve the military through AI. AI’s use in the military is part of the Republican administration’s larger push to grow the capability it sees as a unique American advantage even as it faces pressure to ensure responsible safeguards. The clash over the integration of AI into the military, who ultimately controls the technology and the ethics behind its use has played out in unusually public fashion during the Trump administration.",
+                "score": 0.01784874
+              }
+            ]
+          }
+        },
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "VinUni AI thực chiến chương trình đào tạo",
+            "topic": "news",
+            "timeframe": "month",
+            "max_results": 10
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "VinUni AI thực chiến chương trình đào tạo",
+            "topic": "news",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "Virginia colleges race to build AI-ready campuses - Axios",
+                "url": "https://www.axios.com/local/richmond/2026/05/29/virginia-colleges-ai-majors-tools-workforce",
+                "source": "axios.com",
+                "summary": "AI is rapidly reshaping Virginia higher education, with colleges rolling out new majors, tools and classroom policies to better prepare students for an AI-driven workforce. **State of play:** The University of Richmond launched SpiderAI — a platform for students and staff with multiple AI tools. * CNU will offer a new AI major starting this fall, and Virginia Tech students can apply for a new AI minor. * Virginia State University just got funding this month to build a Center for Generative AI and Industrial Cybersecurity and a new UVA program has students providing AI consulting to local businesses. * \"We recognize these tools are already shaping the workforce our students are entering, so simply discouraging their use would not prepare students for the future,\" Saylor tells Axios. **What we're watching:** Virginia lawmakers this year ordered JLARC, the state watchdog, to review how colleges are handling AI, including policies around academic integrity and classroom use.",
+                "score": 0.9219218
+              },
+              {
+                "title": "Code Ninjas: The AI-In-Education Problem Isn’t Cheating. It’s Passivity. - Forbes",
+                "url": "https://www.forbes.com/sites/johnkoetsier/2026/05/21/code-ninjas-the-ai-in-education-problem-isnt-cheating-its-passivity/",
+                "source": "forbes.com",
+                "summary": "# Code Ninjas: The AI-In-Education Problem Isn’t Cheating. The scarier number is the percentage of kids who now just automatically reach for an AI chatbot before even try to solve a problem on their own. That’s the actual problem inside the AI-in-education panic according to Navin Gurnaney, CEO of Code Ninjas, the world’s largest kids’ coding franchise. \"If kids are being taught or being steered in the direction of, 'Hey, this is a cool tool you can just use and you’ll get the answers,’ and that’s what you see most kids doing, then they learn nothing,\" Gurnaney told me on the TechFirst podcast. The solution, Gurnaney says, is to get kids building with AI. From this perspective, the divide in education isn't between kids who use AI and kids who don't. It's between kids who consume AI and kids who build with it. “AI is here, and it's going to be everywhere in the future.",
+                "score": 0.7233095
+              },
+              {
+                "title": "From AI Policies To AI Literacy In Education - Forbes",
+                "url": "https://www.forbes.com/sites/heatherwishartsmith/2026/05/20/from-ai-policies-to-ai-literacy-in-education/",
+                "source": "forbes.com",
+                "summary": "# From AI Policies To AI Literacy In Education. Yet a growing number of schools and universities are now shifting the conversation toward AI literacy in education, reflecting a broader recognition that students will graduate into workplaces where AI tools are embedded in daily workflows. Rather than trying to isolate students from AI technologies, many educational institutions are beginning to focus on teaching students to use AI responsibly, critically and effectively. That shift is moving schools beyond reactive AI policies toward proactive AI literacy focused on judgment, digital literacy and supervised experimentation and reflects adoption in schools worldwide. ## AI Literacy in Education Is Becoming Foundational. The movement toward AI literacy in education is appearing across both K-12 and higher education. In Ohio, partnerships among organizations including NWN, AI OWL, Intel, Khan Academy, school districts and colleges are creating AI-focused education labs intended to provide students with supervised, hands-on exposure to AI tools through the state’s AI Education Network.",
+                "score": 0.40356684
+              },
+              {
+                "title": "OpenAI will pay up to $445,000 for a researcher who can prepare for a world where AI trains itself - Business Insider",
+                "url": "https://www.businessinsider.com/openai-safety-team-ai-self-improvement-challenge-job-2026-5",
+                "source": "businessinsider.com",
+                "summary": "# OpenAI will pay up to $445,000 for a researcher who can prepare for a world where AI trains itself. OpenAI has set the goal of making an AI tool that could research its own improvements. The potential for AI systems to achieve so-called \"recursive self-improvement\" has come to the forefront for AI leaders, after coding tools from OpenAI and Anthropic leaped forward over the last six months. OpenAI, which is aiming to go public this year, recently posted a job listing that seeks a safety researcher to grapple with what happens when an AI can train better versions of itself. Researchers at METR, a lab that studies model capabilities, wrote in March that the length of a task that frontier AI models can complete doubles about every seven months — meaning these models can increasingly perform work that takes a long time for humans. OpenAI's job posting hints at how the company is preparing for a world where AI models can rapidly improve themselves.",
+                "score": 0.36296922
+              },
+              {
+                "title": "Newsweek Recognizes Coty’s AI Literacy Program - Beauty Packaging",
+                "url": "https://www.beautypackaging.com/breaking-news/newsweek-recognizes-cotys-ai-literacy-program/",
+                "source": "beautypackaging.com",
+                "summary": "# Newsweek Recognizes Coty’s AI Literacy Program. The program ‘Supercharge with AI’ wins Newsweek’s AI Impact Award in the 'AI Workplace: Best Outcomes, Employee Engagement' category. Coty announced that its enterprise AI literacy program, “Supercharge with AI: Scaling Enterprise-Wide AI Literacy & Adoption to Transform How Coty Works” (Supercharge with AI), has been named a winner of Newsweek’s AI Impact Award in the “AI Workplace: Best Outcomes, Employee Engagement” category. *“Winning the Newsweek AI Impact Award is a tremendous recognition of what our people have built together. Supercharge with AI has become a movement to put powerful, responsible AI tools into the hands of every Coty employee and to fundamentally change how we work, create, and make decisions. Launched and scaled in 100 days, Supercharge with AI is one of the beauty industry’s largest enterprise AI training programs to date. * **Industry recognition** for Coty’s program as a best-in-class example of AI upskilling in beauty.",
+                "score": 0.29098085
+              },
+              {
+                "title": "NCCU graduates weigh AI's growing role in the workforce - ABC11 Raleigh-Durham",
+                "url": "https://abc11.com/post/nccu-graduates-weigh-ais-growing-role-workforce/19065878/",
+                "source": "abc11.com",
+                "summary": "# NCCU graduates weigh AI's growing role in the workforce. Another graduate, Tiana Lennon, said she recently completed a class on artificial intelligence and learned how to use it as a tool for research while earning her degree in pharmaceutical sciences. \"How AI would take over, and you wouldn't need a physical body to do the job. As AI use continues to grow, experts say it is becoming an increasingly common part of education and job preparation. Bill Rand, Executive Director of Business Analytics and AI Initiative, said students need to prepare for AI's expanding role in the workplace. \"Some of the reason why we're seeing AI resulting in layoffs is where people who know how to use AI are being replaced by one person who knows how to use AI to do what used to be a team of three or four people doing the same job,\" Rand said.",
+                "score": 0.18126321
+              },
+              {
+                "title": "This AI startup’s army of 15,000 hackers pressure test Claude, GPT-5 and Gemini - Forbes Australia",
+                "url": "https://www.forbes.com.au/news/innovation/this-ai-startups-army-of-15000-hackers-pressure-test-claude-gpt-5-and-gemini/",
+                "source": "forbes.com.au",
+                "summary": "# This AI startup’s army of 15,000 hackers pressure test Claude, GPT-5 and Gemini. Now it’s raised $40 million as it expands to sell security tools to enterprises building AI agents. The objective: convince AI models from companies like OpenAI and Anthropic to behave in nefarious ways before they’re released to the world. In almost a year, Bettridge has competed in more than 1,000 challenges via Arena— a hub run by startup Gray Swan that some 15,000 security professionals from all across the world use to “red team” AI systems like Anthropic’s Claude Mythos and OpenAI’s GPT-5, finding and fixing vulnerabilities before they can be exploited. But it uses the data from Arena’s human red-teamers to train its AI agent called Shade that actively looks for vulnerabilities by continuously attacking a system in different ways, and Cygnal, software that monitors an AI model’s prompts and outputs to block it from generating harmful responses and accessing tools it shouldn’t.",
+                "score": 0.13477592
+              },
+              {
+                "title": "An Nvidia exec said AI-generated résumés may be favored by AI recruiters because 'AI likes to use AI' - Business Insider",
+                "url": "https://www.businessinsider.com/nvidia-exec-ai-likes-to-use-ai-it-impacts-resumes-2026-5",
+                "source": "businessinsider.com",
+                "summary": "# An Nvidia executive said that AI-generated résumés may already be gaming AI recruiters because 'AI likes to use AI'. * Nvidia's Jonathan Ross said that \"AI likes to use AI.\". * Research shows that AI screening tools may favor résumés generated by the same AI models they use. * Ross said that applicants may need multiple AI-tailored résumés to maximize their chances. * Summaries are generated by an AI model trained on Business Insider's articles. Speaking at the Sohn Investment Conference 2026, Jonathan Ross, the AI hardware architect who previously helped invent Google's TPU chip, said that \"AI likes to use AI\" andpointed to emerging research that AI hiring systems may favor résumés generated by their own underlying models. \"Someone did a study and showed that résumés generated from one LLM are preferred by that same LLM over the résumés from the other,\" Ross told John Yetimoglu, the CIO of Infinitum. Ross said that applicants may need multiple AI-tailored résumés to maximize their chances of getting through automated screening systems.",
+                "score": 0.12852514
+              },
+              {
+                "title": "“Manufacturing Sites are the Core of AI Competition”... Ibex Unveils Industrial Physical AI Strategy at AWC 2026 - 벤처스퀘어",
+                "url": "https://www.venturesquare.net/en/1085851/",
+                "source": "venturesquare.net",
+                "summary": "# “Manufacturing Sites are the Core of AI Competition”… Ibex Unveils Industrial Physical AI Strategy at AWC 2026. On the 27th, AIVEX gave a presentation on the topic of \"Industrial Physical AI Technology Trends and Applications\" at the \"AI World Congress 2026 (AWC 2026)\" held at Ajou University. In this announcement, the company explained that the era of 'Physical AI,' where AI perceives, judges, and acts upon the real physical world—moving beyond Generative and Agentic AI—is beginning in earnest. It explained that AI, which used to understand language and knowledge through text-based learning, is now evolving to a stage where it understands and interacts with the physical environment based on video and behavioral data. Seong Min-soo, CEO of Ibex, stated, “The center of AI is expanding beyond generative AI in the digital space to physical AI operating in actual industrial sites,” adding, “We will lead the advancement of manufacturing AI through AI Vision and AI Robotics technologies optimized for manufacturing environments.”.",
+                "score": 0.123365626
+              },
+              {
+                "title": "West Pointers can be trained to better evaluate, appreciate AI, study finds - Defense One",
+                "url": "https://www.defenseone.com/technology/2026/05/west-pointers-can-be-trained-better-evaluate-appreciate-ai-study-finds/413513/?oref=d1-featured-river-top",
+                "source": "defenseone.com",
+                "summary": "The U.S. Military Academy's Gold Team took second at the 59th annual Sandhurst Military Skills Competition, which ended May 2, 2026, at West Point. As Pentagon leaders push broader use of such tools, a new paper offers some reassuring news: West Point cadets can be trained to be more appropriately skeptical of AI’s output—while remaining broadly optimistic about its potential. Researchers from Georgetown University, the University of Pennsylvania, and the U.S. Military Academy published a paper last week comparing 236 West Point cadets to a demographically similar sample of 702 members of the public. In the study, West Pointers demonstrated “AI knowledge scores” nearly twice as high as the general public, and were less than half as likely to commit an automation bias error—that is, to trust a mistaken chatbot. In the study, about twice as many cadets expressed worry about the dangerous consequences of AI than did members of the public, but they were much less likely to describe AI as “sinister.”.",
+                "score": 0.11436852
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:38:52"
+    },
+    {
+      "turn_index": 7,
+      "started_at": "2026-06-02T15:39:56",
+      "user": "tóm tắt về bài https://distill.pub/2021/gnn-intro/\n",
+      "status": "answered",
+      "assistant_text": "# 🧠 Tóm tắt: A Gentle Introduction to Graph Neural Networks\n\n**Nguồn:** [Distill.pub](https://distill.pub/2021/gnn-intro/) | **Tác giả:** Benjamin Sanchez-Lengeling, Emily Reif, Adam Pearce, Alexander B. Wiltschko (Google Research) | **Xuất bản:** 02/09/2021\n\n---\n\n## 📌 Graph Neural Networks (GNN) là gì?\n\nGNN là các mạng nơ-ron được thiết kế để xử lý dữ liệu có cấu trúc **đồ thị (graph)** — tức là dữ liệu biểu diễn mối quan hệ giữa các thực thể. Đồ thị gồm hai thành phần chính:\n- **Node (nút):** Các thực thể\n- **Edge (cạnh):** Mối quan hệ giữa các thực thể\n\n---\n\n## 🌍 Ứng dụng thực tế\n\nGNN đã được áp dụng trong nhiều lĩnh vực:\n\n| Lĩnh vực | Ví dụ |\n|----------|-------|\n| **Y sinh** | Phát hiện kháng sinh mới (Stokes et al., 2020) |\n| **Vật lý** | Mô phỏng vật lý phức tạp |\n| **Mạng xã hội** | Phát hiện tin giả |\n| **Giao thông** | Dự đoán tình trạng giao thông |\n| **Hệ thống gợi ý** | Recommender systems (Pixie - gợi ý cho 200M+ người dùng) |\n\n---\n\n## 🏗️ Cấu trúc bài viết (4 phần)\n\n1. **Loại dữ liệu nào biểu diễn tự nhiên dưới dạng đồ thị?** — Các ví dụ phổ biến\n2. **Điều gì khiến đồ thị khác biệt?** — Các thách thức và lựa chọn thiết kế đặc thù khi làm việc với đồ thị\n3. **Xây dựng một GNN hiện đại** — Từ implementation cơ bản đến state-of-the-art, đi qua từng thành phần và cải tiến lịch sử\n4. **GNN Playground** — Công cụ tương tác để thử nghiệm với dữ liệu thực, giúp hiểu trực quan cách từng thành phần ảnh hưởng đến dự đoán\n\n---\n\n## 💡 Điểm nổi bật\n\n- **Bài viết tương tác cao:** Có biểu đồ cho phép hover để thấy cách mỗi node tích lũy thông tin từ các node lân cận qua từng layer\n- **Tiếp cận từ cơ bản đến nâng cao:** Bắt đầu từ định nghĩa đồ thị, dần dần xây dựng kiến trúc GNN hoàn chỉnh\n- **Bài viết liên quan:** Kết hợp với bài [Understanding Convolutions on Graphs](https://distill.pub/2021/understanding-gnns/) để hiểu cách convolution trên ảnh mở rộng tự nhiên sang đồ thị\n\n---\n\n> **Đánh giá:** Đây là một trong những bài giới thiệu GNN **dễ tiếp cận và trực quan nhất**, đặc biệt phù hợp cho người mới bắt đầu muốn hiểu nguyên lý hoạt động của Graph Neural Networks.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "fetch",
+              "args": {
+                "url": "https://distill.pub/2021/gnn-intro/"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "fetch",
+              "args": {
+                "url": "https://distill.pub/2021/gnn-intro/"
+              },
+              "result": {
+                "tool": "read_url",
+                "url": "https://distill.pub/2021/gnn-intro/",
+                "items": [
+                  {
+                    "title": "A Gentle Introduction to Graph Neural Networks",
+                    "url": "https://distill.pub/2021/gnn-intro/",
+                    "source": "distill.pub",
+                    "summary": "[Distill](https://distill.pub/)\n\nA Gentle Introduction to Graph Neural Networks\n\n# A Gentle Introduction to Graph Neural Networks\n\nNeural networks have been adapted to leverage the structure and properties of graphs. We explore the components needed for building a graph neural network - and motivate the design choices behind them.\n\nLayer 3\n\nLayer 2\n\nLayer 1\n\nLayer 0\n\nHover over a node in the diagram below to see how it accumulates information from nodes around it through the layers of the network.\n\n\n### Authors\n\n### Affiliations\n\nBenjamin Sanchez-Lengeling\n\nGoogle Research\n\nEmily Reif\n\nGoogle Research\n\n[Adam Pearce](https://roadtolarissa.com/)\n\nGoogle Research\n\nAlexander B. Wiltschko\n\nGoogle Research\n\n### Published\n\nSept. 2, 2021\n\n### DOI\n\n[10.23915/distill.00033](https://doi.org/10.23915/distill.00033)\n\n_This article is one of two Distill publications about graph neural networks. Take a look at [Understanding Convolutions on Graphs](https://distill.pub/2021/understanding-gnns/)_\n\n_- **Understanding Convolutions on Graphs**_\n\n_A. Daigavane, B. Ravindran, G. Aggarwal._\n\n_Distill. 2021._\n\n_[DOI: 10.23915/distill.00032](https://doi.org/10.23915/distill.00032)_\n\n_\\[1\\]_\n\n_to understand how convolutions over images generalize naturally to convolutions over graphs._\n\nGraphs are all around us; real world objects are often defined in terms of their connections to other things. A set of objects, and the connections between them, are naturally expressed as a _graph_. Researchers have developed neural networks that operate on graph data (called graph neural networks, or GNNs) for over a decade\n\n- **The Graph Neural Network Model**\n\n  F. Scarselli, M. Gori, A.C. Tsoi, M. Hagenbuchner, G. Monfardini.\n\n  IEEE Transactions on Neural Networks, Vol 20(1), pp. 61--80. 2009.\n\n\\[2\\]\n\n. Recent developments have increased their capabilities and expressive power. We are starting to see practical applications in areas such as antibacterial discovery\n\n- **A Deep Learning Approach to Antibiotic Discovery**\n\n  J.M. Stokes, K. Yang, K. Swanson, W. Jin, A. Cubillos-Ruiz, N.M. Donghia, C.R. MacNair, S. French, L.A. Carfrae, Z. Bloom-Ackermann, V.M. Tran, A. Chiappino-Pepe, A.H. Badran, I.W. Andrews, E.J. Chory, G.M. Church, E.D. Brown, T.S. Jaakkola, R. Barzilay, J.J. Collins.\n\n  Cell, Vol 181(2), pp. 475--483. 2020.\n\n\\[3\\]\n\n, physics simulations\n\n- **Learning to simulate complex physics with graph networks**\n\n  A. Sanchez-Gonzalez, J. Godwin, T. Pfaff, R. Ying, J. Leskovec, P.W. Battaglia.\n\n   2020\\.\n\n\\[4\\]\n\n, fake news detection\n\n- **Fake News Detection on Social Media using Geometric Deep Learning**\n\n  F. Monti, F. Frasca, D. Eynard, D. Mannion, M.M. Bronstein.\n\n   2019\\.\n\n\\[5\\]\n\n, traffic prediction\n\n- **Traffic prediction with advanced Graph Neural Networks**\n\n  O.L. \\*, L. Perez. undefined.\n\n\\[6\\]\n\n and recommendation systems\n\n- **Pixie: A System for Recommending 3+ Billion Items to 200+ Million Users in {Real-Time}**\n\n  C. Eksombatchai, P. Jindal, J.Z. Liu, Y. Liu, R. Sharma, C. Sugnet, M. Ulrich, J. Leskovec.\n\n   2017\\.\n\n\\[7\\]\n\n.\n\nThis article explores and explains modern graph neural networks. We divide this work into four parts. First, we look at what kind of data is most naturally phrased as a graph, and some common examples. Second, we explore what makes graphs different from other types of data, and some of the specialized choices we have to make when using graphs. Third, we build a modern GNN, walking through each of the parts of the model, starting with historic modeling innovations in the field. We move gradually from a bare-bones implementation to a state-of-the-art GNN model. Fourth and finally, we provide a GNN playground where you can play around with a real-word task and dataset to build a stronger intuition of how each component of a GNN model contributes to the predictions it makes.\n\nTo start, let’s establish what a graph is. A graph represents the relations ( _edges_) between a collection of entities ( _nodes_).\n\nV\n\nVertex (or node)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "# 🧠 Tóm tắt: A Gentle Introduction to Graph Neural Networks\n\n**Nguồn:** [Distill.pub](https://distill.pub/2021/gnn-intro/) | **Tác giả:** Benjamin Sanchez-Lengeling, Emily Reif, Adam Pearce, Alexander B. Wiltschko (Google Research) | **Xuất bản:** 02/09/2021\n\n---\n\n## 📌 Graph Neural Networks (GNN) là gì?\n\nGNN là các mạng nơ-ron được thiết kế để xử lý dữ liệu có cấu trúc **đồ thị (graph)** — tức là dữ liệu biểu diễn mối quan hệ giữa các thực thể. Đồ thị gồm hai thành phần chính:\n- **Node (nút):** Các thực thể\n- **Edge (cạnh):** Mối quan hệ giữa các thực thể\n\n---\n\n## 🌍 Ứng dụng thực tế\n\nGNN đã được áp dụng trong nhiều lĩnh vực:\n\n| Lĩnh vực | Ví dụ |\n|----------|-------|\n| **Y sinh** | Phát hiện kháng sinh mới (Stokes et al., 2020) |\n| **Vật lý** | Mô phỏng vật lý phức tạp |\n| **Mạng xã hội** | Phát hiện tin giả |\n| **Giao thông** | Dự đoán tình trạng giao thông |\n| **Hệ thống gợi ý** | Recommender systems (Pixie - gợi ý cho 200M+ người dùng) |\n\n---\n\n## 🏗️ Cấu trúc bài viết (4 phần)\n\n1. **Loại dữ liệu nào biểu diễn tự nhiên dưới dạng đồ thị?** — Các ví dụ phổ biến\n2. **Điều gì khiến đồ thị khác biệt?** — Các thách thức và lựa chọn thiết kế đặc thù khi làm việc với đồ thị\n3. **Xây dựng một GNN hiện đại** — Từ implementation cơ bản đến state-of-the-art, đi qua từng thành phần và cải tiến lịch sử\n4. **GNN Playground** — Công cụ tương tác để thử nghiệm với dữ liệu thực, giúp hiểu trực quan cách từng thành phần ảnh hưởng đến dự đoán\n\n---\n\n## 💡 Điểm nổi bật\n\n- **Bài viết tương tác cao:** Có biểu đồ cho phép hover để thấy cách mỗi node tích lũy thông tin từ các node lân cận qua từng layer\n- **Tiếp cận từ cơ bản đến nâng cao:** Bắt đầu từ định nghĩa đồ thị, dần dần xây dựng kiến trúc GNN hoàn chỉnh\n- **Bài viết liên quan:** Kết hợp với bài [Understanding Convolutions on Graphs](https://distill.pub/2021/understanding-gnns/) để hiểu cách convolution trên ảnh mở rộng tự nhiên sang đồ thị\n\n---\n\n> **Đánh giá:** Đây là một trong những bài giới thiệu GNN **dễ tiếp cận và trực quan nhất**, đặc biệt phù hợp cho người mới bắt đầu muốn hiểu nguyên lý hoạt động của Graph Neural Networks.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://distill.pub/2021/gnn-intro/"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://distill.pub/2021/gnn-intro/",
+            "items": [
+              {
+                "title": "A Gentle Introduction to Graph Neural Networks",
+                "url": "https://distill.pub/2021/gnn-intro/",
+                "source": "distill.pub",
+                "summary": "[Distill](https://distill.pub/)\n\nA Gentle Introduction to Graph Neural Networks\n\n# A Gentle Introduction to Graph Neural Networks\n\nNeural networks have been adapted to leverage the structure and properties of graphs. We explore the components needed for building a graph neural network - and motivate the design choices behind them.\n\nLayer 3\n\nLayer 2\n\nLayer 1\n\nLayer 0\n\nHover over a node in the diagram below to see how it accumulates information from nodes around it through the layers of the network.\n\n\n### Authors\n\n### Affiliations\n\nBenjamin Sanchez-Lengeling\n\nGoogle Research\n\nEmily Reif\n\nGoogle Research\n\n[Adam Pearce](https://roadtolarissa.com/)\n\nGoogle Research\n\nAlexander B. Wiltschko\n\nGoogle Research\n\n### Published\n\nSept. 2, 2021\n\n### DOI\n\n[10.23915/distill.00033](https://doi.org/10.23915/distill.00033)\n\n_This article is one of two Distill publications about graph neural networks. Take a look at [Understanding Convolutions on Graphs](https://distill.pub/2021/understanding-gnns/)_\n\n_- **Understanding Convolutions on Graphs**_\n\n_A. Daigavane, B. Ravindran, G. Aggarwal._\n\n_Distill. 2021._\n\n_[DOI: 10.23915/distill.00032](https://doi.org/10.23915/distill.00032)_\n\n_\\[1\\]_\n\n_to understand how convolutions over images generalize naturally to convolutions over graphs._\n\nGraphs are all around us; real world objects are often defined in terms of their connections to other things. A set of objects, and the connections between them, are naturally expressed as a _graph_. Researchers have developed neural networks that operate on graph data (called graph neural networks, or GNNs) for over a decade\n\n- **The Graph Neural Network Model**\n\n  F. Scarselli, M. Gori, A.C. Tsoi, M. Hagenbuchner, G. Monfardini.\n\n  IEEE Transactions on Neural Networks, Vol 20(1), pp. 61--80. 2009.\n\n\\[2\\]\n\n. Recent developments have increased their capabilities and expressive power. We are starting to see practical applications in areas such as antibacterial discovery\n\n- **A Deep Learning Approach to Antibiotic Discovery**\n\n  J.M. Stokes, K. Yang, K. Swanson, W. Jin, A. Cubillos-Ruiz, N.M. Donghia, C.R. MacNair, S. French, L.A. Carfrae, Z. Bloom-Ackermann, V.M. Tran, A. Chiappino-Pepe, A.H. Badran, I.W. Andrews, E.J. Chory, G.M. Church, E.D. Brown, T.S. Jaakkola, R. Barzilay, J.J. Collins.\n\n  Cell, Vol 181(2), pp. 475--483. 2020.\n\n\\[3\\]\n\n, physics simulations\n\n- **Learning to simulate complex physics with graph networks**\n\n  A. Sanchez-Gonzalez, J. Godwin, T. Pfaff, R. Ying, J. Leskovec, P.W. Battaglia.\n\n   2020\\.\n\n\\[4\\]\n\n, fake news detection\n\n- **Fake News Detection on Social Media using Geometric Deep Learning**\n\n  F. Monti, F. Frasca, D. Eynard, D. Mannion, M.M. Bronstein.\n\n   2019\\.\n\n\\[5\\]\n\n, traffic prediction\n\n- **Traffic prediction with advanced Graph Neural Networks**\n\n  O.L. \\*, L. Perez. undefined.\n\n\\[6\\]\n\n and recommendation systems\n\n- **Pixie: A System for Recommending 3+ Billion Items to 200+ Million Users in {Real-Time}**\n\n  C. Eksombatchai, P. Jindal, J.Z. Liu, Y. Liu, R. Sharma, C. Sugnet, M. Ulrich, J. Leskovec.\n\n   2017\\.\n\n\\[7\\]\n\n.\n\nThis article explores and explains modern graph neural networks. We divide this work into four parts. First, we look at what kind of data is most naturally phrased as a graph, and some common examples. Second, we explore what makes graphs different from other types of data, and some of the specialized choices we have to make when using graphs. Third, we build a modern GNN, walking through each of the parts of the model, starting with historic modeling innovations in the field. We move gradually from a bare-bones implementation to a state-of-the-art GNN model. Fourth and finally, we provide a GNN playground where you can play around with a real-word task and dataset to build a stronger intuition of how each component of a GNN model contributes to the predictions it makes.\n\nTo start, let’s establish what a graph is. A graph represents the relations ( _edges_) between a collection of entities ( _nodes_).\n\nV\n\nVertex (or node)"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T15:40:32"
+    }
+  ]
+}
