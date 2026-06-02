@@ -273,5 +273,5 @@ Do not submit `.env` or API keys.
 - 15:00 - Run baseline + build UI
 - 15:30 - Improve prompt/tools for v1 + build at least 1 tool
 - 16:00 - Write team eval cases + improve v2
-- 16:30 - Team showdown (mỗi team dùng REPORT.md Phần A / poster để trình bày)
+- 16:30 - Team showdown (demo sản phẩm; REPORT.md Phần A / poster là tài liệu phụ trợ để team khác hiểu nhanh nhóm đã cải thiện gì, thêm tool gì)
 - 17:30 - Improve v3 + hoàn thiện report Phần B
