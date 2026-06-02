@@ -16,7 +16,9 @@ from .format.tool import render_digest
 from .policy.tool import search_company_policy
 from .social_search.tool import search_tweets
 from .send.tool import send_telegram
+from .telegram_updates.tool import telegram_updates
 from .lookup.tool import web_search
+from .source_quality.tool import source_quality
 
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
@@ -32,9 +34,11 @@ TOOL_FUNCTIONS = {
     "fetch": read_url,
     "format": render_digest,
     "send": send_telegram,
+    "telegram_updates": telegram_updates,
     "policy": search_company_policy,
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
+    "source_quality": source_quality,
 }
 
 

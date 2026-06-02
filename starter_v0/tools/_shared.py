@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import re
 import unicodedata
 from pathlib import Path
@@ -12,7 +13,12 @@ TIMEOUT = 30
 
 
 def err(tool: str, exc: Exception) -> dict[str, Any]:
-    return {"tool": tool, "error": type(exc).__name__, "message": str(exc)}
+    message = str(exc)
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    if token:
+        message = message.replace(token, "<redacted>")
+    message = re.sub(r"/bot[^/\s]+/", "/bot<redacted>/", message)
+    return {"tool": tool, "error": type(exc).__name__, "message": message}
 
 
 def domain(url: str) -> str:
