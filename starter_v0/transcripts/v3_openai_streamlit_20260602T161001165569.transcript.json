@@ -1,0 +1,431 @@
+{
+  "transcript_id": "v3_openai_streamlit_20260602T161001165569",
+  "version": "v3",
+  "artifact_version": "v3+pac3f6ff7822c+t2b9a99205613",
+  "prompt_hash": "ac3f6ff7822c146aa5987fdb3d488fd154e15c795abb1564f57356702be70448",
+  "tools_hash": "2b9a99205613fb97457c1a47a4e68458ac07cd9bdd6ad60f6dfa818b0a92e24c",
+  "provider": "openai",
+  "model": "xmtp/mimo-v2.5-pro",
+  "system_prompt": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "A:\\AIK20_aithucchien\\VINAI_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "ui": "streamlit",
+  "created_at": "2026-06-02T16:10:01",
+  "updated_at": "2026-06-02T16:11:01",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-06-02T16:10:13",
+      "user": "Cho tôi thông tin mới nhất về phương pháp PPO",
+      "status": "answered",
+      "assistant_text": "Dựa trên kết quả tìm kiếm từ arXiv, đây là thông tin mới nhất về phương pháp **PPO (Proximal Policy Optimization)**:\n\n---\n\n## Nghiên cứu mới về PPO (tháng 5-6/2026)\n\n### 1. ESPO: Early-Stopping Proximal Policy Optimization\n**arXiv: 2605.29860** | Ngày: 28/05/2026\n\nĐây là cải tiến trực tiếp cho PPO trong huấn luyện LLM. Khi model mắc lỗi suy luận sớm, ESPO phát hiện thất bại và dừng rollout sớm bằng cách tính \"surrogate regret\" từ logits. Kết quả:\n- Vượt PPO trên AIME 2024: **46.28% vs 45.25%**\n- AMC 2023: **85.83% vs 82.94%**\n- Tiết kiệm **>20% rollout tokens**\n\n📄 [Paper](https://arxiv.org/abs/2605.29860v1)\n\n---\n\n### 2. PPO cho điều khiển lưới điện (Policy Distillation)\n**arXiv: 2606.00561** | Ngày: 30/05/2026\n\nSử dụng PPO làm \"teacher\" cho bài toán topology lưới điện, sau đó chưng cất (distill) thành cây quyết định nhỏ gọn, dễ giải thích cho vận hành thực tế.\n\n📄 [Paper](https://arxiv.org/abs/2606.00561v1)\n\n---\n\n### 3. PPO cho quản lý năng lượng tòa nhà\n**arXiv: 2606.02049** | Ngày: 01/06/2026\n\nKết quả cho thấy PPO và A2C (thuật toán on-policy) vượt trội hơn các phương pháp off-policy về reward và tính ổn định chính sách trong quản lý năng lượng.\n\n📄 [Paper](https://arxiv.org/abs/2606.02049v1)\n\n---\n\n### 4. PPO cho robot di động trong nhà\n**arXiv: 2605.30468** | Ngày: 28/05/2026\n\nKết hợp behavior cloning với PPO để tinh chỉnh local planner cho robot navigation.\n\n📄 [Paper](https://arxiv.org/abs/2605.30468v1)\n\n---\n\n### Xu hướng chính\n- **ESPO** là cải tiến đáng chú ý nhất, giải quyết vấn đề lãng phí compute khi rollout thất bại sớm\n- PPO tiếp tục được ứng dụng rộng rãi trong các domain: năng lượng, lưới điện, robot, LLM\n- Xu hướng kết hợp PPO với kỹ thuật explainability (XRL) và distillation để triển khai thực tế",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "max_results": 5,
+                "query": "PPO Proximal Policy Optimization",
+                "topic": "news",
+                "timeframe": "month"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "max_results": 5,
+                "query": "PPO Proximal Policy Optimization",
+                "topic": "news",
+                "timeframe": "month"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "PPO Proximal Policy Optimization",
+                "topic": "news",
+                "timeframe": "month",
+                "items": [
+                  {
+                    "title": "Chris Hayes Frames Emotional Survival During AI Boom - Let's Data Science",
+                    "url": "https://letsdatascience.com/news/chris-hayes-frames-emotional-survival-during-ai-boom-cb2a9858",
+                    "source": "letsdatascience.com",
+                    "summary": "Let's Data ScienceLEARN • BUILD • STAY AHEAD. # Chris Hayes Frames Emotional Survival During AI Boom. **Chris Hayes** explores anxiety, automation, and strategies for emotional survival amid the AI boom, outlining personal coping approaches and emotional responses readers can use to manage rapid technological change. A cultural/opinion piece about emotional coping amid automation, relevant for workforce and societal awareness but not a technical development, so moderate-low impact. Practice with real Health & Insurancedata. 90SQL & Python problems · 15 industry datasets. Active PPO Plans with Rx CoverageEasyApproved High-Value ClaimsMediumDenial Rate by Plan TypeHard. 250 free problems · No credit card. See all Health & Insurance problems. ## More AI & Data Science News. ### Google updates spam rules to ban AI manipulation7.2. ### OpenAI Enables ChatGPT Access to Bank AccountsMay 15. ### Hacktron Raises $2.9M to Automate Security Testing. News on Let's Data Science is compiled from multiple public sources with editorial oversight. See ourEditorial Standards and Corrections Policy.",
+                    "score": 0.0705596
+                  },
+                  {
+                    "title": "Biden Administration Considers Cutting Vital Pandemic Data System - Let's Data Science",
+                    "url": "https://letsdatascience.com/news/biden-administration-considers-cutting-vital-pandemic-data-s-e3dd7366",
+                    "source": "letsdatascience.com",
+                    "summary": "# Biden Administration Considers Cutting Vital Pandemic Data System. **Biden administration** must decide whether to undo a vital pandemic data system created by **Trump's health department**. America's most reliable pandemic data are now at risk as that system faces potential dismantling. A federal choice to remove or alter a core pandemic data system would materially affect public-health data continuity and researchers who rely on national surveillance datasets. Practice with real Health & Insurance data. 90 SQL & Python problems · 15 industry datasets. Used by DS/ML engineers at top companies. Active PPO Plans with Rx Coverage. Denial Rate by Plan Type. 250 free problems · No credit card. See all Health & Insurance problems. ## More AI & Data Science News. ### IDEO U Explores AI Integration with Design Thinking. ### Snakemake Uses Python Patterns To Manage Files. ### Zalando Migrates Fraud ML Pipeline to SageMaker. News on Let's Data Science is compiled from multiple public sources with editorial oversight.",
+                    "score": 0.020488555
+                  },
+                  {
+                    "title": "Metabolic Weed Resistance Crisis Builds Across The Heartland - AgWeb",
+                    "url": "https://www.agweb.com/news/crops/crop-production/metabolic-weed-resistance-crisis-builds-across-heartland",
+                    "source": "agweb.com",
+                    "summary": "## The problem is making it difficult for farmers to know which herbicide chemistries will still work in their fields. Weed scientists say that pattern points to a critical issue more farmers are facing: metabolic resistance. Unlike traditional target-site resistance, which is often specific to a single herbicide class, metabolic resistance is even worse because it can confer cross-resistance to multiple, unrelated herbicide groups. Aaron Hager, University of Illinois Extension weed scientist often warns that when a tough weed like waterhemp learns to metabolize one herbicide, it becomes easier for it to “learn” to detoxify others. But metabolic resistance is a “guessing game” involving hundreds of potential enzymes working in tandem, making it difficult for scientists and farmers to know which products will still work in their specific fields. He says PPO resistance in waterhemp is “getting widespread,” and the failures are expanding to other chemistries as well.",
+                    "score": 0.018978037
+                  },
+                  {
+                    "title": "Intelligent system for portfolio optimization for novel volatility forecasting using machine learning - Nature",
+                    "url": "https://www.nature.com/articles/s41598-026-42813-4",
+                    "source": "nature.com",
+                    "summary": "Intelligent system for portfolio optimization for novel volatility forecasting using machine learning. The study of portfolio optimization has been dedicated to a significant amount of literature because of its critical practical importance in the sphere of portfolio investment. The current study introduces a systematic machine-learning model of portfolio optimization that involves the combination of recognized analytical techniques. The sensitivity of the drawdown ratio of 40 countries is examined in terms of a multi-SVM decision-making representation. The system has a high level of flexibility to the dynamism of the market because it uses a wide range of financial indicators and volatility-based parameters. The empirical analysis is also put in perspective with respect to the recent machine learning and deep reinforcement learning-based frameworks of portfolio optimization published in the recent literature. Lastly, this framework provides a scalable basis of integration with reinforcement learning and hybrid AI-based decision systems, thus creating consistent and data-driven financial approaches to global portfolio management.",
+                    "score": 0.0074030138
+                  },
+                  {
+                    "title": "Off by a beat: the effects of temporal misalignment in reinforcement learning for sepsis treatment - Nature",
+                    "url": "https://www.nature.com/articles/s41746-026-02625-2",
+                    "source": "nature.com",
+                    "summary": "Off by a beat: the effects of temporal misalignment in reinforcement learning for sepsis treatment. At each discrete time step *t* = 1, 2, 3, …, the agent observes the current state *s**t* (e.g., the patient’s physiological status) and selects an action *a**t* (e.g., a treatment) according to a policy *π*(*a**t*∣*s**t*). Then, the environment evolves to a new state, *s**t*+1, determined by the MDP’s transition function *P*(*s**t*+1∣*s**t*, *a**t*), and the agent receives a reward signal *r*(*s**t*+1) (for simplicity, we focus on a sparse reward setting where the agent receives reward only at the terminal state). This process yields a trajectory, *s*1, *a*1, *s*2, *a*2, *s*3, *a*3, …, *s**T*, *a**T*, *s**T*+1, consisting of *T* transitions of the form (*s**t*, *a**t*, *s**t*+1). (PMLR, 2017).\"), the observed signal and the control information are summarized into a state and an action, respectively, and indexed by the same time-step *t* to form a state-action pair (*s**t*, *a**t*).",
+                    "score": 0.0061450917
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "PPO Proximal Policy Optimization",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "PPO Proximal Policy Optimization",
+                "max_results": 5,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "PPO Proximal Policy Optimization",
+                "api_query": "all:PPO AND all:Proximal AND all:Policy AND all:Optimization",
+                "total_results": 948,
+                "items": [
+                  {
+                    "arxiv_id": "2606.02049v1",
+                    "title": "Explainable Data-driven Deep Reinforcement Learning Methods for Optimal Energy Management in Buildings",
+                    "summary": "The increasing integration of renewable energy sources into power systems, particularly in buildings equipped with photovoltaic (PV) panels and energy storage systems, introduces significant complexity in energy systems. Volatile power generation, varying electricity tariffs, and increased entities, e.g., PV systems, and heat pumps, have increased the complexity and made the system harder to operate. This leads to the demand for additional control and optimization routes including data-based controls, such as reinforcement learning. While deep reinforcement learning (DRL) has emerged as a promising solution to optimize building operations in dynamic and ever more complex environments, its black-box nature impedes user trust and practical adoption. This paper presents a framework for explainable deep reinforcement learning (XRL) applied to energy management in residential buildings. We demonstrate its usage on both synthetic data but also on real-world data from the Living Lab Energy Campus (LLEC) at KIT. We train and compare both on-policy and off-policy DRL agents on an expanded state space that incorporates real-time measurements (demand, PV generation, battery power, state of charge), external signals (dynamic electricity price, local weather data), calendrical and holiday indicators, and forecasts for demand and price. Our experimental results indicate that on-policy algorithms, particularly Advantage Actor Critic (A2C) and Proximal Policy Optimization (PPO), outperform off-policy methods in terms of cumulative rewards and policy stability. To explain these models, we employ post-hoc interpretation techniques to elaborate the learned control policies. Our findings demonstrate that the XRL framework not only reduces electricity costs through optimal battery management, but also provides transparent, actionable insights into the agent's decision-making process.",
+                    "authors": [
+                      "Hallah Shahid Butt",
+                      "Qiong Huang",
+                      "Gökhan Demirel",
+                      "Kevin Förderer",
+                      "Erfan Tajalli-Ardekani",
+                      "Simnon Waczowicz",
+                      "Luigi Spatafora",
+                      "Veit Hagenmeyer",
+                      "Benjamin Schäfer"
+                    ],
+                    "published": "2026-06-01T10:39:34Z",
+                    "updated": "2026-06-01T10:39:34Z",
+                    "url": "http://arxiv.org/abs/2606.02049v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.02049v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2606.00561v1",
+                    "title": "Interpretable Policy Distillation for Power Grid Topology Control",
+                    "summary": "Deep reinforcement learning (RL) offers a promising route to real-time power grid operation, yet large neural policies are costly to evaluate, hard to deploy on constrained hardware, and opaque to operators. We ask whether a Proximal Policy Optimization (PPO) agent for grid topology control can be compressed into compact tree-based surrogates without losing operational performance. A PPO teacher is trained on Grid2Op's standard 14-bus environment with a stability-oriented reward, using stress-focused data collection on critical, high-loading states. The policy is then distilled into a decision tree and a random forest. Across held-out validation episodes, both surrogates exceed the teacher in mean reward and survival length at a fraction of the inference cost. The decision tree shows high exact-action agreement with the PPO argmax and near-complete agreement within its top-ranked actions, while remaining small enough to be inspected directly. Feature-importance analysis reveals a representational shift: the PPO policy relies mainly on line-loading signals, while the distilled tree is driven primarily by bus-topology variables. These results suggest that stress-focused distillation can convert a black-box neural controller into a lightweight, auditable rule-like surrogate suited for real-time deployment, while also surfacing risks tied to deterministic actions and topology-specific generalization.",
+                    "authors": [
+                      "Aleksandra Dmitruka",
+                      "Karlis Freivalds"
+                    ],
+                    "published": "2026-05-30T06:32:55Z",
+                    "updated": "2026-05-30T06:32:55Z",
+                    "url": "http://arxiv.org/abs/2606.00561v1",
+                    "pdf_url": "https://arxiv.org/pdf/2606.00561v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2605.30468v1",
+                    "title": "Learning-Based Navigation for Indoor Mobile Robots",
+                    "summary": "This paper presents a learning-based navigation framework for indoor mobile robots. The proposed method combines a supervised neural global planner, trained from cost-aware A* expert trajectories, with the proposed Learning-Based DWA local planner, which is formulated as discrete candidate selection over the Dynamic Window Approach (DWA) action lattice. For local planning, the policy is first trained by behavior cloning and then refined by Proximal Policy Optimization (PPO) under feasibility-aware masking. The framework is implemented and evaluated in both simulated and real-world indoor environments. Experimental results show that the proposed method generates feasible global routes and reliable local motion commands for safe goal-directed navigation in the presence of obstacles. These results demonstrate the effectiveness of integrating learning-based global planning with reinforcement-learning-refined local control for indoor mobile robot navigation. The source code will be released at https://ntdathp.github.io/rl_robot_web/.",
+                    "authors": [
+                      "Tri-Tin Nguyen",
+                      "Tien-Dat Nguyen",
+                      "Gia-Uy Le",
+                      "Vinh Nguyen",
+                      "Vinh-Hao Nguyen"
+                    ],
+                    "published": "2026-05-28T18:40:52Z",
+                    "updated": "2026-05-28T18:40:52Z",
+                    "url": "http://arxiv.org/abs/2605.30468v1",
+                    "pdf_url": "https://arxiv.org/pdf/2605.30468v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.RO",
+                    "categories": [
+                      "cs.RO"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2605.29860v1",
+                    "title": "ESPO: Early-Stopping Proximal Policy Optimization",
+                    "summary": "When a large language model under reinforcement learning commits a wrong reasoning step early in a trajectory, standard algorithms force it to keep generating until the maximum horizon, spending compute on tokens that never receive positive reward and polluting advantage estimates with post-failure noise. We propose ESPO (Early-Stopping Proximal Policy Optimization), which detects trajectory failure on-the-fly and terminates rollouts early. At each generation step, ESPO computes a surrogate regret using only the logits already computed during sampling, and terminates when the smoothed cumulative regret significantly exceeds its estimated values. Truncated trajectories are treated as absorbing failure states with a terminal reward, concentrating negative temporal-difference (TD) errors near the detected failure step without any additional reward model or human annotation. On DeepSeek-R1-Distill-Qwen-7B trained for mathematical reasoning, ESPO surpasses PPO on AIME~2024 (46.28% vs. 45.25%), AMC~2023 (85.83% vs. 82.94%), and MATH-500 (87.42% vs. 85.43%), while saving more than 20% rollout tokens cumulatively.",
+                    "authors": [
+                      "Zihang Li",
+                      "Rui Zhou",
+                      "Yingcheng Shi",
+                      "Wenhan Yu",
+                      "Zhewen Tan",
+                      "Zixiang Liu",
+                      "Zeming Li",
+                      "Binhua Li",
+                      "Yongbin Li",
+                      "Tong Yang",
+                      "Jieping Ye"
+                    ],
+                    "published": "2026-05-28T12:40:22Z",
+                    "updated": "2026-05-28T12:40:22Z",
+                    "url": "http://arxiv.org/abs/2605.29860v1",
+                    "pdf_url": "https://arxiv.org/pdf/2605.29860v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2605.27895v1",
+                    "title": "Application of Reinforcement Learning for Multigroup Energy Grid Optimization for Neutron Transport Criticality Problems",
+                    "summary": "The optimization of energy group structures is integral to ensure the accuracy of multigroup neutron transport calculations. This works introduces the use of reinforcement learning (RL) with surrogate modeling to optimize the group structure for one-dimensional spherical k-criticality problems. The proximal policy optimization (PPO) RL algorithm is modified to be used with energy grid structures, rewarding accurate group structures while favoring fewer energy groups. This method starts from a high-fidelity energy grid and remove energy bounds until reaching a target energy structure. The RL agent identify which bounds are important for the final group structure, which prevent it being stuck in local minima without limiting the initial group structure. Neural network surrogate models that incorporate energy, material, and spatial information are used for evaluating energy grid structures without requiring full transport simulations. This alleviates the computational constraint commonly used in other group structure optimization problems in addition to accelerating the RL training process. Applied to Godiva and BeRP ball problems, the RL constructed group structures outperform commonly used group structures. The RL group structure optimization method is also shown to perform similar to the hierarchical agglomeration approach but offers more flexibility.",
+                    "authors": [
+                      "Ben Whewell",
+                      "Nathan Gibson",
+                      "Ajeeta Khatiwada"
+                    ],
+                    "published": "2026-05-27T03:19:01Z",
+                    "updated": "2026-05-27T03:19:01Z",
+                    "url": "http://arxiv.org/abs/2605.27895v1",
+                    "pdf_url": "https://arxiv.org/pdf/2605.27895v1",
+                    "source": "arxiv.org",
+                    "primary_category": "physics.comp-ph",
+                    "categories": [
+                      "physics.comp-ph"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Dựa trên kết quả tìm kiếm từ arXiv, đây là thông tin mới nhất về phương pháp **PPO (Proximal Policy Optimization)**:\n\n---\n\n## Nghiên cứu mới về PPO (tháng 5-6/2026)\n\n### 1. ESPO: Early-Stopping Proximal Policy Optimization\n**arXiv: 2605.29860** | Ngày: 28/05/2026\n\nĐây là cải tiến trực tiếp cho PPO trong huấn luyện LLM. Khi model mắc lỗi suy luận sớm, ESPO phát hiện thất bại và dừng rollout sớm bằng cách tính \"surrogate regret\" từ logits. Kết quả:\n- Vượt PPO trên AIME 2024: **46.28% vs 45.25%**\n- AMC 2023: **85.83% vs 82.94%**\n- Tiết kiệm **>20% rollout tokens**\n\n📄 [Paper](https://arxiv.org/abs/2605.29860v1)\n\n---\n\n### 2. PPO cho điều khiển lưới điện (Policy Distillation)\n**arXiv: 2606.00561** | Ngày: 30/05/2026\n\nSử dụng PPO làm \"teacher\" cho bài toán topology lưới điện, sau đó chưng cất (distill) thành cây quyết định nhỏ gọn, dễ giải thích cho vận hành thực tế.\n\n📄 [Paper](https://arxiv.org/abs/2606.00561v1)\n\n---\n\n### 3. PPO cho quản lý năng lượng tòa nhà\n**arXiv: 2606.02049** | Ngày: 01/06/2026\n\nKết quả cho thấy PPO và A2C (thuật toán on-policy) vượt trội hơn các phương pháp off-policy về reward và tính ổn định chính sách trong quản lý năng lượng.\n\n📄 [Paper](https://arxiv.org/abs/2606.02049v1)\n\n---\n\n### 4. PPO cho robot di động trong nhà\n**arXiv: 2605.30468** | Ngày: 28/05/2026\n\nKết hợp behavior cloning với PPO để tinh chỉnh local planner cho robot navigation.\n\n📄 [Paper](https://arxiv.org/abs/2605.30468v1)\n\n---\n\n### Xu hướng chính\n- **ESPO** là cải tiến đáng chú ý nhất, giải quyết vấn đề lãng phí compute khi rollout thất bại sớm\n- PPO tiếp tục được ứng dụng rộng rãi trong các domain: năng lượng, lưới điện, robot, LLM\n- Xu hướng kết hợp PPO với kỹ thuật explainability (XRL) và distillation để triển khai thực tế",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "max_results": 5,
+            "query": "PPO Proximal Policy Optimization",
+            "topic": "news",
+            "timeframe": "month"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "PPO Proximal Policy Optimization",
+            "topic": "news",
+            "timeframe": "month",
+            "items": [
+              {
+                "title": "Chris Hayes Frames Emotional Survival During AI Boom - Let's Data Science",
+                "url": "https://letsdatascience.com/news/chris-hayes-frames-emotional-survival-during-ai-boom-cb2a9858",
+                "source": "letsdatascience.com",
+                "summary": "Let's Data ScienceLEARN • BUILD • STAY AHEAD. # Chris Hayes Frames Emotional Survival During AI Boom. **Chris Hayes** explores anxiety, automation, and strategies for emotional survival amid the AI boom, outlining personal coping approaches and emotional responses readers can use to manage rapid technological change. A cultural/opinion piece about emotional coping amid automation, relevant for workforce and societal awareness but not a technical development, so moderate-low impact. Practice with real Health & Insurancedata. 90SQL & Python problems · 15 industry datasets. Active PPO Plans with Rx CoverageEasyApproved High-Value ClaimsMediumDenial Rate by Plan TypeHard. 250 free problems · No credit card. See all Health & Insurance problems. ## More AI & Data Science News. ### Google updates spam rules to ban AI manipulation7.2. ### OpenAI Enables ChatGPT Access to Bank AccountsMay 15. ### Hacktron Raises $2.9M to Automate Security Testing. News on Let's Data Science is compiled from multiple public sources with editorial oversight. See ourEditorial Standards and Corrections Policy.",
+                "score": 0.0705596
+              },
+              {
+                "title": "Biden Administration Considers Cutting Vital Pandemic Data System - Let's Data Science",
+                "url": "https://letsdatascience.com/news/biden-administration-considers-cutting-vital-pandemic-data-s-e3dd7366",
+                "source": "letsdatascience.com",
+                "summary": "# Biden Administration Considers Cutting Vital Pandemic Data System. **Biden administration** must decide whether to undo a vital pandemic data system created by **Trump's health department**. America's most reliable pandemic data are now at risk as that system faces potential dismantling. A federal choice to remove or alter a core pandemic data system would materially affect public-health data continuity and researchers who rely on national surveillance datasets. Practice with real Health & Insurance data. 90 SQL & Python problems · 15 industry datasets. Used by DS/ML engineers at top companies. Active PPO Plans with Rx Coverage. Denial Rate by Plan Type. 250 free problems · No credit card. See all Health & Insurance problems. ## More AI & Data Science News. ### IDEO U Explores AI Integration with Design Thinking. ### Snakemake Uses Python Patterns To Manage Files. ### Zalando Migrates Fraud ML Pipeline to SageMaker. News on Let's Data Science is compiled from multiple public sources with editorial oversight.",
+                "score": 0.020488555
+              },
+              {
+                "title": "Metabolic Weed Resistance Crisis Builds Across The Heartland - AgWeb",
+                "url": "https://www.agweb.com/news/crops/crop-production/metabolic-weed-resistance-crisis-builds-across-heartland",
+                "source": "agweb.com",
+                "summary": "## The problem is making it difficult for farmers to know which herbicide chemistries will still work in their fields. Weed scientists say that pattern points to a critical issue more farmers are facing: metabolic resistance. Unlike traditional target-site resistance, which is often specific to a single herbicide class, metabolic resistance is even worse because it can confer cross-resistance to multiple, unrelated herbicide groups. Aaron Hager, University of Illinois Extension weed scientist often warns that when a tough weed like waterhemp learns to metabolize one herbicide, it becomes easier for it to “learn” to detoxify others. But metabolic resistance is a “guessing game” involving hundreds of potential enzymes working in tandem, making it difficult for scientists and farmers to know which products will still work in their specific fields. He says PPO resistance in waterhemp is “getting widespread,” and the failures are expanding to other chemistries as well.",
+                "score": 0.018978037
+              },
+              {
+                "title": "Intelligent system for portfolio optimization for novel volatility forecasting using machine learning - Nature",
+                "url": "https://www.nature.com/articles/s41598-026-42813-4",
+                "source": "nature.com",
+                "summary": "Intelligent system for portfolio optimization for novel volatility forecasting using machine learning. The study of portfolio optimization has been dedicated to a significant amount of literature because of its critical practical importance in the sphere of portfolio investment. The current study introduces a systematic machine-learning model of portfolio optimization that involves the combination of recognized analytical techniques. The sensitivity of the drawdown ratio of 40 countries is examined in terms of a multi-SVM decision-making representation. The system has a high level of flexibility to the dynamism of the market because it uses a wide range of financial indicators and volatility-based parameters. The empirical analysis is also put in perspective with respect to the recent machine learning and deep reinforcement learning-based frameworks of portfolio optimization published in the recent literature. Lastly, this framework provides a scalable basis of integration with reinforcement learning and hybrid AI-based decision systems, thus creating consistent and data-driven financial approaches to global portfolio management.",
+                "score": 0.0074030138
+              },
+              {
+                "title": "Off by a beat: the effects of temporal misalignment in reinforcement learning for sepsis treatment - Nature",
+                "url": "https://www.nature.com/articles/s41746-026-02625-2",
+                "source": "nature.com",
+                "summary": "Off by a beat: the effects of temporal misalignment in reinforcement learning for sepsis treatment. At each discrete time step *t* = 1, 2, 3, …, the agent observes the current state *s**t* (e.g., the patient’s physiological status) and selects an action *a**t* (e.g., a treatment) according to a policy *π*(*a**t*∣*s**t*). Then, the environment evolves to a new state, *s**t*+1, determined by the MDP’s transition function *P*(*s**t*+1∣*s**t*, *a**t*), and the agent receives a reward signal *r*(*s**t*+1) (for simplicity, we focus on a sparse reward setting where the agent receives reward only at the terminal state). This process yields a trajectory, *s*1, *a*1, *s*2, *a*2, *s*3, *a*3, …, *s**T*, *a**T*, *s**T*+1, consisting of *T* transitions of the form (*s**t*, *a**t*, *s**t*+1). (PMLR, 2017).\"), the observed signal and the control information are summarized into a state and an action, respectively, and indexed by the same time-step *t* to form a state-action pair (*s**t*, *a**t*).",
+                "score": 0.0061450917
+              }
+            ]
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "PPO Proximal Policy Optimization",
+            "max_results": 5,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "PPO Proximal Policy Optimization",
+            "api_query": "all:PPO AND all:Proximal AND all:Policy AND all:Optimization",
+            "total_results": 948,
+            "items": [
+              {
+                "arxiv_id": "2606.02049v1",
+                "title": "Explainable Data-driven Deep Reinforcement Learning Methods for Optimal Energy Management in Buildings",
+                "summary": "The increasing integration of renewable energy sources into power systems, particularly in buildings equipped with photovoltaic (PV) panels and energy storage systems, introduces significant complexity in energy systems. Volatile power generation, varying electricity tariffs, and increased entities, e.g., PV systems, and heat pumps, have increased the complexity and made the system harder to operate. This leads to the demand for additional control and optimization routes including data-based controls, such as reinforcement learning. While deep reinforcement learning (DRL) has emerged as a promising solution to optimize building operations in dynamic and ever more complex environments, its black-box nature impedes user trust and practical adoption. This paper presents a framework for explainable deep reinforcement learning (XRL) applied to energy management in residential buildings. We demonstrate its usage on both synthetic data but also on real-world data from the Living Lab Energy Campus (LLEC) at KIT. We train and compare both on-policy and off-policy DRL agents on an expanded state space that incorporates real-time measurements (demand, PV generation, battery power, state of charge), external signals (dynamic electricity price, local weather data), calendrical and holiday indicators, and forecasts for demand and price. Our experimental results indicate that on-policy algorithms, particularly Advantage Actor Critic (A2C) and Proximal Policy Optimization (PPO), outperform off-policy methods in terms of cumulative rewards and policy stability. To explain these models, we employ post-hoc interpretation techniques to elaborate the learned control policies. Our findings demonstrate that the XRL framework not only reduces electricity costs through optimal battery management, but also provides transparent, actionable insights into the agent's decision-making process.",
+                "authors": [
+                  "Hallah Shahid Butt",
+                  "Qiong Huang",
+                  "Gökhan Demirel",
+                  "Kevin Förderer",
+                  "Erfan Tajalli-Ardekani",
+                  "Simnon Waczowicz",
+                  "Luigi Spatafora",
+                  "Veit Hagenmeyer",
+                  "Benjamin Schäfer"
+                ],
+                "published": "2026-06-01T10:39:34Z",
+                "updated": "2026-06-01T10:39:34Z",
+                "url": "http://arxiv.org/abs/2606.02049v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.02049v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2606.00561v1",
+                "title": "Interpretable Policy Distillation for Power Grid Topology Control",
+                "summary": "Deep reinforcement learning (RL) offers a promising route to real-time power grid operation, yet large neural policies are costly to evaluate, hard to deploy on constrained hardware, and opaque to operators. We ask whether a Proximal Policy Optimization (PPO) agent for grid topology control can be compressed into compact tree-based surrogates without losing operational performance. A PPO teacher is trained on Grid2Op's standard 14-bus environment with a stability-oriented reward, using stress-focused data collection on critical, high-loading states. The policy is then distilled into a decision tree and a random forest. Across held-out validation episodes, both surrogates exceed the teacher in mean reward and survival length at a fraction of the inference cost. The decision tree shows high exact-action agreement with the PPO argmax and near-complete agreement within its top-ranked actions, while remaining small enough to be inspected directly. Feature-importance analysis reveals a representational shift: the PPO policy relies mainly on line-loading signals, while the distilled tree is driven primarily by bus-topology variables. These results suggest that stress-focused distillation can convert a black-box neural controller into a lightweight, auditable rule-like surrogate suited for real-time deployment, while also surfacing risks tied to deterministic actions and topology-specific generalization.",
+                "authors": [
+                  "Aleksandra Dmitruka",
+                  "Karlis Freivalds"
+                ],
+                "published": "2026-05-30T06:32:55Z",
+                "updated": "2026-05-30T06:32:55Z",
+                "url": "http://arxiv.org/abs/2606.00561v1",
+                "pdf_url": "https://arxiv.org/pdf/2606.00561v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2605.30468v1",
+                "title": "Learning-Based Navigation for Indoor Mobile Robots",
+                "summary": "This paper presents a learning-based navigation framework for indoor mobile robots. The proposed method combines a supervised neural global planner, trained from cost-aware A* expert trajectories, with the proposed Learning-Based DWA local planner, which is formulated as discrete candidate selection over the Dynamic Window Approach (DWA) action lattice. For local planning, the policy is first trained by behavior cloning and then refined by Proximal Policy Optimization (PPO) under feasibility-aware masking. The framework is implemented and evaluated in both simulated and real-world indoor environments. Experimental results show that the proposed method generates feasible global routes and reliable local motion commands for safe goal-directed navigation in the presence of obstacles. These results demonstrate the effectiveness of integrating learning-based global planning with reinforcement-learning-refined local control for indoor mobile robot navigation. The source code will be released at https://ntdathp.github.io/rl_robot_web/.",
+                "authors": [
+                  "Tri-Tin Nguyen",
+                  "Tien-Dat Nguyen",
+                  "Gia-Uy Le",
+                  "Vinh Nguyen",
+                  "Vinh-Hao Nguyen"
+                ],
+                "published": "2026-05-28T18:40:52Z",
+                "updated": "2026-05-28T18:40:52Z",
+                "url": "http://arxiv.org/abs/2605.30468v1",
+                "pdf_url": "https://arxiv.org/pdf/2605.30468v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.RO",
+                "categories": [
+                  "cs.RO"
+                ]
+              },
+              {
+                "arxiv_id": "2605.29860v1",
+                "title": "ESPO: Early-Stopping Proximal Policy Optimization",
+                "summary": "When a large language model under reinforcement learning commits a wrong reasoning step early in a trajectory, standard algorithms force it to keep generating until the maximum horizon, spending compute on tokens that never receive positive reward and polluting advantage estimates with post-failure noise. We propose ESPO (Early-Stopping Proximal Policy Optimization), which detects trajectory failure on-the-fly and terminates rollouts early. At each generation step, ESPO computes a surrogate regret using only the logits already computed during sampling, and terminates when the smoothed cumulative regret significantly exceeds its estimated values. Truncated trajectories are treated as absorbing failure states with a terminal reward, concentrating negative temporal-difference (TD) errors near the detected failure step without any additional reward model or human annotation. On DeepSeek-R1-Distill-Qwen-7B trained for mathematical reasoning, ESPO surpasses PPO on AIME~2024 (46.28% vs. 45.25%), AMC~2023 (85.83% vs. 82.94%), and MATH-500 (87.42% vs. 85.43%), while saving more than 20% rollout tokens cumulatively.",
+                "authors": [
+                  "Zihang Li",
+                  "Rui Zhou",
+                  "Yingcheng Shi",
+                  "Wenhan Yu",
+                  "Zhewen Tan",
+                  "Zixiang Liu",
+                  "Zeming Li",
+                  "Binhua Li",
+                  "Yongbin Li",
+                  "Tong Yang",
+                  "Jieping Ye"
+                ],
+                "published": "2026-05-28T12:40:22Z",
+                "updated": "2026-05-28T12:40:22Z",
+                "url": "http://arxiv.org/abs/2605.29860v1",
+                "pdf_url": "https://arxiv.org/pdf/2605.29860v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2605.27895v1",
+                "title": "Application of Reinforcement Learning for Multigroup Energy Grid Optimization for Neutron Transport Criticality Problems",
+                "summary": "The optimization of energy group structures is integral to ensure the accuracy of multigroup neutron transport calculations. This works introduces the use of reinforcement learning (RL) with surrogate modeling to optimize the group structure for one-dimensional spherical k-criticality problems. The proximal policy optimization (PPO) RL algorithm is modified to be used with energy grid structures, rewarding accurate group structures while favoring fewer energy groups. This method starts from a high-fidelity energy grid and remove energy bounds until reaching a target energy structure. The RL agent identify which bounds are important for the final group structure, which prevent it being stuck in local minima without limiting the initial group structure. Neural network surrogate models that incorporate energy, material, and spatial information are used for evaluating energy grid structures without requiring full transport simulations. This alleviates the computational constraint commonly used in other group structure optimization problems in addition to accelerating the RL training process. Applied to Godiva and BeRP ball problems, the RL constructed group structures outperform commonly used group structures. The RL group structure optimization method is also shown to perform similar to the hierarchical agglomeration approach but offers more flexibility.",
+                "authors": [
+                  "Ben Whewell",
+                  "Nathan Gibson",
+                  "Ajeeta Khatiwada"
+                ],
+                "published": "2026-05-27T03:19:01Z",
+                "updated": "2026-05-27T03:19:01Z",
+                "url": "http://arxiv.org/abs/2605.27895v1",
+                "pdf_url": "https://arxiv.org/pdf/2605.27895v1",
+                "source": "arxiv.org",
+                "primary_category": "physics.comp-ph",
+                "categories": [
+                  "physics.comp-ph"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T16:11:01"
+    }
+  ]
+}
