@@ -1,7 +1,156 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "description": "Team-authored cases for Lab 4 research agent routing, arguments, boundaries, and multi-turn context.",
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G_SINGLE_001_web_news_today",
+      "phase": "B",
+      "suite": "group",
+      "query": "Find 3 latest news today about AI agents enterprise.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "lookup", "args": {"query": "AI agents enterprise", "topic": "news", "timeframe": "day"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "Current web/news research should use lookup with topic=news and timeframe=day."}
+    },
+    {
+      "id": "G_SINGLE_002_fetch_url",
+      "phase": "B",
+      "suite": "group",
+      "query": "Doc URL https://openai.com/research va tom tat cac y chinh.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "fetch", "args": {"url": "https://openai.com/research"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "A concrete URL should route to fetch, not lookup."}
+    },
+    {
+      "id": "G_SINGLE_003_no_tool_concept",
+      "phase": "B",
+      "suite": "group",
+      "query": "Prompt engineering la gi? Giai thich ngan gon.",
+      "failure_type": "unnecessary_tool",
+      "expect": {"no_tool": true, "behavior": "answer_without_tool"},
+      "metadata": {"what_it_tests": "Stable conceptual question should not call a tool."}
+    },
+    {
+      "id": "G_SINGLE_004_confirm_send",
+      "phase": "B",
+      "suite": "group",
+      "query": "Gui ban tin nay len Telegram giup minh: AI agents dang tang truong manh.",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {"name": "clarify", "args": {"response_type": "yes_no"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "External send action requires yes/no confirmation before send."}
+    },
+    {
+      "id": "G_SINGLE_005_source_quality",
+      "phase": "B",
+      "suite": "group",
+      "query": "Danh gia do tin cay cua nguon nay: https://arxiv.org/abs/2401.00001, title 'RAG Evaluation', snippet 'We evaluate retrieval augmented generation systems with benchmark evidence', source type paper.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "source_quality", "args": {"url": "https://arxiv.org/abs/2401.00001", "source_type": "paper"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "Already-collected source assessment should use the custom source_quality tool."}
+    },
+    {
+      "id": "G_MULTI_001_missing_then_lookup",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tim tin moi ve mot cong ty AI."},
+        {"role": "user", "content": "OpenAI, trong hom nay."}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {"name": "lookup", "args": {"query": "OpenAI", "topic": "news", "timeframe": "day"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "After missing entity is supplied, use lookup with carried news intent and day timeframe."}
+    },
+    {
+      "id": "G_MULTI_002_missing_then_fetch",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tom tat trang nay."},
+        {"role": "user", "content": "https://anthropic.com/news"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {"name": "fetch", "args": {"url": "https://anthropic.com/news"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "Missing URL supplied in a later turn should route to fetch."}
+    },
+    {
+      "id": "G_MULTI_003_search_type_carryover",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tim tweet ve VinFast."},
+        {"role": "user", "content": "Chi lay loai Top, 7 ket qua."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {"name": "social_search", "args": {"query": "VinFast", "search_type": "Top", "limit": 7}}
+        ]
+      },
+      "metadata": {"what_it_tests": "Multi-turn topic and search_type/limit constraints should be preserved."}
+    },
+    {
+      "id": "G_MULTI_004_switch_social_to_web",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Moi nguoi noi gi ve NVIDIA tren Twitter?"},
+        {"role": "user", "content": "Thoi bo Twitter, tim tin tuc tren web trong tuan nay."}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "lookup", "args": {"query": "NVIDIA", "topic": "news", "timeframe": "week"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "Latest turn switches from social search to web news lookup."}
+    },
+    {
+      "id": "G_MULTI_005_send_confirmation",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Day la noi dung da soan: Ban tin AI hom nay co nhieu cap nhat moi."},
+        {"role": "user", "content": "Dang len Telegram giup toi."}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {"name": "clarify", "args": {"response_type": "yes_no"}}
+        ]
+      },
+      "metadata": {"what_it_tests": "Even drafted content requires explicit confirmation before an external send."}
+    }
+  ]
 }
