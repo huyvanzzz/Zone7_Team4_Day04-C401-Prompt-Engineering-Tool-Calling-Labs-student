@@ -1,0 +1,590 @@
+{
+  "transcript_id": "v3_openai_streamlit_20260602T171632795092",
+  "version": "v3",
+  "artifact_version": "v3+p2c997d479f74+td5b650f1eb07",
+  "prompt_hash": "2c997d479f74545d2821c1814d212782e3cc81bd846f348b89f12d405790de49",
+  "tools_hash": "d5b650f1eb071155fdda1722dbd57b4d5f62327d5c1089db9bd5167a41e6e75b",
+  "provider": "openai",
+  "model": "cx/gpt-5.4-mini",
+  "system_prompt": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "ui": "streamlit",
+  "created_at": "2026-06-02T17:16:32",
+  "updated_at": "2026-06-02T17:23:02",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-06-02T17:16:38",
+      "user": "xin chào bạn",
+      "status": "answered",
+      "assistant_text": "Xin chào! Mình có thể giúp gì cho bạn hôm nay?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Xin chào! Mình có thể giúp gì cho bạn hôm nay?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-06-02T17:16:50"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-06-02T17:18:17",
+      "user": "tôi có thể gửi thông tin lên telegram không",
+      "status": "answered",
+      "assistant_text": "Có. Mình có thể gửi nội dung lên Telegram **nếu bạn cung cấp nội dung cần gửi và xác nhận trước khi gửi**.\n\nNếu bạn muốn, hãy gửi:\n- nội dung chính xác cần đăng\n- (nếu cần) kênh/nhóm đích\n\nSau đó mình sẽ chuẩn bị và hỏi bạn xác nhận lần cuối trước khi gửi.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Có. Mình có thể gửi nội dung lên Telegram **nếu bạn cung cấp nội dung cần gửi và xác nhận trước khi gửi**.\n\nNếu bạn muốn, hãy gửi:\n- nội dung chính xác cần đăng\n- (nếu cần) kênh/nhóm đích\n\nSau đó mình sẽ chuẩn bị và hỏi bạn xác nhận lần cuối trước khi gửi.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-06-02T17:18:32"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-06-02T17:18:57",
+      "user": "Tôi muốn gửi thông tin xin chào Huy nên telegram ",
+      "status": "waiting_for_user",
+      "assistant_text": "Bạn có muốn mình gửi đúng nội dung \"xin chào Huy\" lên Telegram không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "clarify",
+              "args": {
+                "question": "Bạn có muốn mình gửi đúng nội dung \"xin chào Huy\" lên Telegram không?",
+                "response_type": "yes_no",
+                "options": []
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "clarify",
+              "args": {
+                "question": "Bạn có muốn mình gửi đúng nội dung \"xin chào Huy\" lên Telegram không?",
+                "response_type": "yes_no",
+                "options": []
+              },
+              "result": {
+                "tool": "ask_user",
+                "question": "Bạn có muốn mình gửi đúng nội dung \"xin chào Huy\" lên Telegram không?",
+                "response_type": "yes_no",
+                "options": [],
+                "awaiting_user": true
+              }
+            }
+          ]
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có muốn mình gửi đúng nội dung \"xin chào Huy\" lên Telegram không?",
+            "response_type": "yes_no",
+            "options": []
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn mình gửi đúng nội dung \"xin chào Huy\" lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T17:19:08"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-06-02T17:19:12",
+      "user": "có",
+      "status": "answered",
+      "assistant_text": "Đã gửi xong lên Telegram: **“xin chào Huy”**.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "send",
+              "args": {
+                "text": "xin chào Huy",
+                "confirmed": true,
+                "chat_id": ""
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "send",
+              "args": {
+                "text": "xin chào Huy",
+                "confirmed": true,
+                "chat_id": ""
+              },
+              "result": {
+                "tool": "send_telegram",
+                "status": "sent",
+                "chat_id": "6460652675"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Đã gửi xong lên Telegram: **“xin chào Huy”**.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "send",
+          "args": {
+            "text": "xin chào Huy",
+            "confirmed": true,
+            "chat_id": ""
+          },
+          "result": {
+            "tool": "send_telegram",
+            "status": "sent",
+            "chat_id": "6460652675"
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T17:19:21"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-06-02T17:21:14",
+      "user": "Cho tôi xin 5 bài báo nổi tiếng về VLM",
+      "status": "answered",
+      "assistant_text": "Dưới đây là 5 bài báo nổi bật về VLM mình tìm được từ arXiv:\n\n1. **Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation**  \n   - Tóm tắt: Bài review và đánh giá hệ thống các VLM cho phát hiện/segmentation open-vocabulary, phân tích nhiều kịch bản và chiến lược fine-tuning.  \n   - Link: https://arxiv.org/abs/2504.09480v1\n\n2. **Do VLMs Need Vision Transformers? Evaluating State Space Models as Vision Encoders**  \n   - Tóm tắt: So sánh backbone vision dạng State Space Model với Vision Transformer trong VLM, cho thấy SSM là một lựa chọn rất cạnh tranh.  \n   - Link: https://arxiv.org/abs/2603.19209v1\n\n3. **Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models**  \n   - Tóm tắt: Đề xuất framework tăng cường khả năng hiểu 3D và định vị ngôn ngữ cho VLM từ video đơn mắt.  \n   - Link: https://arxiv.org/abs/2603.18002v1\n\n4. **VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction**  \n   - Tóm tắt: Mở rộng VLM để hiểu không gian 3D từ video, với instruction tuning cho tái tạo 3D và reasoning theo thời gian.  \n   - Link: https://arxiv.org/abs/2505.20279v5\n\n5. **VARCO-VISION: Expanding Frontiers in Korean Vision-Language Models**  \n   - Tóm tắt: Mô hình VLM tiếng Hàn–Anh mã nguồn mở, hỗ trợ grounding, referring và OCR.  \n   - Link: https://arxiv.org/abs/2411.19103v1\n\nNếu bạn muốn, mình có thể làm tiếp một trong 3 kiểu sau:\n- **lọc 5 bài “kinh điển” hơn** về VLM\n- **tóm tắt từng bài 1–2 câu**\n- **xếp hạng theo mức độ ảnh hưởng / nổi tiếng**",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "VLM vision-language model",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "VLM vision-language model",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "VLM vision-language model",
+                "api_query": "all:VLM AND all:vision-language AND all:model",
+                "total_results": 5834,
+                "items": [
+                  {
+                    "arxiv_id": "2504.09480v1",
+                    "title": "Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation",
+                    "summary": "Vision-Language Model (VLM) have gained widespread adoption in Open-Vocabulary (OV) object detection and segmentation tasks. Despite they have shown promise on OV-related tasks, their effectiveness in conventional vision tasks has thus far been unevaluated. In this work, we present the systematic review of VLM-based detection and segmentation, view VLM as the foundational model and conduct comprehensive evaluations across multiple downstream tasks for the first time: 1) The evaluation spans eight detection scenarios (closed-set detection, domain adaptation, crowded objects, etc.) and eight segmentation scenarios (few-shot, open-world, small object, etc.), revealing distinct performance advantages and limitations of various VLM architectures across tasks. 2) As for detection tasks, we evaluate VLMs under three finetuning granularities: \\textit{zero prediction}, \\textit{visual fine-tuning}, and \\textit{text prompt}, and further analyze how different finetuning strategies impact performance under varied task. 3) Based on empirical findings, we provide in-depth analysis of the correlations between task characteristics, model architectures, and training methodologies, offering insights for future VLM design. 4) We believe that this work shall be valuable to the pattern recognition experts working in the fields of computer vision, multimodal learning, and vision foundation models by introducing them to the problem, and familiarizing them with the current status of the progress while providing promising directions for future research. A project associated with this review and evaluation has been created at https://github.com/better-chao/perceptual_abilities_evaluation.",
+                    "authors": [
+                      "Yongchao Feng",
+                      "Yajie Liu",
+                      "Shuai Yang",
+                      "Wenrui Cai",
+                      "Jinqing Zhang",
+                      "Qiqi Zhan",
+                      "Ziyue Huang",
+                      "Hongxi Yan",
+                      "Qiao Wan",
+                      "Chenguang Liu",
+                      "Junzhe Wang",
+                      "Jiahui Lv",
+                      "Ziqi Liu",
+                      "Tengyuan Shi",
+                      "Qingjie Liu",
+                      "Yunhong Wang"
+                    ],
+                    "published": "2025-04-13T08:28:13Z",
+                    "updated": "2025-04-13T08:28:13Z",
+                    "url": "http://arxiv.org/abs/2504.09480v1",
+                    "pdf_url": "https://arxiv.org/pdf/2504.09480v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2603.19209v1",
+                    "title": "Do VLMs Need Vision Transformers? Evaluating State Space Models as Vision Encoders",
+                    "summary": "Large vision--language models (VLMs) often use a frozen vision backbone, whose image features are mapped into a large language model through a lightweight connector. While transformer-based encoders are the standard visual backbone, we ask whether state space model (SSM) vision backbones can be a strong alternative. We systematically evaluate SSM vision backbones for VLMs in a controlled setting. Under matched ImageNet-1K initialization, the SSM backbone achieves the strongest overall performance across both VQA and grounding/localization. We further adapt both SSM and ViT-family backbones with detection or segmentation training and find that dense-task tuning generally improves performance across families; after this adaptation, the SSM backbone remains competitive while operating at a substantially smaller model scale. We further observe that (i) higher ImageNet accuracy or larger backbones do not reliably translate into better VLM performance, and (ii) some visual backbones are unstable in localization. Based on these findings, we propose stabilization strategies that improve robustness for both backbone families and highlight SSM backbones as a strong alternative to transformer-based vision encoders in VLMs.",
+                    "authors": [
+                      "Shang-Jui Ray Kuo",
+                      "Paola Cascante-Bonilla"
+                    ],
+                    "published": "2026-03-19T17:56:32Z",
+                    "updated": "2026-03-19T17:56:32Z",
+                    "url": "http://arxiv.org/abs/2603.19209v1",
+                    "pdf_url": "https://arxiv.org/pdf/2603.19209v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2603.18002v1",
+                    "title": "Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models",
+                    "summary": "Multimodal Large Language Models (MLLMs) have made impressive progress in connecting vision and language, but they still struggle with spatial understanding and viewpoint-aware reasoning. Recent efforts aim to augment the input representations with geometric cues rather than explicitly teaching models to reason in 3D space. We introduce Loc3R-VLM, a framework that equips 2D Vision-Language Models with advanced 3D understanding capabilities from monocular video input. Inspired by human spatial cognition, Loc3R-VLM relies on two joint objectives: global layout reconstruction to build a holistic representation of the scene structure, and explicit situation modeling to anchor egocentric perspective. These objectives provide direct spatial supervision that grounds both perception and language in a 3D context. To ensure geometric consistency and metric-scale alignment, we leverage lightweight camera pose priors extracted from a pre-trained 3D foundation model. Loc3R-VLM achieves state-of-the-art performance in language-based localization and outperforms existing 2D- and video-based approaches on situated and general 3D question-answering benchmarks, demonstrating that our spatial supervision framework enables strong 3D understanding. Project page: https://kevinqu7.github.io/loc3r-vlm",
+                    "authors": [
+                      "Kevin Qu",
+                      "Haozhe Qi",
+                      "Mihai Dusmanu",
+                      "Mahdi Rad",
+                      "Rui Wang",
+                      "Marc Pollefeys"
+                    ],
+                    "published": "2026-03-18T17:59:10Z",
+                    "updated": "2026-03-18T17:59:10Z",
+                    "url": "http://arxiv.org/abs/2603.18002v1",
+                    "pdf_url": "https://arxiv.org/pdf/2603.18002v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2505.20279v5",
+                    "title": "VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction",
+                    "summary": "The rapid advancement of Large Multimodal Models (LMMs) for 2D images and videos has motivated extending these models to understand 3D scenes, aiming for human-like visual-spatial intelligence. Nevertheless, achieving deep spatial understanding comparable to human capabilities poses significant challenges in model encoding and data acquisition. Existing methods frequently depend on external depth sensors for geometry capture or utilize off-the-shelf algorithms for pre-constructing 3D maps, thereby limiting their scalability, especially with prevalent monocular video inputs and for time-sensitive applications. In this work, we introduce VLM-3R, a unified framework for Vision-Language Models (VLMs) that incorporates 3D Reconstructive instruction tuning. VLM-3R processes monocular video frames by employing a geometry encoder to derive implicit 3D tokens that represent spatial understanding. Leveraging our Spatial-Visual-View Fusion and over 200K curated 3D reconstructive instruction tuning question-answer (QA) pairs, VLM-3R effectively aligns real-world spatial context with language instructions. This enables monocular 3D spatial assistance and embodied reasoning. To facilitate the evaluation of temporal reasoning, we introduce the Vision-Spatial-Temporal Intelligence benchmark, featuring over 138.6K QA pairs across five distinct tasks focused on evolving spatial relationships. Extensive experiments demonstrate that our model, VLM-3R, not only facilitates robust visual-spatial reasoning but also enables the understanding of temporal 3D context changes, excelling in both accuracy and scalability.",
+                    "authors": [
+                      "Zhiwen Fan",
+                      "Jian Zhang",
+                      "Renjie Li",
+                      "Junge Zhang",
+                      "Runjin Chen",
+                      "Hezhen Hu",
+                      "Kevin Wang",
+                      "Huaizhi Qu",
+                      "Shijie Zhou",
+                      "Dilin Wang",
+                      "Zhicheng Yan",
+                      "Hongyu Xu",
+                      "Justin Theiss",
+                      "Tianlong Chen",
+                      "Jiachen Li",
+                      "Zhengzhong Tu",
+                      "Zhangyang Wang",
+                      "Rakesh Ranjan"
+                    ],
+                    "published": "2025-05-26T17:56:30Z",
+                    "updated": "2026-04-21T02:48:38Z",
+                    "url": "http://arxiv.org/abs/2505.20279v5",
+                    "pdf_url": "https://arxiv.org/pdf/2505.20279v5",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2411.19103v1",
+                    "title": "VARCO-VISION: Expanding Frontiers in Korean Vision-Language Models",
+                    "summary": "In this paper, we introduce an open-source Korean-English vision-language model (VLM), VARCO-VISION. We incorporate a step-by-step training strategy that allows a model learn both linguistic and visual information while preserving the backbone model's knowledge. Our model demonstrates outstanding performance in diverse settings requiring bilingual image-text understanding and generation abilities compared to models of similar size. VARCO-VISION is also capable of grounding, referring, and OCR, expanding its usage and potential applications for real-world scenarios. In addition to the model, we release five Korean evaluation datasets, including four closed-set and one openset benchmarks. We anticipate that our milestone will broaden the opportunities for AI researchers aiming to train VLMs. VARCO-VISION is available at https://huggingface.co/NCSOFT/VARCO-VISION-14B.",
+                    "authors": [
+                      "Jeongho Ju",
+                      "Daeyoung Kim",
+                      "SunYoung Park",
+                      "Youngjune Kim"
+                    ],
+                    "published": "2024-11-28T12:38:42Z",
+                    "updated": "2024-11-28T12:38:42Z",
+                    "url": "http://arxiv.org/abs/2411.19103v1",
+                    "pdf_url": "https://arxiv.org/pdf/2411.19103v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.CL"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là 5 bài báo nổi bật về VLM mình tìm được từ arXiv:\n\n1. **Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation**  \n   - Tóm tắt: Bài review và đánh giá hệ thống các VLM cho phát hiện/segmentation open-vocabulary, phân tích nhiều kịch bản và chiến lược fine-tuning.  \n   - Link: https://arxiv.org/abs/2504.09480v1\n\n2. **Do VLMs Need Vision Transformers? Evaluating State Space Models as Vision Encoders**  \n   - Tóm tắt: So sánh backbone vision dạng State Space Model với Vision Transformer trong VLM, cho thấy SSM là một lựa chọn rất cạnh tranh.  \n   - Link: https://arxiv.org/abs/2603.19209v1\n\n3. **Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models**  \n   - Tóm tắt: Đề xuất framework tăng cường khả năng hiểu 3D và định vị ngôn ngữ cho VLM từ video đơn mắt.  \n   - Link: https://arxiv.org/abs/2603.18002v1\n\n4. **VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction**  \n   - Tóm tắt: Mở rộng VLM để hiểu không gian 3D từ video, với instruction tuning cho tái tạo 3D và reasoning theo thời gian.  \n   - Link: https://arxiv.org/abs/2505.20279v5\n\n5. **VARCO-VISION: Expanding Frontiers in Korean Vision-Language Models**  \n   - Tóm tắt: Mô hình VLM tiếng Hàn–Anh mã nguồn mở, hỗ trợ grounding, referring và OCR.  \n   - Link: https://arxiv.org/abs/2411.19103v1\n\nNếu bạn muốn, mình có thể làm tiếp một trong 3 kiểu sau:\n- **lọc 5 bài “kinh điển” hơn** về VLM\n- **tóm tắt từng bài 1–2 câu**\n- **xếp hạng theo mức độ ảnh hưởng / nổi tiếng**",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "VLM vision-language model",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "VLM vision-language model",
+            "api_query": "all:VLM AND all:vision-language AND all:model",
+            "total_results": 5834,
+            "items": [
+              {
+                "arxiv_id": "2504.09480v1",
+                "title": "Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation",
+                "summary": "Vision-Language Model (VLM) have gained widespread adoption in Open-Vocabulary (OV) object detection and segmentation tasks. Despite they have shown promise on OV-related tasks, their effectiveness in conventional vision tasks has thus far been unevaluated. In this work, we present the systematic review of VLM-based detection and segmentation, view VLM as the foundational model and conduct comprehensive evaluations across multiple downstream tasks for the first time: 1) The evaluation spans eight detection scenarios (closed-set detection, domain adaptation, crowded objects, etc.) and eight segmentation scenarios (few-shot, open-world, small object, etc.), revealing distinct performance advantages and limitations of various VLM architectures across tasks. 2) As for detection tasks, we evaluate VLMs under three finetuning granularities: \\textit{zero prediction}, \\textit{visual fine-tuning}, and \\textit{text prompt}, and further analyze how different finetuning strategies impact performance under varied task. 3) Based on empirical findings, we provide in-depth analysis of the correlations between task characteristics, model architectures, and training methodologies, offering insights for future VLM design. 4) We believe that this work shall be valuable to the pattern recognition experts working in the fields of computer vision, multimodal learning, and vision foundation models by introducing them to the problem, and familiarizing them with the current status of the progress while providing promising directions for future research. A project associated with this review and evaluation has been created at https://github.com/better-chao/perceptual_abilities_evaluation.",
+                "authors": [
+                  "Yongchao Feng",
+                  "Yajie Liu",
+                  "Shuai Yang",
+                  "Wenrui Cai",
+                  "Jinqing Zhang",
+                  "Qiqi Zhan",
+                  "Ziyue Huang",
+                  "Hongxi Yan",
+                  "Qiao Wan",
+                  "Chenguang Liu",
+                  "Junzhe Wang",
+                  "Jiahui Lv",
+                  "Ziqi Liu",
+                  "Tengyuan Shi",
+                  "Qingjie Liu",
+                  "Yunhong Wang"
+                ],
+                "published": "2025-04-13T08:28:13Z",
+                "updated": "2025-04-13T08:28:13Z",
+                "url": "http://arxiv.org/abs/2504.09480v1",
+                "pdf_url": "https://arxiv.org/pdf/2504.09480v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2603.19209v1",
+                "title": "Do VLMs Need Vision Transformers? Evaluating State Space Models as Vision Encoders",
+                "summary": "Large vision--language models (VLMs) often use a frozen vision backbone, whose image features are mapped into a large language model through a lightweight connector. While transformer-based encoders are the standard visual backbone, we ask whether state space model (SSM) vision backbones can be a strong alternative. We systematically evaluate SSM vision backbones for VLMs in a controlled setting. Under matched ImageNet-1K initialization, the SSM backbone achieves the strongest overall performance across both VQA and grounding/localization. We further adapt both SSM and ViT-family backbones with detection or segmentation training and find that dense-task tuning generally improves performance across families; after this adaptation, the SSM backbone remains competitive while operating at a substantially smaller model scale. We further observe that (i) higher ImageNet accuracy or larger backbones do not reliably translate into better VLM performance, and (ii) some visual backbones are unstable in localization. Based on these findings, we propose stabilization strategies that improve robustness for both backbone families and highlight SSM backbones as a strong alternative to transformer-based vision encoders in VLMs.",
+                "authors": [
+                  "Shang-Jui Ray Kuo",
+                  "Paola Cascante-Bonilla"
+                ],
+                "published": "2026-03-19T17:56:32Z",
+                "updated": "2026-03-19T17:56:32Z",
+                "url": "http://arxiv.org/abs/2603.19209v1",
+                "pdf_url": "https://arxiv.org/pdf/2603.19209v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2603.18002v1",
+                "title": "Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models",
+                "summary": "Multimodal Large Language Models (MLLMs) have made impressive progress in connecting vision and language, but they still struggle with spatial understanding and viewpoint-aware reasoning. Recent efforts aim to augment the input representations with geometric cues rather than explicitly teaching models to reason in 3D space. We introduce Loc3R-VLM, a framework that equips 2D Vision-Language Models with advanced 3D understanding capabilities from monocular video input. Inspired by human spatial cognition, Loc3R-VLM relies on two joint objectives: global layout reconstruction to build a holistic representation of the scene structure, and explicit situation modeling to anchor egocentric perspective. These objectives provide direct spatial supervision that grounds both perception and language in a 3D context. To ensure geometric consistency and metric-scale alignment, we leverage lightweight camera pose priors extracted from a pre-trained 3D foundation model. Loc3R-VLM achieves state-of-the-art performance in language-based localization and outperforms existing 2D- and video-based approaches on situated and general 3D question-answering benchmarks, demonstrating that our spatial supervision framework enables strong 3D understanding. Project page: https://kevinqu7.github.io/loc3r-vlm",
+                "authors": [
+                  "Kevin Qu",
+                  "Haozhe Qi",
+                  "Mihai Dusmanu",
+                  "Mahdi Rad",
+                  "Rui Wang",
+                  "Marc Pollefeys"
+                ],
+                "published": "2026-03-18T17:59:10Z",
+                "updated": "2026-03-18T17:59:10Z",
+                "url": "http://arxiv.org/abs/2603.18002v1",
+                "pdf_url": "https://arxiv.org/pdf/2603.18002v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2505.20279v5",
+                "title": "VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction",
+                "summary": "The rapid advancement of Large Multimodal Models (LMMs) for 2D images and videos has motivated extending these models to understand 3D scenes, aiming for human-like visual-spatial intelligence. Nevertheless, achieving deep spatial understanding comparable to human capabilities poses significant challenges in model encoding and data acquisition. Existing methods frequently depend on external depth sensors for geometry capture or utilize off-the-shelf algorithms for pre-constructing 3D maps, thereby limiting their scalability, especially with prevalent monocular video inputs and for time-sensitive applications. In this work, we introduce VLM-3R, a unified framework for Vision-Language Models (VLMs) that incorporates 3D Reconstructive instruction tuning. VLM-3R processes monocular video frames by employing a geometry encoder to derive implicit 3D tokens that represent spatial understanding. Leveraging our Spatial-Visual-View Fusion and over 200K curated 3D reconstructive instruction tuning question-answer (QA) pairs, VLM-3R effectively aligns real-world spatial context with language instructions. This enables monocular 3D spatial assistance and embodied reasoning. To facilitate the evaluation of temporal reasoning, we introduce the Vision-Spatial-Temporal Intelligence benchmark, featuring over 138.6K QA pairs across five distinct tasks focused on evolving spatial relationships. Extensive experiments demonstrate that our model, VLM-3R, not only facilitates robust visual-spatial reasoning but also enables the understanding of temporal 3D context changes, excelling in both accuracy and scalability.",
+                "authors": [
+                  "Zhiwen Fan",
+                  "Jian Zhang",
+                  "Renjie Li",
+                  "Junge Zhang",
+                  "Runjin Chen",
+                  "Hezhen Hu",
+                  "Kevin Wang",
+                  "Huaizhi Qu",
+                  "Shijie Zhou",
+                  "Dilin Wang",
+                  "Zhicheng Yan",
+                  "Hongyu Xu",
+                  "Justin Theiss",
+                  "Tianlong Chen",
+                  "Jiachen Li",
+                  "Zhengzhong Tu",
+                  "Zhangyang Wang",
+                  "Rakesh Ranjan"
+                ],
+                "published": "2025-05-26T17:56:30Z",
+                "updated": "2026-04-21T02:48:38Z",
+                "url": "http://arxiv.org/abs/2505.20279v5",
+                "pdf_url": "https://arxiv.org/pdf/2505.20279v5",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2411.19103v1",
+                "title": "VARCO-VISION: Expanding Frontiers in Korean Vision-Language Models",
+                "summary": "In this paper, we introduce an open-source Korean-English vision-language model (VLM), VARCO-VISION. We incorporate a step-by-step training strategy that allows a model learn both linguistic and visual information while preserving the backbone model's knowledge. Our model demonstrates outstanding performance in diverse settings requiring bilingual image-text understanding and generation abilities compared to models of similar size. VARCO-VISION is also capable of grounding, referring, and OCR, expanding its usage and potential applications for real-world scenarios. In addition to the model, we release five Korean evaluation datasets, including four closed-set and one openset benchmarks. We anticipate that our milestone will broaden the opportunities for AI researchers aiming to train VLMs. VARCO-VISION is available at https://huggingface.co/NCSOFT/VARCO-VISION-14B.",
+                "authors": [
+                  "Jeongho Ju",
+                  "Daeyoung Kim",
+                  "SunYoung Park",
+                  "Youngjune Kim"
+                ],
+                "published": "2024-11-28T12:38:42Z",
+                "updated": "2024-11-28T12:38:42Z",
+                "url": "http://arxiv.org/abs/2411.19103v1",
+                "pdf_url": "https://arxiv.org/pdf/2411.19103v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.CL"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T17:21:42"
+    },
+    {
+      "turn_index": 6,
+      "started_at": "2026-06-02T17:22:48",
+      "user": "https://arxiv.org/abs/2505.20279v5 đọc bài báo này cho tôi",
+      "status": "answered",
+      "assistant_text": "Mình đã đọc phần đầu của bài báo **VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction**.\n\n**Tóm tắt ngắn:**\n- Bài này đề xuất **VLM-3R**, một VLM được tăng cường để hiểu **không gian 3D** và **thay đổi theo thời gian** từ **video monocular** (chỉ một camera), thay vì cần cảm biến depth hay bản đồ 3D dựng sẵn.\n- Ý tưởng chính là dùng một **geometry encoder** để rút ra các token 3D ẩn:\n  - **spatial tokens**: biểu diễn bối cảnh không gian của cảnh\n  - **view tokens**: biểu diễn chuyển động/vị trí camera\n- Sau đó, các tín hiệu này được hợp nhất với biểu diễn hình ảnh qua cơ chế **Spatial-Visual-View Fusion** để hỗ trợ reasoning không gian và thời gian.\n\n**Đóng góp chính của bài:**\n1. **Kiến trúc VLM-3R** giúp VLM hiểu không gian từ video monocular mà không cần depth sensor hay 3D map dựng sẵn.\n2. **Spatial-Visual-View Fusion** để trộn thông tin ảnh, hình học cảnh và chuyển động camera.\n3. **Pipeline tạo dữ liệu quy mô lớn** với hơn **200K QA pairs** cho instruction tuning 3D.\n4. Đề xuất benchmark mới **VSTI-Bench** với hơn **138.6K QA pairs** để kiểm tra reasoning theo thời gian trong không gian 3D.\n\n**Kết luận từ phần bạn gửi:**\n- Mô hình này đặc biệt mạnh ở:\n  - hiểu quan hệ không gian\n  - suy luận khoảng cách/hướng/vị trí tương đối\n  - theo dõi thay đổi không gian theo chuyển động camera\n- Tác giả cho rằng VLM-3R đạt kết quả rất tốt trên các benchmark như **VSI-Bench** và **VSTI-Bench**.\n\nNếu bạn muốn, mình có thể tiếp tục làm một trong 3 cách:\n- **tóm tắt chi tiết từng mục của paper**\n- **giải thích kiến trúc VLM-3R bằng ngôn ngữ dễ hiểu**\n- **trích ra đóng góp, hạn chế, và ý tưởng ứng dụng thực tế**",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "paper_text",
+              "args": {
+                "arxiv_url": "https://arxiv.org/abs/2505.20279v5",
+                "max_pages": 5,
+                "max_chars": 8000
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "paper_text",
+              "args": {
+                "arxiv_url": "https://arxiv.org/abs/2505.20279v5",
+                "max_pages": 5,
+                "max_chars": 8000
+              },
+              "result": {
+                "tool": "get_arxiv_paper_text",
+                "arxiv_id": "2505.20279v5",
+                "url": "https://arxiv.org/abs/2505.20279v5",
+                "pdf_url": "https://arxiv.org/pdf/2505.20279v5.pdf",
+                "pdf_path": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\arxiv_papers\\2505.20279v5.pdf",
+                "txt_path": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\arxiv_papers\\2505.20279v5.txt",
+                "page_count": 18,
+                "pages_read": 5,
+                "chars_returned": 8000,
+                "items": [
+                  {
+                    "title": "arXiv paper 2505.20279v5",
+                    "url": "https://arxiv.org/abs/2505.20279v5",
+                    "source": "arxiv.org",
+                    "summary": "VLM-3R: Vision-Language Models\nAugmented with Instruction-Aligned 3D Reconstruction\nZhiwen Fan1∗† Jian Zhang2∗ Renjie Li3 Junge Zhang4 Runjin Chen1 Hezhen Hu1 Kevin Wang1\nPeihao Wang1 Huaizhi Qu5 Shijie Zhou7 Dilin Wang6 Zhicheng Yan6 Hongyu Xu6\nJustin Theiss6 Tianlong Chen5 Jiachen Li4 Zhengzhong Tu3 Zhangyang Wang1† Rakesh Ranjan6†\n1UT Austin 2XMU 3TAMU 4UCR 5UNC 6Meta 7UCLA\nhttps://vlm-3r.github.io/\nMonocular Video\nVideo LLMs\n3D-LLMs\nor\n3D Points /\nPrebuilt 3D MapsDepth Sensors\nHq\nLanguage\nInstruction\nLanguage Model𝑓\nResponse Xa\nH3D\nProjection\nVisual\nEncoder\nW1\nSpatial\nEncoder\nProjectionW2\nattention\nVideo\n(a)Large Multimodal Models\nand 3D Large Language Models\n(b)Our VLM-3R takes\nmonocular video for spatial reasoning\n(c)Accuracy on VSI-Bench\nand VS(Temporal)I-Bench\nFigure 1.VLM-3R: 3D Spatial-Temporal Reasoning from Monocular Video.Unlike prior video LMMs and 3D-LLMs (a) that depend\non explicit 3D inputs such as depth sensors or pre-built 3D maps, VLM-3R (b) uses an end-to-end architecture with metric-scale spatial\nencoders that fuse scene and camera tokens to recover implicit 3D structure directly from monocular video. This design targets spatial\nassistance from raw camera streams and supports detailed reasoning about spatial context, instance layout, and temporal dynamics, leading\nto consistently stronger performance on VSI-Bench and the proposed VSTemporalI-Bench (c).\nAbstract\nThe rapid advancement of Large Multimodal Models\n(LMMs) for 2D images and videos has sparked interest\nin extending these models to 3D scenes, with the goal of\nhuman-like visual-spatial intelligence. However, achiev-\ning deep spatial understanding comparable to human ca-\npabilities remains challenging for both model design and\ndata acquisition. Existing methods often rely on exter-\nnal depth sensors for geometry capture or off-the-shelf\nalgorithms for pre-constructing 3D maps, which limits\ntheir scalability. In this work, we introduce VLM-3R, a\nframework for Vision-Language Models (VLM s) that cou-\nples3 DR econstructive instruction tuning with scalable\ntraining data curation and a new benchmark for tempo-\nral reasoning. Specifically, VLM-3R processes monocu-\nlar video frames with a geometry encoder that derives\n*Equal contribution.†Corresponding Author.\nimplicit 3D tokens representing scene context (spatial to-\nkens) and camera motion (view tokens). In parallel, we\nbuild a scalable data creation pipeline with over 200K\n3D reconstructive instruction-tuning question-answer (QA)\npairs. To evaluate temporal reasoning, we further intro-\nduce the Vision-Spatial-Temporal Intelligence benchmark\n(VSTI-Bench), which contains over 138.6K QA pairs across\nfive distinct tasks focused on evolving spatial relationships.\nExtensive experiments show that VLM-3R supports robust\nvisual-spatial reasoning and improves the understanding of\ntemporal 3D context changes, enabling monocular 3D spa-\ntial assistance and embodied reasoning.\n1. Introduction\nHumans acquire visual-spatial intelligence through visu-\nally guided interaction with the physical world [2], form-\ning and updating internal maps and recalling experiences\nabout spatial layouts, object sizes, possible actions, and\n1\narXiv:2505.20279v5  [cs.CV]  21 Apr 2026\n\nthe timing of events. By contrast, Large Language Mod-\nels (LLMs [5, 9, 10, 37, 54, 56, 57, 62, 64, 65, 74, 87])\nhave made strong progress on complex text reasoning, and\nVision-Language Models (VLMs) and Large Multimodal\nModels (LMMs [3, 6, 15, 35, 42, 45, 63, 70]) show solid\nability in open-ended dialogue, single-image understand-\ning, and practical tasks such as web agents. Despite these\ngains, current VLMs and LMMs still fall short when inter-\nacting with the physical world, where they struggle with\ncore spatial skills that require geometric understanding,\neven for simple tasks like distance estimation.\nExisting efforts to advance LLMs and VLMs for spa-\ntial tasks [11, 16, 29] often rely on specialized depth sen-\nsors [88, 94] for 3D data during fine-tuning and inference,\nwhich constrains scalability to sensor-equipped environ-\nments and restricts the use of abundant monocular video\ndata. Other works [50] employ off-the-shelf reconstruction\nor SLAM algorithms [29, 30, 53] to pre-construct explicit\n3D maps, typically point clouds, which are then aligned\nwith or fed as input to language models. This also intro-\nduces persistent challenges: the reliance on pre-constructed\ngeometry makes these multi-stage pipelines slow to adapt\nand reason in new spaces for a generalist model, and\nthey are brittle when traditional reconstruction ignores real-\nworld scene scale [60], which can irreversibly degrade the\nVLM’s spatial comprehension.\nIn this paper, we propose VLM-3R, which equips VLMs\nwith 3D reconstructive instruction tuning from monocular\nvideo. It addresses the central question of how to build\nan end-to-end, spatially aware VLM system that interprets\nscene geometry, camera movement, and spatial relations\nfrom image sequences without requiring intermediate run-\ntime reconstruction, while also integrating common-sense\nknowledge from language models for spatial assistance and\nembodied reasoning. Specifically, VLM-3R first proposes\na framework that unifies image-level semantics from a vi-\nsion encoder with rich spatial information from a metric-\nscale multiview stereo model [72] into a geometry encoder.\nWe extract implicit 3D tokens representing scene context\n(spatial tokens) and camera motion (view tokens) from this\ngeometry encoder. These physical scale and camera move-\nment priors are then integrated with the original visual en-\ncoding viaSpatial-Visual-View Fusion, aligning them with\nlanguage representations for joint spatio-linguistic under-\nstanding within the VLM. This enables the model to inter-\npret spatial context directly from raw video and to disen-\ntangle changes in camera-object relative distance. Comple-\nmenting the architecture design, we also develop a scalable\n3D video data curation pipeline to support 3D reconstruc-\ntive instruction tuning with diverse spatial tasks.\nTo further examine the capability of existing VLMs\nforspatio-temporalunderstanding from video, we intro-\nduce the Vision-Spatial-TemporalIntelligence benchmark\n(VSTI-Bench), which comprises five temporal tasks de-\nfined onstatic3D scenes. Since the scenes are static, all\napparent motion arises from camera movement. Accord-\ningly, the benchmark evaluates whether models can rea-\nson about temporal changes in spatial relations induced by\ncamera motion, including camera displacement over time,\nchanges in camera-object relative distance and direction,\nand frame-dependent object-object relative position from\nthe camera’s perspective. Experiments show that VLM-3R\nnot only reasons about static spatial context, but also ef-\nfectively captures spatio-temporal changes in 3D environ-\nments from monocular video input, as evidenced by its per-\nformance across benchmarks in Figure 1(c). To summarize,\nour contributions are:\n• We introduce VLM-3R, a method that significantly en-\nhances the visual-based spatial intelligence of exist-\ning vision-language frameworks, demonstrating strong\nspatial understanding and reasoning capabilities from\nmonocular video without requiring any depth sensors or\npre-built 3D maps as input.\n• We design Spatial-Visual-View Fusion, which injects\nscene geometry and camera motion from a feed-forward\ngeometry encoder into image-level semantics, supporting\nboth spatial and temporal reasoning in the model.\n• We build a scalable data curation pipeline that produces\n3D-aware instruction data with labels for spatial relation\ndiscovery, totaling over 200K spatial reconstructive QA\npairs with 4,225 route-planning instances. We further\nstudy VLM understanding of temporal changes and intro-\nduce a new benchmark with 138.6K temporal QA pairs.\n• Extensive experiments on VSI-Bench, VSTI-Bench, and\nOST-Bench show state-of-the-art performance on both vi-\nsual spatial and temporal understanding tasks, approach-"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Mình đã đọc phần đầu của bài báo **VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction**.\n\n**Tóm tắt ngắn:**\n- Bài này đề xuất **VLM-3R**, một VLM được tăng cường để hiểu **không gian 3D** và **thay đổi theo thời gian** từ **video monocular** (chỉ một camera), thay vì cần cảm biến depth hay bản đồ 3D dựng sẵn.\n- Ý tưởng chính là dùng một **geometry encoder** để rút ra các token 3D ẩn:\n  - **spatial tokens**: biểu diễn bối cảnh không gian của cảnh\n  - **view tokens**: biểu diễn chuyển động/vị trí camera\n- Sau đó, các tín hiệu này được hợp nhất với biểu diễn hình ảnh qua cơ chế **Spatial-Visual-View Fusion** để hỗ trợ reasoning không gian và thời gian.\n\n**Đóng góp chính của bài:**\n1. **Kiến trúc VLM-3R** giúp VLM hiểu không gian từ video monocular mà không cần depth sensor hay 3D map dựng sẵn.\n2. **Spatial-Visual-View Fusion** để trộn thông tin ảnh, hình học cảnh và chuyển động camera.\n3. **Pipeline tạo dữ liệu quy mô lớn** với hơn **200K QA pairs** cho instruction tuning 3D.\n4. Đề xuất benchmark mới **VSTI-Bench** với hơn **138.6K QA pairs** để kiểm tra reasoning theo thời gian trong không gian 3D.\n\n**Kết luận từ phần bạn gửi:**\n- Mô hình này đặc biệt mạnh ở:\n  - hiểu quan hệ không gian\n  - suy luận khoảng cách/hướng/vị trí tương đối\n  - theo dõi thay đổi không gian theo chuyển động camera\n- Tác giả cho rằng VLM-3R đạt kết quả rất tốt trên các benchmark như **VSI-Bench** và **VSTI-Bench**.\n\nNếu bạn muốn, mình có thể tiếp tục làm một trong 3 cách:\n- **tóm tắt chi tiết từng mục của paper**\n- **giải thích kiến trúc VLM-3R bằng ngôn ngữ dễ hiểu**\n- **trích ra đóng góp, hạn chế, và ý tưởng ứng dụng thực tế**",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "https://arxiv.org/abs/2505.20279v5",
+            "max_pages": 5,
+            "max_chars": 8000
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2505.20279v5",
+            "url": "https://arxiv.org/abs/2505.20279v5",
+            "pdf_url": "https://arxiv.org/pdf/2505.20279v5.pdf",
+            "pdf_path": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\arxiv_papers\\2505.20279v5.pdf",
+            "txt_path": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\arxiv_papers\\2505.20279v5.txt",
+            "page_count": 18,
+            "pages_read": 5,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 2505.20279v5",
+                "url": "https://arxiv.org/abs/2505.20279v5",
+                "source": "arxiv.org",
+                "summary": "VLM-3R: Vision-Language Models\nAugmented with Instruction-Aligned 3D Reconstruction\nZhiwen Fan1∗† Jian Zhang2∗ Renjie Li3 Junge Zhang4 Runjin Chen1 Hezhen Hu1 Kevin Wang1\nPeihao Wang1 Huaizhi Qu5 Shijie Zhou7 Dilin Wang6 Zhicheng Yan6 Hongyu Xu6\nJustin Theiss6 Tianlong Chen5 Jiachen Li4 Zhengzhong Tu3 Zhangyang Wang1† Rakesh Ranjan6†\n1UT Austin 2XMU 3TAMU 4UCR 5UNC 6Meta 7UCLA\nhttps://vlm-3r.github.io/\nMonocular Video\nVideo LLMs\n3D-LLMs\nor\n3D Points /\nPrebuilt 3D MapsDepth Sensors\nHq\nLanguage\nInstruction\nLanguage Model𝑓\nResponse Xa\nH3D\nProjection\nVisual\nEncoder\nW1\nSpatial\nEncoder\nProjectionW2\nattention\nVideo\n(a)Large Multimodal Models\nand 3D Large Language Models\n(b)Our VLM-3R takes\nmonocular video for spatial reasoning\n(c)Accuracy on VSI-Bench\nand VS(Temporal)I-Bench\nFigure 1.VLM-3R: 3D Spatial-Temporal Reasoning from Monocular Video.Unlike prior video LMMs and 3D-LLMs (a) that depend\non explicit 3D inputs such as depth sensors or pre-built 3D maps, VLM-3R (b) uses an end-to-end architecture with metric-scale spatial\nencoders that fuse scene and camera tokens to recover implicit 3D structure directly from monocular video. This design targets spatial\nassistance from raw camera streams and supports detailed reasoning about spatial context, instance layout, and temporal dynamics, leading\nto consistently stronger performance on VSI-Bench and the proposed VSTemporalI-Bench (c).\nAbstract\nThe rapid advancement of Large Multimodal Models\n(LMMs) for 2D images and videos has sparked interest\nin extending these models to 3D scenes, with the goal of\nhuman-like visual-spatial intelligence. However, achiev-\ning deep spatial understanding comparable to human ca-\npabilities remains challenging for both model design and\ndata acquisition. Existing methods often rely on exter-\nnal depth sensors for geometry capture or off-the-shelf\nalgorithms for pre-constructing 3D maps, which limits\ntheir scalability. In this work, we introduce VLM-3R, a\nframework for Vision-Language Models (VLM s) that cou-\nples3 DR econstructive instruction tuning with scalable\ntraining data curation and a new benchmark for tempo-\nral reasoning. Specifically, VLM-3R processes monocu-\nlar video frames with a geometry encoder that derives\n*Equal contribution.†Corresponding Author.\nimplicit 3D tokens representing scene context (spatial to-\nkens) and camera motion (view tokens). In parallel, we\nbuild a scalable data creation pipeline with over 200K\n3D reconstructive instruction-tuning question-answer (QA)\npairs. To evaluate temporal reasoning, we further intro-\nduce the Vision-Spatial-Temporal Intelligence benchmark\n(VSTI-Bench), which contains over 138.6K QA pairs across\nfive distinct tasks focused on evolving spatial relationships.\nExtensive experiments show that VLM-3R supports robust\nvisual-spatial reasoning and improves the understanding of\ntemporal 3D context changes, enabling monocular 3D spa-\ntial assistance and embodied reasoning.\n1. Introduction\nHumans acquire visual-spatial intelligence through visu-\nally guided interaction with the physical world [2], form-\ning and updating internal maps and recalling experiences\nabout spatial layouts, object sizes, possible actions, and\n1\narXiv:2505.20279v5  [cs.CV]  21 Apr 2026\n\nthe timing of events. By contrast, Large Language Mod-\nels (LLMs [5, 9, 10, 37, 54, 56, 57, 62, 64, 65, 74, 87])\nhave made strong progress on complex text reasoning, and\nVision-Language Models (VLMs) and Large Multimodal\nModels (LMMs [3, 6, 15, 35, 42, 45, 63, 70]) show solid\nability in open-ended dialogue, single-image understand-\ning, and practical tasks such as web agents. Despite these\ngains, current VLMs and LMMs still fall short when inter-\nacting with the physical world, where they struggle with\ncore spatial skills that require geometric understanding,\neven for simple tasks like distance estimation.\nExisting efforts to advance LLMs and VLMs for spa-\ntial tasks [11, 16, 29] often rely on specialized depth sen-\nsors [88, 94] for 3D data during fine-tuning and inference,\nwhich constrains scalability to sensor-equipped environ-\nments and restricts the use of abundant monocular video\ndata. Other works [50] employ off-the-shelf reconstruction\nor SLAM algorithms [29, 30, 53] to pre-construct explicit\n3D maps, typically point clouds, which are then aligned\nwith or fed as input to language models. This also intro-\nduces persistent challenges: the reliance on pre-constructed\ngeometry makes these multi-stage pipelines slow to adapt\nand reason in new spaces for a generalist model, and\nthey are brittle when traditional reconstruction ignores real-\nworld scene scale [60], which can irreversibly degrade the\nVLM’s spatial comprehension.\nIn this paper, we propose VLM-3R, which equips VLMs\nwith 3D reconstructive instruction tuning from monocular\nvideo. It addresses the central question of how to build\nan end-to-end, spatially aware VLM system that interprets\nscene geometry, camera movement, and spatial relations\nfrom image sequences without requiring intermediate run-\ntime reconstruction, while also integrating common-sense\nknowledge from language models for spatial assistance and\nembodied reasoning. Specifically, VLM-3R first proposes\na framework that unifies image-level semantics from a vi-\nsion encoder with rich spatial information from a metric-\nscale multiview stereo model [72] into a geometry encoder.\nWe extract implicit 3D tokens representing scene context\n(spatial tokens) and camera motion (view tokens) from this\ngeometry encoder. These physical scale and camera move-\nment priors are then integrated with the original visual en-\ncoding viaSpatial-Visual-View Fusion, aligning them with\nlanguage representations for joint spatio-linguistic under-\nstanding within the VLM. This enables the model to inter-\npret spatial context directly from raw video and to disen-\ntangle changes in camera-object relative distance. Comple-\nmenting the architecture design, we also develop a scalable\n3D video data curation pipeline to support 3D reconstruc-\ntive instruction tuning with diverse spatial tasks.\nTo further examine the capability of existing VLMs\nforspatio-temporalunderstanding from video, we intro-\nduce the Vision-Spatial-TemporalIntelligence benchmark\n(VSTI-Bench), which comprises five temporal tasks de-\nfined onstatic3D scenes. Since the scenes are static, all\napparent motion arises from camera movement. Accord-\ningly, the benchmark evaluates whether models can rea-\nson about temporal changes in spatial relations induced by\ncamera motion, including camera displacement over time,\nchanges in camera-object relative distance and direction,\nand frame-dependent object-object relative position from\nthe camera’s perspective. Experiments show that VLM-3R\nnot only reasons about static spatial context, but also ef-\nfectively captures spatio-temporal changes in 3D environ-\nments from monocular video input, as evidenced by its per-\nformance across benchmarks in Figure 1(c). To summarize,\nour contributions are:\n• We introduce VLM-3R, a method that significantly en-\nhances the visual-based spatial intelligence of exist-\ning vision-language frameworks, demonstrating strong\nspatial understanding and reasoning capabilities from\nmonocular video without requiring any depth sensors or\npre-built 3D maps as input.\n• We design Spatial-Visual-View Fusion, which injects\nscene geometry and camera motion from a feed-forward\ngeometry encoder into image-level semantics, supporting\nboth spatial and temporal reasoning in the model.\n• We build a scalable data curation pipeline that produces\n3D-aware instruction data with labels for spatial relation\ndiscovery, totaling over 200K spatial reconstructive QA\npairs with 4,225 route-planning instances. We further\nstudy VLM understanding of temporal changes and intro-\nduce a new benchmark with 138.6K temporal QA pairs.\n• Extensive experiments on VSI-Bench, VSTI-Bench, and\nOST-Bench show state-of-the-art performance on both vi-\nsual spatial and temporal understanding tasks, approach-"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T17:23:02"
+    }
+  ]
+}

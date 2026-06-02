@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import json
 from datetime import datetime
 from pathlib import Path
@@ -12,7 +11,6 @@ from chat import now_iso, run_model_tool_loop, safe_slug, trim_history, write_tr
 from env_loader import load_lab_env
 from providers import make_provider
 from tools import load_tool_declarations, to_openai_tools
-from tools.telegram_updates.tool import telegram_updates
 from versioning import artifact_version_dict, build_artifact_version
 
 
@@ -31,7 +29,6 @@ def init_state() -> None:
     st.session_state.setdefault("turns", [])
     st.session_state.setdefault("transcript_path", None)
     st.session_state.setdefault("transcript", None)
-    st.session_state.setdefault("telegram_probe", None)
 
 
 def new_transcript(version: str, provider_name: str, model: str | None, system_prompt_path: Path, tools_path: Path) -> None:
@@ -73,27 +70,6 @@ def render_trace(turn: dict[str, Any]) -> None:
         st.code(json_pretty({"rounds": rounds, "tool_events": events}), language="json")
 
 
-def render_telegram_panel() -> None:
-    token = os.getenv("TELEGRAM_BOT_TOKEN")
-    env_chat_id = os.getenv("TELEGRAM_CHAT_ID")
-    with st.sidebar:
-        st.subheader("Telegram")
-        st.write(f"Token: {'set' if token else 'missing'}")
-        st.write(f"Env chat id: {env_chat_id or 'missing'}")
-        st.write(f"Using chat id: {env_chat_id or 'not set yet'}")
-
-        if st.button("Refresh Telegram status"):
-            if token:
-                st.session_state.telegram_probe = telegram_updates(limit=5, offset=0)
-            else:
-                st.session_state.telegram_probe = {"tool": "telegram_updates", "error": "Missing TELEGRAM_BOT_TOKEN env var"}
-
-        probe = st.session_state.telegram_probe
-        if probe:
-            st.caption("Latest probe")
-            st.code(json_pretty(probe), language="json")
-
-
 def main() -> None:
     st.set_page_config(page_title="Lab 4 Research Agent", layout="wide")
     init_state()
@@ -102,18 +78,14 @@ def main() -> None:
 
     with st.sidebar:
         provider_name = st.selectbox("Provider", ["openai", "openrouter", "anthropic", "gemini"], index=0)
-        version = st.text_input("Version", value="v3")
-        model_override = st.text_input("Model override", value="")
         st.session_state.history_window = st.number_input("History window", min_value=0, max_value=20, value=5)
         st.session_state.max_tool_rounds = st.number_input("Max tool rounds", min_value=1, max_value=8, value=4)
-        system_prompt_path = st.text_input("System prompt", value=str(ARTIFACTS_DIR / "system_prompt.md"))
-        tools_path = st.text_input("Tools YAML", value=str(ARTIFACTS_DIR / "tools.yaml"))
         reset = st.button("New transcript")
-    render_telegram_panel()
 
-    system_prompt_file = Path(system_prompt_path)
-    tools_file = Path(tools_path)
-    model_arg = model_override.strip() or None
+    version = "v3"
+    system_prompt_file = ARTIFACTS_DIR / "system_prompt.md"
+    tools_file = ARTIFACTS_DIR / "tools.yaml"
+    model_arg = None
 
     if reset or st.session_state.transcript is None:
         provider_for_model = make_provider(provider_name)
@@ -121,8 +93,6 @@ def main() -> None:
         st.session_state.history = []
         st.session_state.turns = []
         new_transcript(version, provider_name, selected_model, system_prompt_file, tools_file)
-
-    st.caption(f"Transcript: {st.session_state.transcript_path}")
 
     for turn in st.session_state.turns:
         with st.chat_message("user"):

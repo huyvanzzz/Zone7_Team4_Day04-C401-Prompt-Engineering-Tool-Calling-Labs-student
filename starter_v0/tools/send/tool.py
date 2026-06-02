@@ -22,7 +22,7 @@ def send_telegram(text: str = "", confirmed: bool = False, chat_id: str | int | 
             raise RuntimeError("Missing TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID env var")
         response = requests.post(
             f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": resolved_chat_id, "text": text, "parse_mode": "Markdown"},
+            json={"chat_id": resolved_chat_id, "text": text},
             timeout=TIMEOUT,
         )
         response.raise_for_status()

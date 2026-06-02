@@ -1,0 +1,17 @@
+{
+  "transcript_id": "v3_openai_streamlit_20260602T172331103712",
+  "version": "v3",
+  "artifact_version": "v3+p2c997d479f74+td5b650f1eb07",
+  "prompt_hash": "2c997d479f74545d2821c1814d212782e3cc81bd846f348b89f12d405790de49",
+  "tools_hash": "d5b650f1eb071155fdda1722dbd57b4d5f62327d5c1089db9bd5167a41e6e75b",
+  "provider": "openai",
+  "model": "cx/gpt-5.4-mini",
+  "system_prompt": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\Zone7_Team4_Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "ui": "streamlit",
+  "created_at": "2026-06-02T17:23:31",
+  "updated_at": "2026-06-02T17:23:31",
+  "turns": []
+}
