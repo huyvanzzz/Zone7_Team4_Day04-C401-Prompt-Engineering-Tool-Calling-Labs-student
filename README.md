@@ -240,6 +240,33 @@ Try at least 3 live turns, for example:
 - A request thiếu thông tin (không nói rõ account/URL), rồi lượt sau bổ sung.
 - Một request "đăng/gửi bản tin lên Telegram" — quan sát agent có hành động ngay hay hỏi lại trước, rồi tự quyết định hành vi nào mới đúng và sửa prompt cho khớp.
 
+## Deploy nhanh để team khác dùng thử (khuyến nghị: Cloudflare Tunnel)
+
+Để team cùng zone tự thử agent trong Team showdown, expose UI đang chạy local ra một link public. Cách nhanh nhất, không cần đăng ký domain hay deploy lên cloud, là **Cloudflare Tunnel** (`cloudflared`).
+
+1. Chạy UI local trước (ví dụ Streamlit mặc định cổng `8501`):
+
+   ```bash
+   streamlit run app.py            # → http://localhost:8501
+   ```
+
+2. Cài `cloudflared`:
+
+   ```bash
+   brew install cloudflared          # macOS
+   # Linux/Windows: xem https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/
+   ```
+
+3. Mở tunnel trỏ vào cổng UI — lệnh trả về ngay một URL `https://<random>.trycloudflare.com`:
+
+   ```bash
+   cloudflared tunnel --url http://localhost:8501
+   ```
+
+4. Copy URL đó, dán vào `REPORT.md` Phần A (mục "Link dùng thử") để team khác mở thử.
+
+Lưu ý: link `trycloudflare.com` là tạm thời, sống theo phiên `cloudflared` (tắt lệnh là mất). Giữ lệnh chạy trong suốt buổi showdown. Nếu team deploy hẳn lên Vercel/Streamlit Cloud thì dùng link đó thay cho tunnel.
+
 ## Step 6 — Report + Debate Poster
 
 Hoàn thành `artifacts/REPORT.md`. File này có 2 phần với deadline khác nhau:
