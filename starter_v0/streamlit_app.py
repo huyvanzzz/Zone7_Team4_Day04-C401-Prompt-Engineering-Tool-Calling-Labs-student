@@ -7,7 +7,7 @@ from typing import Any
 
 import streamlit as st
 
-from chat import now_iso, run_model_tool_loop, safe_slug, trim_history, write_transcript
+from starter_v0.chat import now_iso, run_model_tool_loop, safe_slug, trim_history, write_transcript
 from env_loader import load_lab_env
 from providers import make_provider
 from tools import load_tool_declarations, to_openai_tools
